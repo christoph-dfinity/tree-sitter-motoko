@@ -1,0 +1,14 @@
+==================
+Comments
+==================
+
+// I'm a comment
+/// I'm a doc-comment
+hello // another comment
+
+---
+
+(source_file
+  (line_comment)
+  (doc_comment)
+  (line_comment))
