@@ -4,7 +4,7 @@ Comments
 
 // I'm a comment
 /// I'm a doc-comment
-hello // another comment
+"hello" // another comment
 /* block comment */
 /* can /* be /* nested */ */ */
 

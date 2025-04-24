@@ -23,7 +23,17 @@
     "type": "source_file",
     "named": true,
     "root": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "text_literal",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "*/",
@@ -39,12 +49,12 @@
     "extra": true
   },
   {
-    "type": "hello",
-    "named": false
-  },
-  {
     "type": "line_comment",
     "named": true,
     "extra": true
+  },
+  {
+    "type": "text_literal",
+    "named": true
   }
 ]
