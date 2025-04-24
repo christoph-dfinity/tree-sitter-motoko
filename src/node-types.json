@@ -1,0 +1,30 @@
+[
+  {
+    "type": "doc_comment",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "line_comment",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "source_file",
+    "named": true,
+    "root": true,
+    "fields": {}
+  },
+  {
+    "type": "//",
+    "named": false
+  },
+  {
+    "type": "///",
+    "named": false
+  },
+  {
+    "type": "hello",
+    "named": false
+  }
+]
