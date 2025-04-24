@@ -1,11 +1,21 @@
 [
   {
-    "type": "doc_comment",
+    "type": "block_comment",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "comment_text",
+          "named": true
+        }
+      ]
+    }
   },
   {
-    "type": "line_comment",
+    "type": "comment_text",
     "named": true,
     "fields": {}
   },
@@ -16,15 +26,25 @@
     "fields": {}
   },
   {
-    "type": "//",
+    "type": "*/",
     "named": false
   },
   {
-    "type": "///",
+    "type": "/*",
     "named": false
+  },
+  {
+    "type": "doc_comment",
+    "named": true,
+    "extra": true
   },
   {
     "type": "hello",
     "named": false
+  },
+  {
+    "type": "line_comment",
+    "named": true,
+    "extra": true
   }
 ]

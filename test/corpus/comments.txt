@@ -5,10 +5,20 @@ Comments
 // I'm a comment
 /// I'm a doc-comment
 hello // another comment
+/* block comment */
+/* can /* be /* nested */ */ */
 
 ---
 
 (source_file
   (line_comment)
-  (doc_comment)
-  (line_comment))
+  (line_comment)
+  (line_comment)
+  (block_comment
+    (comment_text))
+  (block_comment
+    (comment_text)
+    (block_comment
+      (comment_text)
+      (block_comment
+        (comment_text)))))

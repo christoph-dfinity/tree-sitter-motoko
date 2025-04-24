@@ -9,11 +9,15 @@
 
 module.exports = grammar({
   name: "motoko",
-  extras: ($) => [/\s+/, $.line_comment, $.doc_comment],
+  extras: $ => [/\s+/, $.line_comment, $.doc_comment, $.block_comment],
 
   rules: {
+    // Comments
+    line_comment: $ => token(seq("//", /[^\n]*/)),
+    doc_comment: $ => token(seq("///", /[^\n]*/)),
+    block_comment: $ => seq('/*', optional($.comment_text), '*/'),
+    comment_text: $ => repeat1(choice(/.|\n|\r/)),
+
     source_file: $ => "hello",
-    line_comment: ($) => seq("//", /[^\n]*/),
-    doc_comment: ($) => seq("///", /[^\n]*/),
   }
 });
