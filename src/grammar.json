@@ -1,12 +1,13 @@
 {
   "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/grammar.schema.json",
   "name": "motoko",
+  "word": "identifier",
   "rules": {
     "source_file": {
       "type": "REPEAT1",
       "content": {
         "type": "SYMBOL",
-        "name": "text_literal"
+        "name": "_literal"
       }
     },
     "doc_comment": {
@@ -72,6 +73,71 @@
         "type": "PATTERN",
         "value": ".|\\n|\\r"
       }
+    },
+    "text_literal": {
+      "type": "PATTERN",
+      "value": "\"(?:\\\\\"|[^\"])*\""
+    },
+    "char_literal": {
+      "type": "PATTERN",
+      "value": "'\\\\''|'[^']*'"
+    },
+    "float_literal": {
+      "type": "PATTERN",
+      "value": "[+-]?\\d+\\.\\d+"
+    },
+    "int_literal": {
+      "type": "PATTERN",
+      "value": "[+-]?[0-9_]+"
+    },
+    "hex_literal": {
+      "type": "PATTERN",
+      "value": "[+-]?0x[0-9a-fA-F_]+"
+    },
+    "_literal": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "text_literal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "char_literal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "float_literal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "int_literal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "hex_literal"
+        }
+      ]
+    },
+    "identifier": {
+      "type": "PATTERN",
+      "value": "[a-zA-Z_][a-zA-Z_0-9]*"
+    },
+    "privileged_identifier": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "@"
+        },
+        {
+          "type": "IMMEDIATE_TOKEN",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        }
+      ]
     }
   },
   "extras": [
@@ -94,12 +160,7 @@
   ],
   "conflicts": [],
   "precedences": [],
-  "externals": [
-    {
-      "type": "SYMBOL",
-      "name": "text_literal"
-    }
-  ],
+  "externals": [],
   "inline": [],
   "supertypes": [],
   "reserved": {}

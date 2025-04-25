@@ -12,7 +12,8 @@ Comments
 
 (source_file
   (line_comment)
-  (line_comment)
+  (doc_comment)
+  (text_literal)
   (line_comment)
   (block_comment
     (comment_text))
@@ -22,3 +23,13 @@ Comments
       (comment_text)
       (block_comment
         (comment_text)))))
+
+==================
+Text
+==================
+
+"hello"
+---
+
+(source_file
+  (text_literal))

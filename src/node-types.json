@@ -29,6 +29,22 @@
       "required": true,
       "types": [
         {
+          "type": "char_literal",
+          "named": true
+        },
+        {
+          "type": "float_literal",
+          "named": true
+        },
+        {
+          "type": "hex_literal",
+          "named": true
+        },
+        {
+          "type": "int_literal",
+          "named": true
+        },
+        {
           "type": "text_literal",
           "named": true
         }
@@ -44,9 +60,25 @@
     "named": false
   },
   {
+    "type": "char_literal",
+    "named": true
+  },
+  {
     "type": "doc_comment",
     "named": true,
     "extra": true
+  },
+  {
+    "type": "float_literal",
+    "named": true
+  },
+  {
+    "type": "hex_literal",
+    "named": true
+  },
+  {
+    "type": "int_literal",
+    "named": true
   },
   {
     "type": "line_comment",
