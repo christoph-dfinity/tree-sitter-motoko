@@ -18,8 +18,9 @@ let x : Nat = 10;
       (var_pat
         (identifier))
       (typ_annot
-        (var_ty
-          (identifier))))
+        (path_typ
+          (typ_path
+            (type_identifier)))))
     (lit_exp
       (int_literal))))
 
@@ -47,8 +48,9 @@ let x : Nat = 10 else 20;
         (var_pat
           (identifier))
         (typ_annot
-          (var_ty
-            (identifier))))
+          (path_typ
+            (typ_path
+              (type_identifier)))))
       (lit_exp
         (int_literal)))
     (lit_exp
@@ -73,7 +75,8 @@ var x : Nat = 10;
     (var_pat
       (identifier))
     (typ_annot
-      (var_ty
-        (identifier)))
+      (path_typ
+        (typ_path
+          (type_identifier))))
     (lit_exp
       (int_literal))))

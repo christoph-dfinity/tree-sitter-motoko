@@ -142,27 +142,35 @@ let x : Int or (x) : Int or ((x)) : Nat = 10;
 (source_file
   (let_dec
     (annot_pat
-      (alt_pat
+      (annot_pat
         (annot_pat
-          (alt_pat
-            (annot_pat
-              (var_pat
-                (identifier))
-              (typ_annot
-                (var_ty
-                  (identifier))))
-            (tup_pat
-              (var_pat
-                (identifier))))
+          (var_pat
+            (identifier))
           (typ_annot
-            (var_ty
-              (identifier))))
-        (tup_pat
-          (tup_pat
-            (var_pat
-              (identifier)))))
+            (or_typ
+              (path_typ
+                (typ_path
+                  (type_identifier)))
+              (tup_typ
+                (typ_item
+                  (path_typ
+                    (typ_path
+                      (type_identifier))))))))
+        (typ_annot
+          (or_typ
+            (path_typ
+              (typ_path
+                (type_identifier)))
+            (tup_typ
+              (typ_item
+                (tup_typ
+                  (typ_item
+                    (path_typ
+                      (typ_path
+                        (type_identifier))))))))))
       (typ_annot
-        (var_ty
-          (identifier))))
+        (path_typ
+          (typ_path
+            (type_identifier)))))
     (lit_exp
       (int_literal))))

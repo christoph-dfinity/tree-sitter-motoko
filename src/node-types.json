@@ -47,6 +47,65 @@
     }
   },
   {
+    "type": "and_typ",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "and_typ",
+          "named": true
+        },
+        {
+          "type": "array_typ",
+          "named": true
+        },
+        {
+          "type": "async_typ",
+          "named": true
+        },
+        {
+          "type": "func_typ",
+          "named": true
+        },
+        {
+          "type": "obj_sort_typ",
+          "named": true
+        },
+        {
+          "type": "obj_typ",
+          "named": true
+        },
+        {
+          "type": "or_typ",
+          "named": true
+        },
+        {
+          "type": "path_typ",
+          "named": true
+        },
+        {
+          "type": "prim_typ",
+          "named": true
+        },
+        {
+          "type": "quest_typ",
+          "named": true
+        },
+        {
+          "type": "tup_typ",
+          "named": true
+        },
+        {
+          "type": "variant_typ",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "annot_pat",
     "named": true,
     "fields": {},
@@ -92,6 +151,112 @@
         },
         {
           "type": "wild_pat",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "array_typ",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "and_typ",
+          "named": true
+        },
+        {
+          "type": "array_typ",
+          "named": true
+        },
+        {
+          "type": "async_typ",
+          "named": true
+        },
+        {
+          "type": "func_typ",
+          "named": true
+        },
+        {
+          "type": "obj_sort_typ",
+          "named": true
+        },
+        {
+          "type": "obj_typ",
+          "named": true
+        },
+        {
+          "type": "or_typ",
+          "named": true
+        },
+        {
+          "type": "path_typ",
+          "named": true
+        },
+        {
+          "type": "prim_typ",
+          "named": true
+        },
+        {
+          "type": "quest_typ",
+          "named": true
+        },
+        {
+          "type": "tup_typ",
+          "named": true
+        },
+        {
+          "type": "variant_typ",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "async_typ",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "array_typ",
+          "named": true
+        },
+        {
+          "type": "async_typ",
+          "named": true
+        },
+        {
+          "type": "obj_sort_typ",
+          "named": true
+        },
+        {
+          "type": "obj_typ",
+          "named": true
+        },
+        {
+          "type": "path_typ",
+          "named": true
+        },
+        {
+          "type": "prim_typ",
+          "named": true
+        },
+        {
+          "type": "quest_typ",
+          "named": true
+        },
+        {
+          "type": "tup_typ",
+          "named": true
+        },
+        {
+          "type": "variant_typ",
           "named": true
         }
       ]
@@ -144,6 +309,128 @@
         },
         {
           "type": "var_exp",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "func_tf",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "and_typ",
+          "named": true
+        },
+        {
+          "type": "array_typ",
+          "named": true
+        },
+        {
+          "type": "async_typ",
+          "named": true
+        },
+        {
+          "type": "func_typ",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "obj_sort_typ",
+          "named": true
+        },
+        {
+          "type": "obj_typ",
+          "named": true
+        },
+        {
+          "type": "or_typ",
+          "named": true
+        },
+        {
+          "type": "path_typ",
+          "named": true
+        },
+        {
+          "type": "prim_typ",
+          "named": true
+        },
+        {
+          "type": "quest_typ",
+          "named": true
+        },
+        {
+          "type": "tup_typ",
+          "named": true
+        },
+        {
+          "type": "typ_params",
+          "named": true
+        },
+        {
+          "type": "variant_typ",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "func_typ",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "array_typ",
+          "named": true
+        },
+        {
+          "type": "async_typ",
+          "named": true
+        },
+        {
+          "type": "func_typ",
+          "named": true
+        },
+        {
+          "type": "obj_sort_typ",
+          "named": true
+        },
+        {
+          "type": "obj_typ",
+          "named": true
+        },
+        {
+          "type": "path_typ",
+          "named": true
+        },
+        {
+          "type": "prim_typ",
+          "named": true
+        },
+        {
+          "type": "quest_typ",
+          "named": true
+        },
+        {
+          "type": "tup_typ",
+          "named": true
+        },
+        {
+          "type": "typ_params",
+          "named": true
+        },
+        {
+          "type": "variant_typ",
           "named": true
         }
       ]
@@ -409,6 +696,103 @@
     }
   },
   {
+    "type": "obj_sort_typ",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "obj_typ",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "obj_typ",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "func_tf",
+          "named": true
+        },
+        {
+          "type": "typ_tf",
+          "named": true
+        },
+        {
+          "type": "val_tf",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "or_typ",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "and_typ",
+          "named": true
+        },
+        {
+          "type": "array_typ",
+          "named": true
+        },
+        {
+          "type": "async_typ",
+          "named": true
+        },
+        {
+          "type": "func_typ",
+          "named": true
+        },
+        {
+          "type": "obj_sort_typ",
+          "named": true
+        },
+        {
+          "type": "obj_typ",
+          "named": true
+        },
+        {
+          "type": "or_typ",
+          "named": true
+        },
+        {
+          "type": "path_typ",
+          "named": true
+        },
+        {
+          "type": "prim_typ",
+          "named": true
+        },
+        {
+          "type": "quest_typ",
+          "named": true
+        },
+        {
+          "type": "tup_typ",
+          "named": true
+        },
+        {
+          "type": "variant_typ",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "par_exp",
     "named": true,
     "fields": {},
@@ -491,6 +875,84 @@
     }
   },
   {
+    "type": "path_typ",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "and_typ",
+          "named": true
+        },
+        {
+          "type": "array_typ",
+          "named": true
+        },
+        {
+          "type": "async_typ",
+          "named": true
+        },
+        {
+          "type": "func_typ",
+          "named": true
+        },
+        {
+          "type": "obj_sort_typ",
+          "named": true
+        },
+        {
+          "type": "obj_typ",
+          "named": true
+        },
+        {
+          "type": "or_typ",
+          "named": true
+        },
+        {
+          "type": "path_typ",
+          "named": true
+        },
+        {
+          "type": "prim_typ",
+          "named": true
+        },
+        {
+          "type": "quest_typ",
+          "named": true
+        },
+        {
+          "type": "tup_typ",
+          "named": true
+        },
+        {
+          "type": "typ_path",
+          "named": true
+        },
+        {
+          "type": "variant_typ",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "prim_typ",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "text_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "quest_pat",
     "named": true,
     "fields": {},
@@ -530,6 +992,41 @@
     }
   },
   {
+    "type": "quest_typ",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "array_typ",
+          "named": true
+        },
+        {
+          "type": "obj_typ",
+          "named": true
+        },
+        {
+          "type": "path_typ",
+          "named": true
+        },
+        {
+          "type": "quest_typ",
+          "named": true
+        },
+        {
+          "type": "tup_typ",
+          "named": true
+        },
+        {
+          "type": "variant_typ",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "source_file",
     "named": true,
     "root": true,
@@ -548,6 +1045,10 @@
         },
         {
           "type": "let_else_dec",
+          "named": true
+        },
+        {
+          "type": "typ_dec",
           "named": true
         },
         {
@@ -640,6 +1141,21 @@
     }
   },
   {
+    "type": "tup_typ",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "typ_item",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "typ_annot",
     "named": true,
     "fields": {},
@@ -648,7 +1164,427 @@
       "required": true,
       "types": [
         {
-          "type": "var_ty",
+          "type": "and_typ",
+          "named": true
+        },
+        {
+          "type": "array_typ",
+          "named": true
+        },
+        {
+          "type": "async_typ",
+          "named": true
+        },
+        {
+          "type": "func_typ",
+          "named": true
+        },
+        {
+          "type": "obj_sort_typ",
+          "named": true
+        },
+        {
+          "type": "obj_typ",
+          "named": true
+        },
+        {
+          "type": "or_typ",
+          "named": true
+        },
+        {
+          "type": "path_typ",
+          "named": true
+        },
+        {
+          "type": "prim_typ",
+          "named": true
+        },
+        {
+          "type": "quest_typ",
+          "named": true
+        },
+        {
+          "type": "tup_typ",
+          "named": true
+        },
+        {
+          "type": "variant_typ",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "typ_bind",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "and_typ",
+          "named": true
+        },
+        {
+          "type": "array_typ",
+          "named": true
+        },
+        {
+          "type": "async_typ",
+          "named": true
+        },
+        {
+          "type": "func_typ",
+          "named": true
+        },
+        {
+          "type": "obj_sort_typ",
+          "named": true
+        },
+        {
+          "type": "obj_typ",
+          "named": true
+        },
+        {
+          "type": "or_typ",
+          "named": true
+        },
+        {
+          "type": "path_typ",
+          "named": true
+        },
+        {
+          "type": "prim_typ",
+          "named": true
+        },
+        {
+          "type": "quest_typ",
+          "named": true
+        },
+        {
+          "type": "tup_typ",
+          "named": true
+        },
+        {
+          "type": "type_identifier",
+          "named": true
+        },
+        {
+          "type": "variant_typ",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "typ_dec",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "and_typ",
+          "named": true
+        },
+        {
+          "type": "array_typ",
+          "named": true
+        },
+        {
+          "type": "async_typ",
+          "named": true
+        },
+        {
+          "type": "func_typ",
+          "named": true
+        },
+        {
+          "type": "obj_sort_typ",
+          "named": true
+        },
+        {
+          "type": "obj_typ",
+          "named": true
+        },
+        {
+          "type": "or_typ",
+          "named": true
+        },
+        {
+          "type": "path_typ",
+          "named": true
+        },
+        {
+          "type": "prim_typ",
+          "named": true
+        },
+        {
+          "type": "quest_typ",
+          "named": true
+        },
+        {
+          "type": "tup_typ",
+          "named": true
+        },
+        {
+          "type": "typ_params",
+          "named": true
+        },
+        {
+          "type": "type_identifier",
+          "named": true
+        },
+        {
+          "type": "variant_typ",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "typ_item",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "and_typ",
+          "named": true
+        },
+        {
+          "type": "array_typ",
+          "named": true
+        },
+        {
+          "type": "async_typ",
+          "named": true
+        },
+        {
+          "type": "func_typ",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "obj_sort_typ",
+          "named": true
+        },
+        {
+          "type": "obj_typ",
+          "named": true
+        },
+        {
+          "type": "or_typ",
+          "named": true
+        },
+        {
+          "type": "path_typ",
+          "named": true
+        },
+        {
+          "type": "prim_typ",
+          "named": true
+        },
+        {
+          "type": "quest_typ",
+          "named": true
+        },
+        {
+          "type": "tup_typ",
+          "named": true
+        },
+        {
+          "type": "variant_typ",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "typ_params",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "typ_bind",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "typ_path",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "type_identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "typ_tag",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "typ_annot",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "typ_tf",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "and_typ",
+          "named": true
+        },
+        {
+          "type": "array_typ",
+          "named": true
+        },
+        {
+          "type": "async_typ",
+          "named": true
+        },
+        {
+          "type": "func_typ",
+          "named": true
+        },
+        {
+          "type": "obj_sort_typ",
+          "named": true
+        },
+        {
+          "type": "obj_typ",
+          "named": true
+        },
+        {
+          "type": "or_typ",
+          "named": true
+        },
+        {
+          "type": "path_typ",
+          "named": true
+        },
+        {
+          "type": "prim_typ",
+          "named": true
+        },
+        {
+          "type": "quest_typ",
+          "named": true
+        },
+        {
+          "type": "tup_typ",
+          "named": true
+        },
+        {
+          "type": "typ_params",
+          "named": true
+        },
+        {
+          "type": "type_identifier",
+          "named": true
+        },
+        {
+          "type": "variant_typ",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "val_tf",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "and_typ",
+          "named": true
+        },
+        {
+          "type": "array_typ",
+          "named": true
+        },
+        {
+          "type": "async_typ",
+          "named": true
+        },
+        {
+          "type": "func_typ",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "obj_sort_typ",
+          "named": true
+        },
+        {
+          "type": "obj_typ",
+          "named": true
+        },
+        {
+          "type": "or_typ",
+          "named": true
+        },
+        {
+          "type": "path_typ",
+          "named": true
+        },
+        {
+          "type": "prim_typ",
+          "named": true
+        },
+        {
+          "type": "quest_typ",
+          "named": true
+        },
+        {
+          "type": "tup_typ",
+          "named": true
+        },
+        {
+          "type": "variant_typ",
           "named": true
         }
       ]
@@ -720,15 +1656,15 @@
     }
   },
   {
-    "type": "var_ty",
+    "type": "variant_typ",
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
-      "required": true,
+      "multiple": true,
+      "required": false,
       "types": [
         {
-          "type": "identifier",
+          "type": "typ_tag",
           "named": true
         }
       ]
@@ -755,6 +1691,14 @@
     "named": false
   },
   {
+    "type": "->",
+    "named": false
+  },
+  {
+    "type": ".",
+    "named": false
+  },
+  {
     "type": "/*",
     "named": false
   },
@@ -767,7 +1711,19 @@
     "named": false
   },
   {
+    "type": "<",
+    "named": false
+  },
+  {
+    "type": "<:",
+    "named": false
+  },
+  {
     "type": "=",
+    "named": false
+  },
+  {
+    "type": ">",
     "named": false
   },
   {
@@ -775,8 +1731,36 @@
     "named": false
   },
   {
+    "type": "[",
+    "named": false
+  },
+  {
+    "type": "]",
+    "named": false
+  },
+  {
+    "type": "actor",
+    "named": false
+  },
+  {
+    "type": "and",
+    "named": false
+  },
+  {
+    "type": "async",
+    "named": false
+  },
+  {
+    "type": "async*",
+    "named": false
+  },
+  {
     "type": "char_literal",
     "named": true
+  },
+  {
+    "type": "composite",
+    "named": false
   },
   {
     "type": "doc_comment",
@@ -821,11 +1805,35 @@
     "extra": true
   },
   {
+    "type": "module",
+    "named": false
+  },
+  {
     "type": "null_literal",
     "named": true
   },
   {
+    "type": "object",
+    "named": false
+  },
+  {
     "type": "or",
+    "named": false
+  },
+  {
+    "type": "prim",
+    "named": false
+  },
+  {
+    "type": "query",
+    "named": false
+  },
+  {
+    "type": "shared",
+    "named": false
+  },
+  {
+    "type": "system",
     "named": false
   },
   {
@@ -835,6 +1843,14 @@
   {
     "type": "true",
     "named": false
+  },
+  {
+    "type": "type",
+    "named": false
+  },
+  {
+    "type": "type_identifier",
+    "named": true
   },
   {
     "type": "var",
