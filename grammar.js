@@ -52,15 +52,26 @@ module.exports = grammar({
       $.null_literal,
     ),
 
+    // Misc
+    typ_annot: $ => seq(":", $._type),
+
     // Declarations
     _dec: $ => choice(
       $.exp_dec,
+      $.var_dec,
       $.let_dec,
       $.let_else_dec,
     ),
 
     exp_dec: $ => $._exp,
 
+    var_dec: $ => seq(
+      "var",
+      $.var_pat,
+      optional($.typ_annot),
+      "=",
+      $._exp,
+    ),
     let_dec: $ => seq(
       "let",
       $._pat,
@@ -102,9 +113,61 @@ module.exports = grammar({
     var_ty: $ => $.identifier,
 
     // Patterns
-    _pat: $ => choice(
+    _pat: $ => $._pat_bin,
+
+    _pat_plain: $ => choice(
+      $.wild_pat,
       $.var_pat,
+      $.lit_pat,
+      $.tup_pat,
     ),
+    _pat_nullary: $ => choice(
+      $._pat_plain,
+      $.obj_pat,
+    ),
+    _pat_un: $ => choice(
+      $._pat_nullary,
+      $.tag_pat,
+      $.quest_pat,
+    ),
+    _pat_bin: $ => choice(
+      $._pat_un,
+      $.alt_pat,
+      $.annot_pat,
+    ),
+
+    wild_pat: $ => "_",
     var_pat: $ => $.identifier,
+    lit_pat: $ => $._literal,
+    tup_pat: $ => seq(
+      "(",
+      comma_sep($._pat_bin),
+      ")",
+    ),
+    obj_pat: $ => seq(
+      "{",
+      semi_sep($.pat_field),
+      "}",
+    ),
+    tag_pat: $ => seq(
+      "#",
+      $.identifier,
+      optional($._pat_nullary),
+    ),
+    quest_pat: $ => seq(
+      "?",
+      $._pat_un,
+    ),
+    alt_pat: $ => prec.left(2, seq(
+      $._pat_bin,
+      "or",
+      $._pat_bin,
+    )),
+    annot_pat: $ => seq($._pat_bin, $.typ_annot),
+    pat_field: $ => seq(
+      $.identifier,
+      optional($.typ_annot),
+      optional(seq("=", $._pat))
+    ),
   }
 });

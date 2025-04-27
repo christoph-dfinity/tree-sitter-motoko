@@ -1,0 +1,168 @@
+==================
+Plain
+==================
+let _ = 0;
+let x = 0;
+let 10 = 0;
+let -10 = 0;
+let "hi" = 0;
+let 'h' = 0;
+let (x) = 0;
+let (x, y) = 0;
+
+---
+
+(source_file
+  (let_dec
+    (wild_pat)
+    (lit_exp
+      (int_literal)))
+  (let_dec
+    (var_pat
+      (identifier))
+    (lit_exp
+      (int_literal)))
+  (let_dec
+    (lit_pat
+      (int_literal))
+    (lit_exp
+      (int_literal)))
+  (let_dec
+    (lit_pat
+      (int_literal))
+    (lit_exp
+      (int_literal)))
+  (let_dec
+    (lit_pat
+      (text_literal))
+    (lit_exp
+      (int_literal)))
+  (let_dec
+    (lit_pat
+      (char_literal))
+    (lit_exp
+      (int_literal)))
+  (let_dec
+    (tup_pat
+      (var_pat
+        (identifier)))
+    (lit_exp
+      (int_literal)))
+  (let_dec
+    (tup_pat
+      (var_pat
+        (identifier))
+      (var_pat
+        (identifier)))
+    (lit_exp
+      (int_literal))))
+
+==================
+Nullary
+==================
+
+let { x = 10; y } = 0;
+
+---
+
+(source_file
+  (let_dec
+    (obj_pat
+      (pat_field
+        (identifier)
+        (lit_pat
+          (int_literal)))
+      (pat_field
+        (identifier)))
+    (lit_exp
+      (int_literal))))
+
+==================
+Unary
+==================
+
+let #x = 0;
+let #x { x = 10 } = 0;
+let ?{ x = 10} = 0;
+let ?x = 0;
+let ?(x or y) = 0;
+
+---
+
+(source_file
+  (let_dec
+    (tag_pat
+      (identifier))
+    (lit_exp
+      (int_literal)))
+  (let_dec
+    (tag_pat
+      (identifier)
+      (obj_pat
+        (pat_field
+          (identifier)
+          (lit_pat
+            (int_literal)))))
+    (lit_exp
+      (int_literal)))
+  (let_dec
+    (quest_pat
+      (obj_pat
+        (pat_field
+          (identifier)
+          (lit_pat
+            (int_literal)))))
+    (lit_exp
+      (int_literal)))
+  (let_dec
+    (quest_pat
+      (var_pat
+        (identifier)))
+    (lit_exp
+      (int_literal)))
+  (let_dec
+    (quest_pat
+      (tup_pat
+        (alt_pat
+          (var_pat
+            (identifier))
+          (var_pat
+            (identifier)))))
+    (lit_exp
+      (int_literal))))
+
+==================
+Binary
+==================
+
+let x : Int or (x) : Int or ((x)) : Nat = 10;
+
+---
+
+(source_file
+  (let_dec
+    (annot_pat
+      (alt_pat
+        (annot_pat
+          (alt_pat
+            (annot_pat
+              (var_pat
+                (identifier))
+              (typ_annot
+                (var_ty
+                  (identifier))))
+            (tup_pat
+              (var_pat
+                (identifier))))
+          (typ_annot
+            (var_ty
+              (identifier))))
+        (tup_pat
+          (tup_pat
+            (var_pat
+              (identifier)))))
+      (typ_annot
+        (var_ty
+          (identifier))))
+    (lit_exp
+      (int_literal))))

@@ -1,0 +1,79 @@
+==================
+Let
+==================
+
+let x = 10;
+let x : Nat = 10;
+
+---
+
+(source_file
+  (let_dec
+    (var_pat
+      (identifier))
+    (lit_exp
+      (int_literal)))
+  (let_dec
+    (annot_pat
+      (var_pat
+        (identifier))
+      (typ_annot
+        (var_ty
+          (identifier))))
+    (lit_exp
+      (int_literal))))
+
+==================
+Let-else
+==================
+
+let x = 10 else 20;
+let x : Nat = 10 else 20;
+
+---
+
+(source_file
+  (let_else_dec
+    (let_dec
+      (var_pat
+        (identifier))
+      (lit_exp
+        (int_literal)))
+    (lit_exp
+      (int_literal)))
+  (let_else_dec
+    (let_dec
+      (annot_pat
+        (var_pat
+          (identifier))
+        (typ_annot
+          (var_ty
+            (identifier))))
+      (lit_exp
+        (int_literal)))
+    (lit_exp
+      (int_literal))))
+
+==================
+Var
+==================
+
+var x = 10;
+var x : Nat = 10;
+
+---
+
+(source_file
+  (var_dec
+    (var_pat
+      (identifier))
+    (lit_exp
+      (int_literal)))
+  (var_dec
+    (var_pat
+      (identifier))
+    (typ_annot
+      (var_ty
+        (identifier)))
+    (lit_exp
+      (int_literal))))

@@ -190,12 +190,29 @@
         }
       ]
     },
+    "typ_annot": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": ":"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_type"
+        }
+      ]
+    },
     "_dec": {
       "type": "CHOICE",
       "members": [
         {
           "type": "SYMBOL",
           "name": "exp_dec"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "var_dec"
         },
         {
           "type": "SYMBOL",
@@ -210,6 +227,39 @@
     "exp_dec": {
       "type": "SYMBOL",
       "name": "_exp"
+    },
+    "var_dec": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "var"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "var_pat"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "typ_annot"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "="
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_exp"
+        }
+      ]
     },
     "let_dec": {
       "type": "SEQ",
@@ -371,17 +421,294 @@
       "name": "identifier"
     },
     "_pat": {
+      "type": "SYMBOL",
+      "name": "_pat_bin"
+    },
+    "_pat_plain": {
       "type": "CHOICE",
       "members": [
         {
           "type": "SYMBOL",
+          "name": "wild_pat"
+        },
+        {
+          "type": "SYMBOL",
           "name": "var_pat"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "lit_pat"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tup_pat"
         }
       ]
+    },
+    "_pat_nullary": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_pat_plain"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "obj_pat"
+        }
+      ]
+    },
+    "_pat_un": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_pat_nullary"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tag_pat"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "quest_pat"
+        }
+      ]
+    },
+    "_pat_bin": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_pat_un"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "alt_pat"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "annot_pat"
+        }
+      ]
+    },
+    "wild_pat": {
+      "type": "STRING",
+      "value": "_"
     },
     "var_pat": {
       "type": "SYMBOL",
       "name": "identifier"
+    },
+    "lit_pat": {
+      "type": "SYMBOL",
+      "name": "_literal"
+    },
+    "tup_pat": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "_pat_bin"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": ","
+                  }
+                ]
+              }
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_pat_bin"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "obj_pat": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "{"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "pat_field"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": ";"
+                  }
+                ]
+              }
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "pat_field"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "}"
+        }
+      ]
+    },
+    "tag_pat": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "#"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_pat_nullary"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "quest_pat": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "?"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_pat_un"
+        }
+      ]
+    },
+    "alt_pat": {
+      "type": "PREC_LEFT",
+      "value": 2,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "_pat_bin"
+          },
+          {
+            "type": "STRING",
+            "value": "or"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_pat_bin"
+          }
+        ]
+      }
+    },
+    "annot_pat": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_pat_bin"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "typ_annot"
+        }
+      ]
+    },
+    "pat_field": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "typ_annot"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "="
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_pat"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
     }
   },
   "extras": [
