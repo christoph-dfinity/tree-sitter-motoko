@@ -54,10 +54,12 @@ module.exports = grammar({
 
     // Declarations
     _dec: $ => choice(
-      $._exp,
+      $.exp_dec,
       $.let_dec,
       $.let_else_dec,
     ),
+
+    exp_dec: $ => $._exp,
 
     let_dec: $ => seq(
       "let",
@@ -73,10 +75,25 @@ module.exports = grammar({
 
     // Expressions
     _exp: $ => choice(
-      $._literal,
+      $.lit_exp,
+      $.par_exp,
       $.var_exp,
+      $.if_exp,
     ),
+    lit_exp: $ => $._literal,
+    par_exp: $ => seq("(", $._exp, ")"),
     var_exp: $ => $.identifier,
+    if_exp: $ => prec.right(seq(
+      "if",
+      "(",
+      field("cond", $._exp),
+      ")",
+      field("then", $._exp),
+      optional(seq(
+        "else",
+        field("else", $._exp),
+      ))
+    )),
 
     // Types
     _type: $ => choice(

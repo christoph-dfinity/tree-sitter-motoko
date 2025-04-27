@@ -13,7 +13,9 @@ Comments
 (source_file
   (line_comment)
   (doc_comment)
-  (text_literal)
+  (exp_dec
+    (lit_exp
+      (text_literal)))
   (line_comment)
   (block_comment
     (comment_text))
@@ -32,7 +34,9 @@ Text
 ---
 
 (source_file
-  (text_literal))
+  (exp_dec
+    (lit_exp
+      (text_literal))))
 
 ==================
 Text
@@ -43,8 +47,12 @@ Text
 ---
 
 (source_file
-  (text_literal)
-  (int_literal))
+  (exp_dec
+    (lit_exp
+      (text_literal)))
+  (exp_dec
+    (lit_exp
+      (int_literal))))
 
 ==================
 Lets
@@ -58,10 +66,85 @@ let y = 10 else 20;
   (let_dec
     (var_pat
       (identifier))
-    (int_literal))
+    (lit_exp
+      (int_literal)))
   (let_else_dec
     (let_dec
       (var_pat
         (identifier))
-      (int_literal))
-    (int_literal)))
+      (lit_exp
+        (int_literal)))
+    (lit_exp
+      (int_literal))))
+
+==================
+Ifs
+==================
+
+let x = if (true) 20;
+let y = if (true) 20 else 30;
+let y = if (true) 20 else if (false) 30 else 40;
+
+let x = (if (true) 20) else 30;
+let x = if (true) 20 else 30 else 40;
+---
+
+(source_file
+  (let_dec
+    (var_pat
+      (identifier))
+    (if_exp
+      (lit_exp
+        (bool_literal))
+      (lit_exp
+        (int_literal))))
+  (let_dec
+    (var_pat
+      (identifier))
+    (if_exp
+      (lit_exp
+        (bool_literal))
+      (lit_exp
+        (int_literal))
+      (lit_exp
+        (int_literal))))
+  (let_dec
+    (var_pat
+      (identifier))
+    (if_exp
+      (lit_exp
+        (bool_literal))
+      (lit_exp
+        (int_literal))
+      (if_exp
+        (lit_exp
+          (bool_literal))
+        (lit_exp
+          (int_literal))
+        (lit_exp
+          (int_literal)))))
+  (let_else_dec
+    (let_dec
+      (var_pat
+        (identifier))
+      (par_exp
+        (if_exp
+          (lit_exp
+            (bool_literal))
+          (lit_exp
+            (int_literal)))))
+    (lit_exp
+      (int_literal)))
+  (let_else_dec
+    (let_dec
+      (var_pat
+        (identifier))
+      (if_exp
+        (lit_exp
+          (bool_literal))
+        (lit_exp
+          (int_literal))
+        (lit_exp
+          (int_literal))))
+    (lit_exp
+      (int_literal))))
