@@ -4,11 +4,37 @@
   "word": "identifier",
   "rules": {
     "source_file": {
-      "type": "REPEAT1",
-      "content": {
-        "type": "SYMBOL",
-        "name": "_literal"
-      }
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_dec"
+              },
+              {
+                "type": "STRING",
+                "value": ";"
+              }
+            ]
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_dec"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
     },
     "doc_comment": {
       "type": "TOKEN",
@@ -74,6 +100,26 @@
         "value": ".|\\n|\\r"
       }
     },
+    "identifier": {
+      "type": "PATTERN",
+      "value": "[a-zA-Z_][a-zA-Z_0-9]*"
+    },
+    "privileged_identifier": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "@"
+        },
+        {
+          "type": "IMMEDIATE_TOKEN",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        }
+      ]
+    },
     "text_literal": {
       "type": "PATTERN",
       "value": "\"(?:\\\\\"|[^\"])*\""
@@ -93,6 +139,23 @@
     "hex_literal": {
       "type": "PATTERN",
       "value": "[+-]?0x[0-9a-fA-F_]+"
+    },
+    "bool_literal": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "true"
+        },
+        {
+          "type": "STRING",
+          "value": "false"
+        }
+      ]
+    },
+    "null_literal": {
+      "type": "STRING",
+      "value": "null"
     },
     "_literal": {
       "type": "CHOICE",
@@ -116,28 +179,114 @@
         {
           "type": "SYMBOL",
           "name": "hex_literal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "bool_literal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "null_literal"
         }
       ]
     },
-    "identifier": {
-      "type": "PATTERN",
-      "value": "[a-zA-Z_][a-zA-Z_0-9]*"
+    "_dec": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "let_dec"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "let_else_dec"
+        }
+      ]
     },
-    "privileged_identifier": {
+    "let_dec": {
       "type": "SEQ",
       "members": [
         {
           "type": "STRING",
-          "value": "@"
+          "value": "let"
         },
         {
-          "type": "IMMEDIATE_TOKEN",
-          "content": {
-            "type": "SYMBOL",
-            "name": "identifier"
-          }
+          "type": "SYMBOL",
+          "name": "_pat"
+        },
+        {
+          "type": "STRING",
+          "value": "="
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_exp"
         }
       ]
+    },
+    "let_else_dec": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "let_dec"
+        },
+        {
+          "type": "STRING",
+          "value": "else"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_exp"
+        }
+      ]
+    },
+    "_exp": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_literal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "var_exp"
+        }
+      ]
+    },
+    "var_exp": {
+      "type": "SYMBOL",
+      "name": "identifier"
+    },
+    "_type": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "var_ty"
+        }
+      ]
+    },
+    "var_ty": {
+      "type": "SYMBOL",
+      "name": "identifier"
+    },
+    "_pat": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "var_pat"
+        }
+      ]
+    },
+    "var_pat": {
+      "type": "SYMBOL",
+      "name": "identifier"
     }
   },
   "extras": [

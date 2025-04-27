@@ -33,3 +33,35 @@ Text
 
 (source_file
   (text_literal))
+
+==================
+Text
+==================
+
+"hello";
+10
+---
+
+(source_file
+  (text_literal)
+  (int_literal))
+
+==================
+Lets
+==================
+
+let x = 10;
+let y = 10 else 20;
+---
+
+(source_file
+  (let_dec
+    (var_pat
+      (identifier))
+    (int_literal))
+  (let_else_dec
+    (let_dec
+      (var_pat
+        (identifier))
+      (int_literal))
+    (int_literal)))
