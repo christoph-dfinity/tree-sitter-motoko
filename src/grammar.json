@@ -266,6 +266,244 @@
         }
       ]
     },
+    "unop": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "+"
+        },
+        {
+          "type": "STRING",
+          "value": "-"
+        },
+        {
+          "type": "STRING",
+          "value": "^"
+        }
+      ]
+    },
+    "unassign_op": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "+="
+        },
+        {
+          "type": "STRING",
+          "value": "-="
+        },
+        {
+          "type": "STRING",
+          "value": "^="
+        }
+      ]
+    },
+    "binassign_op": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "+="
+        },
+        {
+          "type": "STRING",
+          "value": "-="
+        },
+        {
+          "type": "STRING",
+          "value": "*="
+        },
+        {
+          "type": "STRING",
+          "value": "/="
+        },
+        {
+          "type": "STRING",
+          "value": "%="
+        },
+        {
+          "type": "STRING",
+          "value": "**-"
+        },
+        {
+          "type": "STRING",
+          "value": "+%="
+        },
+        {
+          "type": "STRING",
+          "value": "-%="
+        },
+        {
+          "type": "STRING",
+          "value": "*%="
+        },
+        {
+          "type": "STRING",
+          "value": "**%="
+        },
+        {
+          "type": "STRING",
+          "value": "&="
+        },
+        {
+          "type": "STRING",
+          "value": "|="
+        },
+        {
+          "type": "STRING",
+          "value": "^="
+        },
+        {
+          "type": "STRING",
+          "value": "<<="
+        },
+        {
+          "type": "STRING",
+          "value": ">>="
+        },
+        {
+          "type": "STRING",
+          "value": "<<>="
+        },
+        {
+          "type": "STRING",
+          "value": "<>>="
+        },
+        {
+          "type": "STRING",
+          "value": "@="
+        }
+      ]
+    },
+    "rel_op": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "=="
+        },
+        {
+          "type": "STRING",
+          "value": "!-"
+        },
+        {
+          "type": "TOKEN",
+          "content": {
+            "type": "STRING",
+            "value": " > "
+          }
+        },
+        {
+          "type": "TOKEN",
+          "content": {
+            "type": "STRING",
+            "value": " < "
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "<="
+        },
+        {
+          "type": "STRING",
+          "value": ">="
+        },
+        {
+          "type": "STRING",
+          "value": "<<"
+        },
+        {
+          "type": "TOKEN",
+          "content": {
+            "type": "STRING",
+            "value": " >>"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "<<>"
+        },
+        {
+          "type": "STRING",
+          "value": "<>>"
+        }
+      ]
+    },
+    "bin_op": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "|>"
+        },
+        {
+          "type": "STRING",
+          "value": "or"
+        },
+        {
+          "type": "STRING",
+          "value": "and"
+        },
+        {
+          "type": "STRING",
+          "value": "+"
+        },
+        {
+          "type": "STRING",
+          "value": "-"
+        },
+        {
+          "type": "STRING",
+          "value": "*"
+        },
+        {
+          "type": "STRING",
+          "value": "/"
+        },
+        {
+          "type": "STRING",
+          "value": "%"
+        },
+        {
+          "type": "STRING",
+          "value": "+%"
+        },
+        {
+          "type": "STRING",
+          "value": "-%"
+        },
+        {
+          "type": "STRING",
+          "value": "*%"
+        },
+        {
+          "type": "STRING",
+          "value": "|"
+        },
+        {
+          "type": "STRING",
+          "value": "&"
+        },
+        {
+          "type": "STRING",
+          "value": "^"
+        },
+        {
+          "type": "STRING",
+          "value": "#"
+        },
+        {
+          "type": "STRING",
+          "value": "**"
+        },
+        {
+          "type": "STRING",
+          "value": "**%"
+        }
+      ]
+    },
     "_dec": {
       "type": "CHOICE",
       "members": [
@@ -293,7 +531,7 @@
     },
     "exp_dec": {
       "type": "SYMBOL",
-      "name": "_exp"
+      "name": "_exp_object"
     },
     "var_dec": {
       "type": "SEQ",
@@ -324,7 +562,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_exp"
+          "name": "_exp_object"
         }
       ]
     },
@@ -345,7 +583,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_exp"
+          "name": "_exp_object"
         }
       ]
     },
@@ -362,7 +600,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_exp"
+          "name": "_exp_nest"
         }
       ]
     },
@@ -399,7 +637,458 @@
         }
       ]
     },
-    "_exp": {
+    "_exp_block": {
+      "type": "SYMBOL",
+      "name": "_exp_non_dec_block"
+    },
+    "_exp_object": {
+      "type": "SYMBOL",
+      "name": "_exp_non_dec_object"
+    },
+    "_exp_non_dec_block": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_exp_bin_block"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "assign_exp_block"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "binassign_exp_block"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "return_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "async_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "asyncstar_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "assert_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "label_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "break_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "continue_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "debug_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "if_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "throw_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "try_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "switch_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "while_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "loop_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "for_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ignore_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "do_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "do_quest_exp"
+        }
+      ]
+    },
+    "_exp_non_dec_object": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_exp_bin_object"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "assign_exp_object"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "binassign_exp_object"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "return_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "async_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "asyncstar_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "assert_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "label_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "break_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "continue_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "debug_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "if_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "throw_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "try_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "switch_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "while_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "loop_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "for_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ignore_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "do_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "do_quest_exp"
+        }
+      ]
+    },
+    "_exp_post_block": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_exp_nullary_block"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "array_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "array_idx_exp_block"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "proj_exp_block"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "dot_exp_block"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "call_exp_block"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "bang_exp_block"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "system_exp_block"
+        }
+      ]
+    },
+    "_exp_post_object": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_exp_nullary_object"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "array_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "array_idx_exp_object"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "proj_exp_object"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "dot_exp_object"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "call_exp_object"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "bang_exp_object"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "system_exp_object"
+        }
+      ]
+    },
+    "_exp_nullary_block": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_exp_plain"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "var_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "prim_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "wild_exp"
+        }
+      ]
+    },
+    "_exp_nullary_object": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_exp_plain"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "var_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "prim_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "wild_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "object_exp"
+        }
+      ]
+    },
+    "_exp_unary_block": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_exp_post_block"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "parenthetical_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "hash_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "quest_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "unop_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "unassign_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "actor_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "not_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "debug_show_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "to_candid_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "from_candid_exp"
+        }
+      ]
+    },
+    "_exp_unary_object": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_exp_post_object"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "parenthetical_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "hash_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "quest_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "unop_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "unassign_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "actor_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "not_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "debug_show_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "to_candid_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "from_candid_exp"
+        }
+      ]
+    },
+    "_exp_bin_block": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_exp_unary_block"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "bin_exp_block"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "annot_exp_block"
+        }
+      ]
+    },
+    "_exp_bin_object": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_exp_unary_object"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "bin_exp_object"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "annot_exp_object"
+        }
+      ]
+    },
+    "_exp_nest": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "block_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_exp_block"
+        }
+      ]
+    },
+    "_exp_plain": {
       "type": "CHOICE",
       "members": [
         {
@@ -409,16 +1098,25 @@
         {
           "type": "SYMBOL",
           "name": "par_exp"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "var_exp"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "if_exp"
         }
       ]
+    },
+    "prim_exp": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "prim"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "text_literal"
+        }
+      ]
+    },
+    "wild_exp": {
+      "type": "STRING",
+      "value": "_"
     },
     "lit_exp": {
       "type": "SYMBOL",
@@ -433,7 +1131,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_exp"
+          "name": "_exp_object"
         },
         {
           "type": "STRING",
@@ -464,7 +1162,7 @@
             "name": "cond",
             "content": {
               "type": "SYMBOL",
-              "name": "_exp"
+              "name": "_exp_object"
             }
           },
           {
@@ -476,7 +1174,7 @@
             "name": "then",
             "content": {
               "type": "SYMBOL",
-              "name": "_exp"
+              "name": "_exp_object"
             }
           },
           {
@@ -494,7 +1192,7 @@
                     "name": "else",
                     "content": {
                       "type": "SYMBOL",
-                      "name": "_exp"
+                      "name": "_exp_object"
                     }
                   }
                 ]
@@ -506,6 +1204,1338 @@
           }
         ]
       }
+    },
+    "object_exp": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "{"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "REPEAT",
+                  "content": {
+                    "type": "SEQ",
+                    "members": [
+                      {
+                        "type": "SYMBOL",
+                        "name": "exp_field"
+                      },
+                      {
+                        "type": "STRING",
+                        "value": ";"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "exp_field"
+                    },
+                    {
+                      "type": "BLANK"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "}"
+        }
+      ]
+    },
+    "array_exp": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "["
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "var"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "_exp_object"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": ","
+                  }
+                ]
+              }
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_exp_object"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "]"
+        }
+      ]
+    },
+    "block_exp": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "{"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "_dec"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": ";"
+                  }
+                ]
+              }
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_dec"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "}"
+        }
+      ]
+    },
+    "parenthetical_exp": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "parenthetical"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "call_exp_block"
+        }
+      ]
+    },
+    "hash_exp": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "#"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_exp_nullary_object"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "quest_exp": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "?"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_exp_unary_object"
+        }
+      ]
+    },
+    "unop_exp": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "unop"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_exp_unary_object"
+        }
+      ]
+    },
+    "unassign_exp": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "unassign_op"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_exp_unary_object"
+        }
+      ]
+    },
+    "actor_exp": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "actor"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_exp_plain"
+        }
+      ]
+    },
+    "not_exp": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "not"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_exp_unary_object"
+        }
+      ]
+    },
+    "debug_show_exp": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "debug_show"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_exp_unary_object"
+        }
+      ]
+    },
+    "to_candid_exp": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "to_candid"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "_exp_object"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": ","
+                  }
+                ]
+              }
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_exp_object"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "from_candid_exp": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "from_candid"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_exp_unary_object"
+        }
+      ]
+    },
+    "return_exp": {
+      "type": "PREC_LEFT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "return"
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_exp_object"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "async_exp": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "parenthetical"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "async"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_exp_nest"
+        }
+      ]
+    },
+    "asyncstar_exp": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "async*"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_exp_nest"
+        }
+      ]
+    },
+    "assert_exp": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "assert"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_exp_nest"
+        }
+      ]
+    },
+    "label_exp": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "label"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "typ_annot"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_exp_nest"
+        }
+      ]
+    },
+    "break_exp": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "break"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_exp_nullary_object"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "continue_exp": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "continue"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        }
+      ]
+    },
+    "debug_exp": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "debug"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_exp_nest"
+        }
+      ]
+    },
+    "throw_exp": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "throw"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_exp_nest"
+        }
+      ]
+    },
+    "try_exp": {
+      "type": "PREC_RIGHT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "try"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_exp_nest"
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "catch"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "finally"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "ignore_exp": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "ignore"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_exp_nest"
+        }
+      ]
+    },
+    "loop_exp": {
+      "type": "PREC_RIGHT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "loop"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_exp_nest"
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": "while"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "_exp_nest"
+                  }
+                ]
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "while_exp": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "while"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_exp_nullary_object"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_exp_nest"
+        }
+      ]
+    },
+    "for_exp": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "for"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_pat"
+        },
+        {
+          "type": "STRING",
+          "value": "in"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_exp_object"
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_exp_nest"
+        }
+      ]
+    },
+    "do_exp": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "do"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "block_exp"
+        }
+      ]
+    },
+    "do_quest_exp": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "do"
+        },
+        {
+          "type": "STRING",
+          "value": "?"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "block_exp"
+        }
+      ]
+    },
+    "switch_exp": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "switch"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_exp_nullary_object"
+        },
+        {
+          "type": "STRING",
+          "value": "{"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "case"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": ";"
+                  }
+                ]
+              }
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "case"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "}"
+        }
+      ]
+    },
+    "assign_exp_block": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_exp_bin_block"
+        },
+        {
+          "type": "STRING",
+          "value": ":="
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_exp_object"
+        }
+      ]
+    },
+    "assign_exp_object": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_exp_bin_object"
+        },
+        {
+          "type": "STRING",
+          "value": ":="
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_exp_object"
+        }
+      ]
+    },
+    "array_idx_exp_block": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_exp_post_block"
+        },
+        {
+          "type": "STRING",
+          "value": "["
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_exp_object"
+        },
+        {
+          "type": "STRING",
+          "value": "]"
+        }
+      ]
+    },
+    "array_idx_exp_object": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_exp_post_object"
+        },
+        {
+          "type": "STRING",
+          "value": "["
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_exp_object"
+        },
+        {
+          "type": "STRING",
+          "value": "]"
+        }
+      ]
+    },
+    "proj_exp_block": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_exp_post_block"
+        },
+        {
+          "type": "STRING",
+          "value": "."
+        },
+        {
+          "type": "SYMBOL",
+          "name": "int_literal"
+        }
+      ]
+    },
+    "proj_exp_object": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_exp_post_object"
+        },
+        {
+          "type": "STRING",
+          "value": "."
+        },
+        {
+          "type": "SYMBOL",
+          "name": "int_literal"
+        }
+      ]
+    },
+    "dot_exp_block": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_exp_post_block"
+        },
+        {
+          "type": "STRING",
+          "value": "."
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        }
+      ]
+    },
+    "dot_exp_object": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_exp_post_object"
+        },
+        {
+          "type": "STRING",
+          "value": "."
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        }
+      ]
+    },
+    "call_exp_block": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_exp_post_block"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "inst"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_exp_nullary_object"
+        }
+      ]
+    },
+    "call_exp_object": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_exp_post_object"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "inst"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_exp_nullary_object"
+        }
+      ]
+    },
+    "bang_exp_block": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_exp_post_block"
+        },
+        {
+          "type": "STRING",
+          "value": "!"
+        }
+      ]
+    },
+    "bang_exp_object": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_exp_post_object"
+        },
+        {
+          "type": "STRING",
+          "value": "!"
+        }
+      ]
+    },
+    "system_exp_block": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "STRING",
+          "value": "system"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_exp_post_block"
+        },
+        {
+          "type": "STRING",
+          "value": "."
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "system_exp_object": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "STRING",
+          "value": "system"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_exp_post_object"
+        },
+        {
+          "type": "STRING",
+          "value": "."
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "bin_exp_block": {
+      "type": "PREC_LEFT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "bin_exp_block"
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "bin_op"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "rel_op"
+              }
+            ]
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_typ_no_bin"
+          }
+        ]
+      }
+    },
+    "bin_exp_object": {
+      "type": "PREC_LEFT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "bin_exp_object"
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "bin_op"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "rel_op"
+              }
+            ]
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_typ_no_bin"
+          }
+        ]
+      }
+    },
+    "annot_exp_block": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_exp_bin_block"
+        },
+        {
+          "type": "STRING",
+          "value": ":"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_typ_no_bin"
+        }
+      ]
+    },
+    "annot_exp_object": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_exp_bin_object"
+        },
+        {
+          "type": "STRING",
+          "value": ":"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_typ_no_bin"
+        }
+      ]
+    },
+    "binassign_exp_block": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_exp_bin_block"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "binassign_op"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_exp_object"
+        }
+      ]
+    },
+    "binassign_exp_object": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_exp_bin_object"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "binassign_op"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_exp_object"
+        }
+      ]
+    },
+    "case": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "case"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_pat_nullary"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_exp_nest"
+        }
+      ]
+    },
+    "catch": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "catch"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_pat_nullary"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_exp_nest"
+        }
+      ]
+    },
+    "finally": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "finally"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_exp_nest"
+        }
+      ]
+    },
+    "inst": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "<"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "system"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "_typ"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": ","
+                  }
+                ]
+              }
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_typ"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": ">"
+        }
+      ]
+    },
+    "exp_field": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "var"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "typ_annot"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "="
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_exp_object"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "parenthetical": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_exp_post_object"
+        },
+        {
+          "type": "STRING",
+          "value": "with"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "exp_field"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": ";"
+                  }
+                ]
+              }
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "exp_field"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
     },
     "_typ_nullary": {
       "type": "CHOICE",
