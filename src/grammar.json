@@ -653,44 +653,8 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "shared"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "composite"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "query"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "STRING",
-          "value": "func"
+          "type": "SYMBOL",
+          "name": "_func_init"
         },
         {
           "type": "SYMBOL",
@@ -733,6 +697,18 @@
     "obj_dec": {
       "type": "SEQ",
       "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "parenthetical"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
         {
           "type": "SYMBOL",
           "name": "obj_sort"
@@ -782,6 +758,18 @@
     "class_dec": {
       "type": "SEQ",
       "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "parenthetical"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
         {
           "type": "CHOICE",
           "members": [
@@ -2370,7 +2358,7 @@
         }
       ]
     },
-    "func_exp": {
+    "_func_init": {
       "type": "SEQ",
       "members": [
         {
@@ -2412,6 +2400,15 @@
         {
           "type": "STRING",
           "value": "func"
+        }
+      ]
+    },
+    "func_exp": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_func_init"
         },
         {
           "type": "CHOICE",

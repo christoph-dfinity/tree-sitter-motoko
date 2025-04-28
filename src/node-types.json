@@ -3593,6 +3593,10 @@
           "named": true
         },
         {
+          "type": "parenthetical",
+          "named": true
+        },
+        {
           "type": "tup_pat",
           "named": true
         },
@@ -7433,6 +7437,10 @@
         },
         {
           "type": "obj_sort",
+          "named": true
+        },
+        {
+          "type": "parenthetical",
           "named": true
         },
         {

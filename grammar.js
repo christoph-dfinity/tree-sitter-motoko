@@ -411,10 +411,7 @@ module.exports = grammar({
       $._typ,
     ),
     func_dec: $ => seq(
-      optional("shared"),
-      optional("composite"),
-      optional("query"),
-      "func",
+      $._func_init,
       $.identifier,
       optional($.typ_params),
       $._pat_plain,
@@ -423,6 +420,7 @@ module.exports = grammar({
     ),
 
     obj_dec: $ => seq(
+      optional($.parenthetical),
       $.obj_sort,
       optional($.identifier),
       optional($.typ_annot),
@@ -431,6 +429,7 @@ module.exports = grammar({
     ),
 
     class_dec: $ => seq(
+      optional($.parenthetical),
       optional("shared"),
       optional("composite"),
       optional("query"),
@@ -649,11 +648,15 @@ module.exports = grammar({
       "}",
     ),
 
-    func_exp: $ => seq(
+    _func_init: $ => seq(
       optional("shared"),
       optional("composite"),
       optional("query"),
       "func",
+    ),
+
+    func_exp: $ => seq(
+      $._func_init,
       optional($.typ_params),
       $._pat_plain,
       optional($.typ_annot),
