@@ -126,6 +126,7 @@ function mk_exp_non_dec($, b) {
     $.ignore_exp,
     $.do_exp,
     $.do_quest_exp,
+    $.func_exp,
   );
 }
 
@@ -377,6 +378,9 @@ module.exports = grammar({
       $.let_dec,
       $.let_else_dec,
       $.typ_dec,
+      $.func_dec,
+      $.obj_dec,
+      $.class_dec,
     ),
 
     exp_dec: $ => $._exp_object,
@@ -406,6 +410,57 @@ module.exports = grammar({
       "=",
       $._typ,
     ),
+    func_dec: $ => seq(
+      optional("shared"),
+      optional("composite"),
+      optional("query"),
+      "func",
+      $.identifier,
+      optional($.typ_params),
+      $._pat_plain,
+      optional($.typ_annot),
+      $.func_body,
+    ),
+
+    obj_dec: $ => seq(
+      $.obj_sort,
+      optional($.identifier),
+      optional($.typ_annot),
+      optional("="),
+      $.obj_body,
+    ),
+
+    class_dec: $ => seq(
+      optional("shared"),
+      optional("composite"),
+      optional("query"),
+      optional($.obj_sort),
+      "class",
+      optional($._type_identifier),
+      optional($.typ_params),
+      $._pat_plain,
+      optional($.typ_annot),
+      $.class_body,
+    ),
+
+    obj_sort: $ => choice(
+      "object",
+      "module",
+      seq(optional("persistent"), "actor"),
+    ),
+
+    obj_body: $ => seq(
+      "{",
+      semi_sep($.dec_field),
+      "}",
+    ),
+    class_body: $ => seq(
+      optional(seq("=", optional($.identifier))),
+      $.obj_body
+    ),
+    dec_field: $ => seq(optional($.vis), optional($.stab), $._dec),
+    vis: $ => choice("private", "public", "system"),
+    stab: $ => choice("flexible", "stable", "transient"),
 
     // Expressions
     _exp_block: $ => mk_exp($, "block"),
@@ -592,6 +647,22 @@ module.exports = grammar({
       "{",
       semi_sep($.case),
       "}",
+    ),
+
+    func_exp: $ => seq(
+      optional("shared"),
+      optional("composite"),
+      optional("query"),
+      "func",
+      optional($.typ_params),
+      $._pat_plain,
+      optional($.typ_annot),
+      $.func_body,
+    ),
+
+    func_body: $ => choice(
+      seq("=", $._exp_object),
+      $.block_exp,
     ),
 
     assign_exp_block: $ => mk_assign_exp($, "block"),
