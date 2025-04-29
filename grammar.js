@@ -269,6 +269,7 @@ module.exports = grammar({
   name: "motoko",
   extras: $ => [/\s+/, $.doc_comment, $.line_comment, $.block_comment],
   word: $ => $.identifier,
+  conflicts: $ => [[$.var_exp, $.var_pat]],
 
   rules: {
     source_file: $ => semi_sep($._dec),
@@ -500,8 +501,8 @@ module.exports = grammar({
     wild_exp: $ => "_",
 
     lit_exp: $ => $._literal,
-    par_exp: $ => seq("(", optional($._exp_object), ")"),
-    var_exp: $ => prec(1, $.identifier),
+    par_exp: $ => seq("(", comma_sep($._exp_object), ")"),
+    var_exp: $ => $.identifier,
     if_exp: $ => prec.right(seq(
       "if",
       "(",
