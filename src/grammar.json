@@ -509,8 +509,21 @@
       "members": [
         {
           "type": "SYMBOL",
+          "name": "_dec_non_exp"
+        },
+        {
+          "type": "SYMBOL",
           "name": "exp_dec"
         },
+        {
+          "type": "SYMBOL",
+          "name": "let_else_dec"
+        }
+      ]
+    },
+    "_dec_non_exp": {
+      "type": "CHOICE",
+      "members": [
         {
           "type": "SYMBOL",
           "name": "var_dec"
@@ -518,10 +531,6 @@
         {
           "type": "SYMBOL",
           "name": "let_dec"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "let_else_dec"
         },
         {
           "type": "SYMBOL",
@@ -543,7 +552,7 @@
     },
     "exp_dec": {
       "type": "SYMBOL",
-      "name": "_exp_object"
+      "name": "_exp_non_dec_object"
     },
     "var_dec": {
       "type": "SEQ",
@@ -1054,12 +1063,30 @@
       ]
     },
     "_exp_block": {
-      "type": "SYMBOL",
-      "name": "_exp_non_dec_block"
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_dec_non_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_exp_non_dec_block"
+        }
+      ]
     },
     "_exp_object": {
-      "type": "SYMBOL",
-      "name": "_exp_non_dec_object"
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_dec_non_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_exp_non_dec_object"
+        }
+      ]
     },
     "_exp_non_dec_block": {
       "type": "CHOICE",
@@ -1564,8 +1591,12 @@
       ]
     },
     "var_exp": {
-      "type": "SYMBOL",
-      "name": "identifier"
+      "type": "PREC",
+      "value": 1,
+      "content": {
+        "type": "SYMBOL",
+        "name": "identifier"
+      }
     },
     "if_exp": {
       "type": "PREC_RIGHT",

@@ -534,6 +534,10 @@
           "named": true
         },
         {
+          "type": "class_dec",
+          "named": true
+        },
+        {
           "type": "continue_exp",
           "named": true
         },
@@ -566,6 +570,10 @@
           "named": true
         },
         {
+          "type": "func_dec",
+          "named": true
+        },
+        {
           "type": "func_exp",
           "named": true
         },
@@ -586,6 +594,10 @@
           "named": true
         },
         {
+          "type": "let_dec",
+          "named": true
+        },
+        {
           "type": "lit_exp",
           "named": true
         },
@@ -595,6 +607,10 @@
         },
         {
           "type": "not_exp",
+          "named": true
+        },
+        {
+          "type": "obj_dec",
           "named": true
         },
         {
@@ -646,11 +662,19 @@
           "named": true
         },
         {
+          "type": "typ_dec",
+          "named": true
+        },
+        {
           "type": "unassign_exp",
           "named": true
         },
         {
           "type": "unop_exp",
+          "named": true
+        },
+        {
+          "type": "var_dec",
           "named": true
         },
         {
@@ -741,6 +765,10 @@
           "named": true
         },
         {
+          "type": "class_dec",
+          "named": true
+        },
+        {
           "type": "continue_exp",
           "named": true
         },
@@ -777,6 +805,10 @@
           "named": true
         },
         {
+          "type": "func_dec",
+          "named": true
+        },
+        {
           "type": "func_exp",
           "named": true
         },
@@ -797,6 +829,10 @@
           "named": true
         },
         {
+          "type": "let_dec",
+          "named": true
+        },
+        {
           "type": "lit_exp",
           "named": true
         },
@@ -806,6 +842,10 @@
         },
         {
           "type": "not_exp",
+          "named": true
+        },
+        {
+          "type": "obj_dec",
           "named": true
         },
         {
@@ -865,11 +905,19 @@
           "named": true
         },
         {
+          "type": "typ_dec",
+          "named": true
+        },
+        {
           "type": "unassign_exp",
           "named": true
         },
         {
           "type": "unop_exp",
+          "named": true
+        },
+        {
+          "type": "var_dec",
           "named": true
         },
         {
@@ -948,6 +996,10 @@
           "named": true
         },
         {
+          "type": "class_dec",
+          "named": true
+        },
+        {
           "type": "continue_exp",
           "named": true
         },
@@ -980,6 +1032,10 @@
           "named": true
         },
         {
+          "type": "func_dec",
+          "named": true
+        },
+        {
           "type": "func_exp",
           "named": true
         },
@@ -1000,6 +1056,10 @@
           "named": true
         },
         {
+          "type": "let_dec",
+          "named": true
+        },
+        {
           "type": "lit_exp",
           "named": true
         },
@@ -1009,6 +1069,10 @@
         },
         {
           "type": "not_exp",
+          "named": true
+        },
+        {
+          "type": "obj_dec",
           "named": true
         },
         {
@@ -1060,11 +1124,19 @@
           "named": true
         },
         {
+          "type": "typ_dec",
+          "named": true
+        },
+        {
           "type": "unassign_exp",
           "named": true
         },
         {
           "type": "unop_exp",
+          "named": true
+        },
+        {
+          "type": "var_dec",
           "named": true
         },
         {
@@ -1147,7 +1219,7 @@
     "fields": {},
     "children": {
       "multiple": false,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "actor_exp",
@@ -1206,6 +1278,10 @@
           "named": true
         },
         {
+          "type": "class_dec",
+          "named": true
+        },
+        {
           "type": "continue_exp",
           "named": true
         },
@@ -1238,6 +1314,10 @@
           "named": true
         },
         {
+          "type": "func_dec",
+          "named": true
+        },
+        {
           "type": "func_exp",
           "named": true
         },
@@ -1258,6 +1338,10 @@
           "named": true
         },
         {
+          "type": "let_dec",
+          "named": true
+        },
+        {
           "type": "lit_exp",
           "named": true
         },
@@ -1267,6 +1351,10 @@
         },
         {
           "type": "not_exp",
+          "named": true
+        },
+        {
+          "type": "obj_dec",
           "named": true
         },
         {
@@ -1314,11 +1402,19 @@
           "named": true
         },
         {
+          "type": "typ_dec",
+          "named": true
+        },
+        {
           "type": "unassign_exp",
           "named": true
         },
         {
           "type": "unop_exp",
+          "named": true
+        },
+        {
+          "type": "var_dec",
           "named": true
         },
         {
@@ -1417,6 +1513,10 @@
           "named": true
         },
         {
+          "type": "class_dec",
+          "named": true
+        },
+        {
           "type": "continue_exp",
           "named": true
         },
@@ -1453,6 +1553,10 @@
           "named": true
         },
         {
+          "type": "func_dec",
+          "named": true
+        },
+        {
           "type": "func_exp",
           "named": true
         },
@@ -1473,6 +1577,10 @@
           "named": true
         },
         {
+          "type": "let_dec",
+          "named": true
+        },
+        {
           "type": "lit_exp",
           "named": true
         },
@@ -1482,6 +1590,10 @@
         },
         {
           "type": "not_exp",
+          "named": true
+        },
+        {
+          "type": "obj_dec",
           "named": true
         },
         {
@@ -1541,11 +1653,19 @@
           "named": true
         },
         {
+          "type": "typ_dec",
+          "named": true
+        },
+        {
           "type": "unassign_exp",
           "named": true
         },
         {
           "type": "unop_exp",
+          "named": true
+        },
+        {
+          "type": "var_dec",
           "named": true
         },
         {
@@ -1624,6 +1744,10 @@
           "named": true
         },
         {
+          "type": "class_dec",
+          "named": true
+        },
+        {
           "type": "continue_exp",
           "named": true
         },
@@ -1656,6 +1780,10 @@
           "named": true
         },
         {
+          "type": "func_dec",
+          "named": true
+        },
+        {
           "type": "func_exp",
           "named": true
         },
@@ -1676,6 +1804,10 @@
           "named": true
         },
         {
+          "type": "let_dec",
+          "named": true
+        },
+        {
           "type": "lit_exp",
           "named": true
         },
@@ -1685,6 +1817,10 @@
         },
         {
           "type": "not_exp",
+          "named": true
+        },
+        {
+          "type": "obj_dec",
           "named": true
         },
         {
@@ -1736,11 +1872,19 @@
           "named": true
         },
         {
+          "type": "typ_dec",
+          "named": true
+        },
+        {
           "type": "unassign_exp",
           "named": true
         },
         {
           "type": "unop_exp",
+          "named": true
+        },
+        {
+          "type": "var_dec",
           "named": true
         },
         {
@@ -1764,7 +1908,7 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "actor_exp",
@@ -1823,6 +1967,10 @@
           "named": true
         },
         {
+          "type": "class_dec",
+          "named": true
+        },
+        {
           "type": "continue_exp",
           "named": true
         },
@@ -1855,6 +2003,10 @@
           "named": true
         },
         {
+          "type": "func_dec",
+          "named": true
+        },
+        {
           "type": "func_exp",
           "named": true
         },
@@ -1875,6 +2027,10 @@
           "named": true
         },
         {
+          "type": "let_dec",
+          "named": true
+        },
+        {
           "type": "lit_exp",
           "named": true
         },
@@ -1884,6 +2040,10 @@
         },
         {
           "type": "not_exp",
+          "named": true
+        },
+        {
+          "type": "obj_dec",
           "named": true
         },
         {
@@ -1935,11 +2095,19 @@
           "named": true
         },
         {
+          "type": "typ_dec",
+          "named": true
+        },
+        {
           "type": "unassign_exp",
           "named": true
         },
         {
           "type": "unop_exp",
+          "named": true
+        },
+        {
+          "type": "var_dec",
           "named": true
         },
         {
@@ -2010,7 +2178,7 @@
     "fields": {},
     "children": {
       "multiple": false,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "actor_exp",
@@ -2069,6 +2237,10 @@
           "named": true
         },
         {
+          "type": "class_dec",
+          "named": true
+        },
+        {
           "type": "continue_exp",
           "named": true
         },
@@ -2101,6 +2273,10 @@
           "named": true
         },
         {
+          "type": "func_dec",
+          "named": true
+        },
+        {
           "type": "func_exp",
           "named": true
         },
@@ -2121,6 +2297,10 @@
           "named": true
         },
         {
+          "type": "let_dec",
+          "named": true
+        },
+        {
           "type": "lit_exp",
           "named": true
         },
@@ -2130,6 +2310,10 @@
         },
         {
           "type": "not_exp",
+          "named": true
+        },
+        {
+          "type": "obj_dec",
           "named": true
         },
         {
@@ -2177,11 +2361,19 @@
           "named": true
         },
         {
+          "type": "typ_dec",
+          "named": true
+        },
+        {
           "type": "unassign_exp",
           "named": true
         },
         {
           "type": "unop_exp",
+          "named": true
+        },
+        {
+          "type": "var_dec",
           "named": true
         },
         {
@@ -2537,6 +2729,10 @@
           "named": true
         },
         {
+          "type": "class_dec",
+          "named": true
+        },
+        {
           "type": "continue_exp",
           "named": true
         },
@@ -2573,6 +2769,10 @@
           "named": true
         },
         {
+          "type": "func_dec",
+          "named": true
+        },
+        {
           "type": "func_exp",
           "named": true
         },
@@ -2593,6 +2793,10 @@
           "named": true
         },
         {
+          "type": "let_dec",
+          "named": true
+        },
+        {
           "type": "lit_exp",
           "named": true
         },
@@ -2602,6 +2806,10 @@
         },
         {
           "type": "not_exp",
+          "named": true
+        },
+        {
+          "type": "obj_dec",
           "named": true
         },
         {
@@ -2661,11 +2869,19 @@
           "named": true
         },
         {
+          "type": "typ_dec",
+          "named": true
+        },
+        {
           "type": "unassign_exp",
           "named": true
         },
         {
           "type": "unop_exp",
+          "named": true
+        },
+        {
+          "type": "var_dec",
           "named": true
         },
         {
@@ -2748,6 +2964,10 @@
           "named": true
         },
         {
+          "type": "class_dec",
+          "named": true
+        },
+        {
           "type": "continue_exp",
           "named": true
         },
@@ -2780,6 +3000,10 @@
           "named": true
         },
         {
+          "type": "func_dec",
+          "named": true
+        },
+        {
           "type": "func_exp",
           "named": true
         },
@@ -2800,6 +3024,10 @@
           "named": true
         },
         {
+          "type": "let_dec",
+          "named": true
+        },
+        {
           "type": "lit_exp",
           "named": true
         },
@@ -2809,6 +3037,10 @@
         },
         {
           "type": "not_exp",
+          "named": true
+        },
+        {
+          "type": "obj_dec",
           "named": true
         },
         {
@@ -2860,11 +3092,19 @@
           "named": true
         },
         {
+          "type": "typ_dec",
+          "named": true
+        },
+        {
           "type": "unassign_exp",
           "named": true
         },
         {
           "type": "unop_exp",
+          "named": true
+        },
+        {
+          "type": "var_dec",
           "named": true
         },
         {
@@ -3188,6 +3428,10 @@
           "named": true
         },
         {
+          "type": "class_dec",
+          "named": true
+        },
+        {
           "type": "continue_exp",
           "named": true
         },
@@ -3220,6 +3464,10 @@
           "named": true
         },
         {
+          "type": "func_dec",
+          "named": true
+        },
+        {
           "type": "func_exp",
           "named": true
         },
@@ -3240,6 +3488,10 @@
           "named": true
         },
         {
+          "type": "let_dec",
+          "named": true
+        },
+        {
           "type": "lit_exp",
           "named": true
         },
@@ -3253,6 +3505,10 @@
         },
         {
           "type": "not_exp",
+          "named": true
+        },
+        {
+          "type": "obj_dec",
           "named": true
         },
         {
@@ -3308,11 +3564,19 @@
           "named": true
         },
         {
+          "type": "typ_dec",
+          "named": true
+        },
+        {
           "type": "unassign_exp",
           "named": true
         },
         {
           "type": "unop_exp",
+          "named": true
+        },
+        {
+          "type": "var_dec",
           "named": true
         },
         {
@@ -3403,6 +3667,10 @@
           "named": true
         },
         {
+          "type": "class_dec",
+          "named": true
+        },
+        {
           "type": "continue_exp",
           "named": true
         },
@@ -3435,6 +3703,10 @@
           "named": true
         },
         {
+          "type": "func_dec",
+          "named": true
+        },
+        {
           "type": "func_exp",
           "named": true
         },
@@ -3455,6 +3727,10 @@
           "named": true
         },
         {
+          "type": "let_dec",
+          "named": true
+        },
+        {
           "type": "lit_exp",
           "named": true
         },
@@ -3468,6 +3744,10 @@
         },
         {
           "type": "not_exp",
+          "named": true
+        },
+        {
+          "type": "obj_dec",
           "named": true
         },
         {
@@ -3523,11 +3803,19 @@
           "named": true
         },
         {
+          "type": "typ_dec",
+          "named": true
+        },
+        {
           "type": "unassign_exp",
           "named": true
         },
         {
           "type": "unop_exp",
+          "named": true
+        },
+        {
+          "type": "var_dec",
           "named": true
         },
         {
@@ -3649,7 +3937,7 @@
     "fields": {},
     "children": {
       "multiple": false,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "actor_exp",
@@ -3708,6 +3996,10 @@
           "named": true
         },
         {
+          "type": "class_dec",
+          "named": true
+        },
+        {
           "type": "continue_exp",
           "named": true
         },
@@ -3740,6 +4032,10 @@
           "named": true
         },
         {
+          "type": "func_dec",
+          "named": true
+        },
+        {
           "type": "func_exp",
           "named": true
         },
@@ -3760,6 +4056,10 @@
           "named": true
         },
         {
+          "type": "let_dec",
+          "named": true
+        },
+        {
           "type": "lit_exp",
           "named": true
         },
@@ -3769,6 +4069,10 @@
         },
         {
           "type": "not_exp",
+          "named": true
+        },
+        {
+          "type": "obj_dec",
           "named": true
         },
         {
@@ -3816,11 +4120,19 @@
           "named": true
         },
         {
+          "type": "typ_dec",
+          "named": true
+        },
+        {
           "type": "unassign_exp",
           "named": true
         },
         {
           "type": "unop_exp",
+          "named": true
+        },
+        {
+          "type": "var_dec",
           "named": true
         },
         {
@@ -4158,7 +4470,7 @@
     "fields": {},
     "children": {
       "multiple": false,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "actor_exp",
@@ -4408,6 +4720,10 @@
           "named": true
         },
         {
+          "type": "class_dec",
+          "named": true
+        },
+        {
           "type": "continue_exp",
           "named": true
         },
@@ -4440,6 +4756,10 @@
           "named": true
         },
         {
+          "type": "func_dec",
+          "named": true
+        },
+        {
           "type": "func_exp",
           "named": true
         },
@@ -4464,6 +4784,10 @@
           "named": true
         },
         {
+          "type": "let_dec",
+          "named": true
+        },
+        {
           "type": "lit_exp",
           "named": true
         },
@@ -4473,6 +4797,10 @@
         },
         {
           "type": "not_exp",
+          "named": true
+        },
+        {
+          "type": "obj_dec",
           "named": true
         },
         {
@@ -4528,11 +4856,19 @@
           "named": true
         },
         {
+          "type": "typ_dec",
+          "named": true
+        },
+        {
           "type": "unassign_exp",
           "named": true
         },
         {
           "type": "unop_exp",
+          "named": true
+        },
+        {
+          "type": "var_dec",
           "named": true
         },
         {
@@ -4556,7 +4892,7 @@
     "fields": {},
     "children": {
       "multiple": false,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "actor_exp",
@@ -4615,6 +4951,10 @@
           "named": true
         },
         {
+          "type": "class_dec",
+          "named": true
+        },
+        {
           "type": "continue_exp",
           "named": true
         },
@@ -4647,6 +4987,10 @@
           "named": true
         },
         {
+          "type": "func_dec",
+          "named": true
+        },
+        {
           "type": "func_exp",
           "named": true
         },
@@ -4667,6 +5011,10 @@
           "named": true
         },
         {
+          "type": "let_dec",
+          "named": true
+        },
+        {
           "type": "lit_exp",
           "named": true
         },
@@ -4676,6 +5024,10 @@
         },
         {
           "type": "not_exp",
+          "named": true
+        },
+        {
+          "type": "obj_dec",
           "named": true
         },
         {
@@ -4723,11 +5075,19 @@
           "named": true
         },
         {
+          "type": "typ_dec",
+          "named": true
+        },
+        {
           "type": "unassign_exp",
           "named": true
         },
         {
           "type": "unop_exp",
+          "named": true
+        },
+        {
+          "type": "var_dec",
           "named": true
         },
         {
@@ -4846,6 +5206,10 @@
           "named": true
         },
         {
+          "type": "class_dec",
+          "named": true
+        },
+        {
           "type": "continue_exp",
           "named": true
         },
@@ -4882,6 +5246,10 @@
           "named": true
         },
         {
+          "type": "func_dec",
+          "named": true
+        },
+        {
           "type": "func_exp",
           "named": true
         },
@@ -4902,6 +5270,10 @@
           "named": true
         },
         {
+          "type": "let_dec",
+          "named": true
+        },
+        {
           "type": "lit_exp",
           "named": true
         },
@@ -4915,6 +5287,10 @@
         },
         {
           "type": "not_exp",
+          "named": true
+        },
+        {
+          "type": "obj_dec",
           "named": true
         },
         {
@@ -4990,11 +5366,19 @@
           "named": true
         },
         {
+          "type": "typ_dec",
+          "named": true
+        },
+        {
           "type": "unassign_exp",
           "named": true
         },
         {
           "type": "unop_exp",
+          "named": true
+        },
+        {
+          "type": "var_dec",
           "named": true
         },
         {
@@ -5129,7 +5513,7 @@
     "fields": {},
     "children": {
       "multiple": false,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "actor_exp",
@@ -5188,6 +5572,10 @@
           "named": true
         },
         {
+          "type": "class_dec",
+          "named": true
+        },
+        {
           "type": "continue_exp",
           "named": true
         },
@@ -5220,6 +5608,10 @@
           "named": true
         },
         {
+          "type": "func_dec",
+          "named": true
+        },
+        {
           "type": "func_exp",
           "named": true
         },
@@ -5240,6 +5632,10 @@
           "named": true
         },
         {
+          "type": "let_dec",
+          "named": true
+        },
+        {
           "type": "lit_exp",
           "named": true
         },
@@ -5249,6 +5645,10 @@
         },
         {
           "type": "not_exp",
+          "named": true
+        },
+        {
+          "type": "obj_dec",
           "named": true
         },
         {
@@ -5300,11 +5700,19 @@
           "named": true
         },
         {
+          "type": "typ_dec",
+          "named": true
+        },
+        {
           "type": "unassign_exp",
           "named": true
         },
         {
           "type": "unop_exp",
+          "named": true
+        },
+        {
+          "type": "var_dec",
           "named": true
         },
         {
@@ -5626,6 +6034,10 @@
             "named": true
           },
           {
+            "type": "class_dec",
+            "named": true
+          },
+          {
             "type": "continue_exp",
             "named": true
           },
@@ -5658,6 +6070,10 @@
             "named": true
           },
           {
+            "type": "func_dec",
+            "named": true
+          },
+          {
             "type": "func_exp",
             "named": true
           },
@@ -5678,6 +6094,10 @@
             "named": true
           },
           {
+            "type": "let_dec",
+            "named": true
+          },
+          {
             "type": "lit_exp",
             "named": true
           },
@@ -5687,6 +6107,10 @@
           },
           {
             "type": "not_exp",
+            "named": true
+          },
+          {
+            "type": "obj_dec",
             "named": true
           },
           {
@@ -5738,11 +6162,19 @@
             "named": true
           },
           {
+            "type": "typ_dec",
+            "named": true
+          },
+          {
             "type": "unassign_exp",
             "named": true
           },
           {
             "type": "unop_exp",
+            "named": true
+          },
+          {
+            "type": "var_dec",
             "named": true
           },
           {
@@ -5816,6 +6248,10 @@
             "named": true
           },
           {
+            "type": "class_dec",
+            "named": true
+          },
+          {
             "type": "continue_exp",
             "named": true
           },
@@ -5848,6 +6284,10 @@
             "named": true
           },
           {
+            "type": "func_dec",
+            "named": true
+          },
+          {
             "type": "func_exp",
             "named": true
           },
@@ -5868,6 +6308,10 @@
             "named": true
           },
           {
+            "type": "let_dec",
+            "named": true
+          },
+          {
             "type": "lit_exp",
             "named": true
           },
@@ -5877,6 +6321,10 @@
           },
           {
             "type": "not_exp",
+            "named": true
+          },
+          {
+            "type": "obj_dec",
             "named": true
           },
           {
@@ -5928,11 +6376,19 @@
             "named": true
           },
           {
+            "type": "typ_dec",
+            "named": true
+          },
+          {
             "type": "unassign_exp",
             "named": true
           },
           {
             "type": "unop_exp",
+            "named": true
+          },
+          {
+            "type": "var_dec",
             "named": true
           },
           {
@@ -6006,6 +6462,10 @@
             "named": true
           },
           {
+            "type": "class_dec",
+            "named": true
+          },
+          {
             "type": "continue_exp",
             "named": true
           },
@@ -6038,6 +6498,10 @@
             "named": true
           },
           {
+            "type": "func_dec",
+            "named": true
+          },
+          {
             "type": "func_exp",
             "named": true
           },
@@ -6058,6 +6522,10 @@
             "named": true
           },
           {
+            "type": "let_dec",
+            "named": true
+          },
+          {
             "type": "lit_exp",
             "named": true
           },
@@ -6067,6 +6535,10 @@
           },
           {
             "type": "not_exp",
+            "named": true
+          },
+          {
+            "type": "obj_dec",
             "named": true
           },
           {
@@ -6118,11 +6590,19 @@
             "named": true
           },
           {
+            "type": "typ_dec",
+            "named": true
+          },
+          {
             "type": "unassign_exp",
             "named": true
           },
           {
             "type": "unop_exp",
+            "named": true
+          },
+          {
+            "type": "var_dec",
             "named": true
           },
           {
@@ -6147,7 +6627,7 @@
     "fields": {},
     "children": {
       "multiple": false,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "actor_exp",
@@ -6206,6 +6686,10 @@
           "named": true
         },
         {
+          "type": "class_dec",
+          "named": true
+        },
+        {
           "type": "continue_exp",
           "named": true
         },
@@ -6238,6 +6722,10 @@
           "named": true
         },
         {
+          "type": "func_dec",
+          "named": true
+        },
+        {
           "type": "func_exp",
           "named": true
         },
@@ -6258,6 +6746,10 @@
           "named": true
         },
         {
+          "type": "let_dec",
+          "named": true
+        },
+        {
           "type": "lit_exp",
           "named": true
         },
@@ -6267,6 +6759,10 @@
         },
         {
           "type": "not_exp",
+          "named": true
+        },
+        {
+          "type": "obj_dec",
           "named": true
         },
         {
@@ -6314,11 +6810,19 @@
           "named": true
         },
         {
+          "type": "typ_dec",
+          "named": true
+        },
+        {
           "type": "unassign_exp",
           "named": true
         },
         {
           "type": "unop_exp",
+          "named": true
+        },
+        {
+          "type": "var_dec",
           "named": true
         },
         {
@@ -6460,6 +6964,10 @@
           "named": true
         },
         {
+          "type": "class_dec",
+          "named": true
+        },
+        {
           "type": "continue_exp",
           "named": true
         },
@@ -6492,6 +7000,10 @@
           "named": true
         },
         {
+          "type": "func_dec",
+          "named": true
+        },
+        {
           "type": "func_exp",
           "named": true
         },
@@ -6516,6 +7028,10 @@
           "named": true
         },
         {
+          "type": "let_dec",
+          "named": true
+        },
+        {
           "type": "lit_exp",
           "named": true
         },
@@ -6525,6 +7041,10 @@
         },
         {
           "type": "not_exp",
+          "named": true
+        },
+        {
+          "type": "obj_dec",
           "named": true
         },
         {
@@ -6576,11 +7096,19 @@
           "named": true
         },
         {
+          "type": "typ_dec",
+          "named": true
+        },
+        {
           "type": "unassign_exp",
           "named": true
         },
         {
           "type": "unop_exp",
+          "named": true
+        },
+        {
+          "type": "var_dec",
           "named": true
         },
         {
@@ -6604,7 +7132,7 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "actor_exp",
@@ -6667,6 +7195,10 @@
           "named": true
         },
         {
+          "type": "class_dec",
+          "named": true
+        },
+        {
           "type": "continue_exp",
           "named": true
         },
@@ -6699,6 +7231,10 @@
           "named": true
         },
         {
+          "type": "func_dec",
+          "named": true
+        },
+        {
           "type": "func_exp",
           "named": true
         },
@@ -6719,6 +7255,10 @@
           "named": true
         },
         {
+          "type": "let_dec",
+          "named": true
+        },
+        {
           "type": "lit_exp",
           "named": true
         },
@@ -6732,6 +7272,10 @@
         },
         {
           "type": "not_exp",
+          "named": true
+        },
+        {
+          "type": "obj_dec",
           "named": true
         },
         {
@@ -6799,11 +7343,19 @@
           "named": true
         },
         {
+          "type": "typ_dec",
+          "named": true
+        },
+        {
           "type": "unassign_exp",
           "named": true
         },
         {
           "type": "unop_exp",
+          "named": true
+        },
+        {
+          "type": "var_dec",
           "named": true
         },
         {
@@ -6894,6 +7446,10 @@
           "named": true
         },
         {
+          "type": "class_dec",
+          "named": true
+        },
+        {
           "type": "continue_exp",
           "named": true
         },
@@ -6923,6 +7479,10 @@
         },
         {
           "type": "from_candid_exp",
+          "named": true
+        },
+        {
+          "type": "func_dec",
           "named": true
         },
         {
@@ -6959,6 +7519,10 @@
         },
         {
           "type": "not_exp",
+          "named": true
+        },
+        {
+          "type": "obj_dec",
           "named": true
         },
         {
@@ -7006,11 +7570,19 @@
           "named": true
         },
         {
+          "type": "typ_dec",
+          "named": true
+        },
+        {
           "type": "unassign_exp",
           "named": true
         },
         {
           "type": "unop_exp",
+          "named": true
+        },
+        {
+          "type": "var_dec",
           "named": true
         },
         {
@@ -7112,7 +7684,7 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "actor_exp",
@@ -7171,6 +7743,10 @@
           "named": true
         },
         {
+          "type": "class_dec",
+          "named": true
+        },
+        {
           "type": "continue_exp",
           "named": true
         },
@@ -7203,6 +7779,10 @@
           "named": true
         },
         {
+          "type": "func_dec",
+          "named": true
+        },
+        {
           "type": "func_exp",
           "named": true
         },
@@ -7223,6 +7803,10 @@
           "named": true
         },
         {
+          "type": "let_dec",
+          "named": true
+        },
+        {
           "type": "lit_exp",
           "named": true
         },
@@ -7232,6 +7816,10 @@
         },
         {
           "type": "not_exp",
+          "named": true
+        },
+        {
+          "type": "obj_dec",
           "named": true
         },
         {
@@ -7279,11 +7867,19 @@
           "named": true
         },
         {
+          "type": "typ_dec",
+          "named": true
+        },
+        {
           "type": "unassign_exp",
           "named": true
         },
         {
           "type": "unop_exp",
+          "named": true
+        },
+        {
+          "type": "var_dec",
           "named": true
         },
         {
@@ -7643,6 +8239,10 @@
           "named": true
         },
         {
+          "type": "class_dec",
+          "named": true
+        },
+        {
           "type": "continue_exp",
           "named": true
         },
@@ -7675,6 +8275,10 @@
           "named": true
         },
         {
+          "type": "func_dec",
+          "named": true
+        },
+        {
           "type": "func_exp",
           "named": true
         },
@@ -7695,6 +8299,10 @@
           "named": true
         },
         {
+          "type": "let_dec",
+          "named": true
+        },
+        {
           "type": "lit_exp",
           "named": true
         },
@@ -7704,6 +8312,10 @@
         },
         {
           "type": "not_exp",
+          "named": true
+        },
+        {
+          "type": "obj_dec",
           "named": true
         },
         {
@@ -7755,11 +8367,19 @@
           "named": true
         },
         {
+          "type": "typ_dec",
+          "named": true
+        },
+        {
           "type": "unassign_exp",
           "named": true
         },
         {
           "type": "unop_exp",
+          "named": true
+        },
+        {
+          "type": "var_dec",
           "named": true
         },
         {
@@ -8384,6 +9004,10 @@
           "named": true
         },
         {
+          "type": "class_dec",
+          "named": true
+        },
+        {
           "type": "continue_exp",
           "named": true
         },
@@ -8416,6 +9040,10 @@
           "named": true
         },
         {
+          "type": "func_dec",
+          "named": true
+        },
+        {
           "type": "func_exp",
           "named": true
         },
@@ -8436,6 +9064,10 @@
           "named": true
         },
         {
+          "type": "let_dec",
+          "named": true
+        },
+        {
           "type": "lit_exp",
           "named": true
         },
@@ -8445,6 +9077,10 @@
         },
         {
           "type": "not_exp",
+          "named": true
+        },
+        {
+          "type": "obj_dec",
           "named": true
         },
         {
@@ -8496,11 +9132,19 @@
           "named": true
         },
         {
+          "type": "typ_dec",
+          "named": true
+        },
+        {
           "type": "unassign_exp",
           "named": true
         },
         {
           "type": "unop_exp",
+          "named": true
+        },
+        {
+          "type": "var_dec",
           "named": true
         },
         {
@@ -8777,7 +9421,7 @@
     "fields": {},
     "children": {
       "multiple": false,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "actor_exp",
@@ -8836,6 +9480,10 @@
           "named": true
         },
         {
+          "type": "class_dec",
+          "named": true
+        },
+        {
           "type": "continue_exp",
           "named": true
         },
@@ -8868,6 +9516,10 @@
           "named": true
         },
         {
+          "type": "func_dec",
+          "named": true
+        },
+        {
           "type": "func_exp",
           "named": true
         },
@@ -8888,6 +9540,10 @@
           "named": true
         },
         {
+          "type": "let_dec",
+          "named": true
+        },
+        {
           "type": "lit_exp",
           "named": true
         },
@@ -8897,6 +9553,10 @@
         },
         {
           "type": "not_exp",
+          "named": true
+        },
+        {
+          "type": "obj_dec",
           "named": true
         },
         {
@@ -8944,11 +9604,19 @@
           "named": true
         },
         {
+          "type": "typ_dec",
+          "named": true
+        },
+        {
           "type": "unassign_exp",
           "named": true
         },
         {
           "type": "unop_exp",
+          "named": true
+        },
+        {
+          "type": "var_dec",
           "named": true
         },
         {
@@ -9027,6 +9695,10 @@
           "named": true
         },
         {
+          "type": "class_dec",
+          "named": true
+        },
+        {
           "type": "continue_exp",
           "named": true
         },
@@ -9059,6 +9731,10 @@
           "named": true
         },
         {
+          "type": "func_dec",
+          "named": true
+        },
+        {
           "type": "func_exp",
           "named": true
         },
@@ -9079,6 +9755,10 @@
           "named": true
         },
         {
+          "type": "let_dec",
+          "named": true
+        },
+        {
           "type": "lit_exp",
           "named": true
         },
@@ -9088,6 +9768,10 @@
         },
         {
           "type": "not_exp",
+          "named": true
+        },
+        {
+          "type": "obj_dec",
           "named": true
         },
         {
@@ -9139,11 +9823,19 @@
           "named": true
         },
         {
+          "type": "typ_dec",
+          "named": true
+        },
+        {
           "type": "unassign_exp",
           "named": true
         },
         {
           "type": "unop_exp",
+          "named": true
+        },
+        {
+          "type": "var_dec",
           "named": true
         },
         {
@@ -9167,7 +9859,7 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "actor_exp",
@@ -9230,6 +9922,10 @@
           "named": true
         },
         {
+          "type": "class_dec",
+          "named": true
+        },
+        {
           "type": "continue_exp",
           "named": true
         },
@@ -9266,6 +9962,10 @@
           "named": true
         },
         {
+          "type": "func_dec",
+          "named": true
+        },
+        {
           "type": "func_exp",
           "named": true
         },
@@ -9286,6 +9986,10 @@
           "named": true
         },
         {
+          "type": "let_dec",
+          "named": true
+        },
+        {
           "type": "lit_exp",
           "named": true
         },
@@ -9295,6 +9999,10 @@
         },
         {
           "type": "not_exp",
+          "named": true
+        },
+        {
+          "type": "obj_dec",
           "named": true
         },
         {
@@ -9342,11 +10050,19 @@
           "named": true
         },
         {
+          "type": "typ_dec",
+          "named": true
+        },
+        {
           "type": "unassign_exp",
           "named": true
         },
         {
           "type": "unop_exp",
+          "named": true
+        },
+        {
+          "type": "var_dec",
           "named": true
         },
         {
@@ -10146,6 +10862,10 @@
           "named": true
         },
         {
+          "type": "class_dec",
+          "named": true
+        },
+        {
           "type": "continue_exp",
           "named": true
         },
@@ -10178,6 +10898,10 @@
           "named": true
         },
         {
+          "type": "func_dec",
+          "named": true
+        },
+        {
           "type": "func_exp",
           "named": true
         },
@@ -10198,6 +10922,10 @@
           "named": true
         },
         {
+          "type": "let_dec",
+          "named": true
+        },
+        {
           "type": "lit_exp",
           "named": true
         },
@@ -10207,6 +10935,10 @@
         },
         {
           "type": "not_exp",
+          "named": true
+        },
+        {
+          "type": "obj_dec",
           "named": true
         },
         {
@@ -10262,11 +10994,19 @@
           "named": true
         },
         {
+          "type": "typ_dec",
+          "named": true
+        },
+        {
           "type": "unassign_exp",
           "named": true
         },
         {
           "type": "unop_exp",
+          "named": true
+        },
+        {
+          "type": "var_dec",
           "named": true
         },
         {
@@ -10403,6 +11143,10 @@
           "named": true
         },
         {
+          "type": "class_dec",
+          "named": true
+        },
+        {
           "type": "continue_exp",
           "named": true
         },
@@ -10435,6 +11179,10 @@
           "named": true
         },
         {
+          "type": "func_dec",
+          "named": true
+        },
+        {
           "type": "func_exp",
           "named": true
         },
@@ -10455,6 +11203,10 @@
           "named": true
         },
         {
+          "type": "let_dec",
+          "named": true
+        },
+        {
           "type": "lit_exp",
           "named": true
         },
@@ -10464,6 +11216,10 @@
         },
         {
           "type": "not_exp",
+          "named": true
+        },
+        {
+          "type": "obj_dec",
           "named": true
         },
         {
@@ -10515,11 +11271,19 @@
           "named": true
         },
         {
+          "type": "typ_dec",
+          "named": true
+        },
+        {
           "type": "unassign_exp",
           "named": true
         },
         {
           "type": "unop_exp",
+          "named": true
+        },
+        {
+          "type": "var_dec",
           "named": true
         },
         {

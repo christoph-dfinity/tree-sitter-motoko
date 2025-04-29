@@ -136,7 +136,11 @@ function mk_exp($, b) {
   //   _exp($, b),
   //   $._dec
   // )
-  return _exp_non_dec($, b)
+
+  return choice(
+    $._dec_non_exp,
+    _exp_non_dec($, b),
+  )
 }
 
 function mk_exp_bin($, b) {
@@ -373,17 +377,20 @@ module.exports = grammar({
     ),
     // Declarations
     _dec: $ => choice(
+      $._dec_non_exp,
       $.exp_dec,
+      $.let_else_dec,
+    ),
+    _dec_non_exp: $ => choice(
       $.var_dec,
       $.let_dec,
-      $.let_else_dec,
       $.typ_dec,
       $.func_dec,
       $.obj_dec,
       $.class_dec,
     ),
 
-    exp_dec: $ => $._exp_object,
+    exp_dec: $ => $._exp_non_dec_object,
 
     var_dec: $ => seq(
       "var",
@@ -494,7 +501,7 @@ module.exports = grammar({
 
     lit_exp: $ => $._literal,
     par_exp: $ => seq("(", $._exp_object, ")"),
-    var_exp: $ => $.identifier,
+    var_exp: $ => prec(1, $.identifier),
     if_exp: $ => prec.right(seq(
       "if",
       "(",
@@ -567,7 +574,7 @@ module.exports = grammar({
       $._exp_unary_object,
     ),
 
-    // TODO: Should be prec.nonassoc
+    // TODO(def: prec.nonassoc): https://github.com/tree-sitter/tree-sitter/issues/761
     return_exp: $ => prec.left(seq(
       "return",
       optional($._exp_object),
@@ -605,7 +612,7 @@ module.exports = grammar({
     continue_exp: $ => seq("continue", $.identifier),
     debug_exp: $ => seq("debug", $._exp_nest),
     throw_exp: $ => seq("throw", $._exp_nest),
-    // TODO: Should be prec.nonassoc (see https://github.com/tree-sitter/tree-sitter/issues/761)
+    // TODO(id: prec.nonassoc)
     try_exp: $ => prec.right(seq(
       "try",
       $._exp_nest,
@@ -614,7 +621,7 @@ module.exports = grammar({
     )),
     ignore_exp: $ => seq("ignore", $._exp_nest),
 
-    // TODO: Should be prec.nonassoc
+    // TODO(id: prec.nonassoc)
     loop_exp: $ => prec.right(seq(
       "loop",
       $._exp_nest,
