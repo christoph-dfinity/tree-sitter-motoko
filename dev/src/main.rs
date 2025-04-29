@@ -32,9 +32,23 @@ fn main() {
     ).unwrap();
 
     copy_test_cases(
-        Utf8Path::new("/Users/christoph.hegemann/work/new-motoko-base"),
+        Utf8Path::new("/Users/christoph.hegemann/work/new-motoko-base/src"),
         Utf8Path::new("/Users/christoph.hegemann/code/tree-sitter-motoko"),
-        "new-base",
+        "new-base-src",
+        &[],
+    ).unwrap();
+
+    copy_test_cases(
+        Utf8Path::new("/Users/christoph.hegemann/work/new-motoko-base/test"),
+        Utf8Path::new("/Users/christoph.hegemann/code/tree-sitter-motoko"),
+        "new-base-test",
+        &[],
+    ).unwrap();
+
+    copy_test_cases(
+        Utf8Path::new("/Users/christoph.hegemann/work/new-motoko-base/bench"),
+        Utf8Path::new("/Users/christoph.hegemann/code/tree-sitter-motoko"),
+        "new-base-bench",
         &[],
     ).unwrap();
 }
