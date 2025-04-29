@@ -500,7 +500,7 @@ module.exports = grammar({
     wild_exp: $ => "_",
 
     lit_exp: $ => $._literal,
-    par_exp: $ => seq("(", $._exp_object, ")"),
+    par_exp: $ => seq("(", optional($._exp_object), ")"),
     var_exp: $ => prec(1, $.identifier),
     if_exp: $ => prec.right(seq(
       "if",
