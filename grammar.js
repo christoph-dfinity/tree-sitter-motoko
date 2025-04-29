@@ -133,12 +133,6 @@ function mk_exp_non_dec($, b) {
 }
 
 function mk_exp($, b) {
-  // TODO: Declarations in expression position
-  // return choice(
-  //   _exp($, b),
-  //   $._dec
-  // )
-
   return choice(
     $._dec_non_exp,
     _exp_non_dec($, b),
@@ -146,11 +140,11 @@ function mk_exp($, b) {
 }
 
 function mk_exp_bin($, b) {
-  return choice(
+  return prec.right(choice(
     _exp_unary($, b),
     bin_exp($, b),
     annot_exp($, b),
-  )
+  ))
 }
 
 function mk_exp_unary($, b) {
@@ -245,9 +239,9 @@ function mk_system_exp($, b) {
 
 function mk_bin_exp($, b) {
   return prec.left(seq(
-    bin_exp($, b),
+    _exp_bin($, b),
     choice($.bin_op, $.rel_op),
-    $._typ_no_bin,
+    $._exp_bin_object,
   ))
 }
 
@@ -315,6 +309,20 @@ module.exports = grammar({
     path: $ => seq(
       repeat(seq($.identifier, ".")),
       $.identifier,
+    ),
+    shared_pat: $ => choice(
+      seq(
+        "shared",
+        optional("composite"),
+        optional("query"),
+        optional($._pat_plain),
+      ),
+      seq(
+        optional("shared"),
+        optional("composite"),
+        "query",
+        optional($._pat_plain),
+      )
     ),
 
     unop: $ => choice(
@@ -421,7 +429,8 @@ module.exports = grammar({
       $._typ,
     ),
     func_dec: $ => seq(
-      $._func_init,
+      optional($.shared_pat),
+      "func",
       $.identifier,
       optional($.typ_params),
       $._pat_plain,
@@ -440,9 +449,7 @@ module.exports = grammar({
 
     class_dec: $ => seq(
       optional($.parenthetical),
-      optional("shared"),
-      optional("composite"),
-      optional("query"),
+      optional($.shared_pat),
       optional($.obj_sort),
       "class",
       optional($._type_identifier),
@@ -668,15 +675,9 @@ module.exports = grammar({
       "}",
     ),
 
-    _func_init: $ => seq(
-      optional("shared"),
-      optional("composite"),
-      optional("query"),
-      "func",
-    ),
-
     func_exp: $ => seq(
-      $._func_init,
+      optional($.shared_pat),
+      "func",
       optional($.typ_params),
       $._pat_plain,
       optional($.typ_annot),

@@ -266,6 +266,101 @@
         }
       ]
     },
+    "shared_pat": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "shared"
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "composite"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "query"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_pat_plain"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "shared"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "composite"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "STRING",
+              "value": "query"
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_pat_plain"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
     "unop": {
       "type": "CHOICE",
       "members": [
@@ -662,8 +757,20 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "_func_init"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "shared_pat"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "func"
         },
         {
           "type": "SYMBOL",
@@ -783,32 +890,8 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "STRING",
-              "value": "shared"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "composite"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "query"
+              "type": "SYMBOL",
+              "name": "shared_pat"
             },
             {
               "type": "BLANK"
@@ -1509,38 +1592,46 @@
       ]
     },
     "_exp_bin_block": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "_exp_unary_block"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "bin_exp_block"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "annot_exp_block"
-        }
-      ]
+      "type": "PREC_RIGHT",
+      "value": 0,
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "_exp_unary_block"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "bin_exp_block"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "annot_exp_block"
+          }
+        ]
+      }
     },
     "_exp_bin_object": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "_exp_unary_object"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "bin_exp_object"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "annot_exp_object"
-        }
-      ]
+      "type": "PREC_RIGHT",
+      "value": 0,
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "_exp_unary_object"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "bin_exp_object"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "annot_exp_object"
+          }
+        ]
+      }
     },
     "_exp_nest": {
       "type": "CHOICE",
@@ -2456,39 +2547,15 @@
         }
       ]
     },
-    "_func_init": {
+    "func_exp": {
       "type": "SEQ",
       "members": [
         {
           "type": "CHOICE",
           "members": [
             {
-              "type": "STRING",
-              "value": "shared"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "composite"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "query"
+              "type": "SYMBOL",
+              "name": "shared_pat"
             },
             {
               "type": "BLANK"
@@ -2498,15 +2565,6 @@
         {
           "type": "STRING",
           "value": "func"
-        }
-      ]
-    },
-    "func_exp": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "_func_init"
         },
         {
           "type": "CHOICE",
@@ -2850,7 +2908,7 @@
         "members": [
           {
             "type": "SYMBOL",
-            "name": "bin_exp_block"
+            "name": "_exp_bin_block"
           },
           {
             "type": "CHOICE",
@@ -2867,7 +2925,7 @@
           },
           {
             "type": "SYMBOL",
-            "name": "_typ_no_bin"
+            "name": "_exp_bin_object"
           }
         ]
       }
@@ -2880,7 +2938,7 @@
         "members": [
           {
             "type": "SYMBOL",
-            "name": "bin_exp_object"
+            "name": "_exp_bin_object"
           },
           {
             "type": "CHOICE",
@@ -2897,7 +2955,7 @@
           },
           {
             "type": "SYMBOL",
-            "name": "_typ_no_bin"
+            "name": "_exp_bin_object"
           }
         ]
       }
