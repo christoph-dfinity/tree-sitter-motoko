@@ -1,7 +1,7 @@
 /**
  * @file Motoko grammar for tree-sitter
  * @author Christoph Hegemann <christoph.hegemann@dfinity.org>
- * @license MIT
+ * @license Apache-2.0
  */
 
 /// <reference types="tree-sitter-cli/dsl" />

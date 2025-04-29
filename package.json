@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Motoko grammar for tree-sitter",
   "repository": "https://github.com/tree-sitter/tree-sitter-motoko",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "author": {
     "name": "Christoph Hegemann",
     "email": "christoph.hegemann@dfinity.org"
