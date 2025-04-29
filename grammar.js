@@ -150,7 +150,6 @@ function mk_exp_bin($, b) {
 function mk_exp_unary($, b) {
   return choice(
     _exp_post($, b),
-    // NOTE: I don't think parenthetical should be parameterized
     $.parenthetical_exp,
     $.hash_exp,
     $.quest_exp,
@@ -765,7 +764,7 @@ module.exports = grammar({
 
     parenthetical: $ => seq(
       "(",
-      $._exp_post_object,
+      optional($._exp_post_object),
       "with",
       semi_sep($.exp_field),
       ")",
