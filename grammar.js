@@ -268,7 +268,10 @@ module.exports = grammar({
   conflicts: $ => [[$.var_exp, $.var_pat]],
 
   rules: {
-    source_file: $ => semi_sep($._dec),
+    source_file: $ => seq(
+      semi_sep($.import),
+      semi_sep($._dec),
+    ),
 
     // Comments
     doc_comment: $ => token(seq("///", /[^\n]*/)),
@@ -386,6 +389,16 @@ module.exports = grammar({
       "**",
       "**%",
     ),
+
+    // Imports
+
+    import: $ => seq(
+      "import",
+      $._pat_nullary,
+      optional("="),
+      $.text_literal,
+    ),
+
     // Declarations
     _dec: $ => choice(
       $._dec_non_exp,

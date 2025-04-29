@@ -7627,6 +7627,41 @@
     }
   },
   {
+    "type": "import",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "lit_pat",
+          "named": true
+        },
+        {
+          "type": "obj_pat",
+          "named": true
+        },
+        {
+          "type": "text_literal",
+          "named": true
+        },
+        {
+          "type": "tup_pat",
+          "named": true
+        },
+        {
+          "type": "var_pat",
+          "named": true
+        },
+        {
+          "type": "wild_pat",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "inst",
     "named": true,
     "fields": {},
@@ -10042,6 +10077,10 @@
         },
         {
           "type": "func_dec",
+          "named": true
+        },
+        {
+          "type": "import",
           "named": true
         },
         {
@@ -12567,6 +12606,10 @@
   },
   {
     "type": "ignore",
+    "named": false
+  },
+  {
+    "type": "import",
     "named": false
   },
   {
