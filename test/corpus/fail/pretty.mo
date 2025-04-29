@@ -1,0 +1,1423 @@
+=========
+pretty.mo
+=========
+
+// test pretty printing of small and large types
+type T = { aaaaaaaaaaaaaaaaaaa: Nat;
+           bbbbbbbbbbbbbbbbbbb: Nat;
+           ccccccccccccccccccc: Nat;
+           ddddddddddddddddddd: Nat;
+           eeeeeeeeeeeeeeeeeee: Nat;
+         };
+
+type U = { aaaaaaaaaaaaaaaaaaa: Nat;
+           bbbbbbbbbbbbbbbbbbb: Nat;
+           ccccccccccccccccccc: Nat;
+           ddddddddddddddddddd: Nat;
+           eeeeeeeeeeeeeeeeeee: Nat;
+         } ->
+         { aaaaaaaaaaaaaaaaaaa: Nat;
+           bbbbbbbbbbbbbbbbbbb: Nat;
+           ccccccccccccccccccc: Nat;
+           ddddddddddddddddddd: Nat;
+           eeeeeeeeeeeeeeeeeee: Nat;
+         };
+
+func f(x : T): U { x }; // reject
+
+func g(x : Int) : Nat { x }; // reject
+
+func h(x : Int) : T { x }; // reject
+
+func i(x : T) : Nat { x }; // reject
+
+module LargeModule {
+ public let bar1 = 0;
+ public let bar2 = 0;
+ public let bar3 = 0;
+ public let bar4 = 0;
+ public let bar5 = 0;
+ public let bar6 = 0;
+ public let bar7 = 0;
+ public let bar8 = 0;
+};
+LargeModule.foo; // reject
+
+do {
+   (1,2,3,4,5,6,7,8,9,10,12,13,14,15,16,17,18,19,20) : (); // reject
+};
+
+do {
+   (1,2,3,4,5,6,7,8,9,10,(12,13,14,(15,16,17,18,19,20))) : (); // reject
+};
+
+do {
+   func p<T,U>(x : T, y : U) : (T,U) { (x,y) } ;
+   let p1 = p(#A, #B);
+   p1 : (); // reject
+   let p2 = p(p1, p1);
+   p2 : (); // reject
+   let p3 = p(p2, p2);
+   p3 : (); // reject
+   let p4 = p(p3, p3);
+   p4 : (); // reject
+   let p5 = p(p4, p4);
+   p5 : (); // reject
+};
+
+do {
+   func p<T,U>(x:T, y:U) : {A : T; B : U } { {A = x; B = y} } ;
+   let p1 = p(#A, #B);
+   p1 : (); // reject
+   let p2 = p(p1, p1);
+   p2 : (); // reject
+   let p3 = p(p2, p2);
+   p3 : (); // reject
+   let p4 = p(p3, p3);
+   p4 : (); // reject
+   let p5 = p(p4, p4);
+   p5 : (); // reject
+};
+
+do {
+   func p<T,U>(x:T, y:U) : module {A : T; B : U } { module { public let (A,B) = (x,y)} } ;
+   let p1 = p(#A, #B);
+   p1 : (); // reject
+   let p2 = p(p1, p1);
+   p2 : (); // reject
+   let p3 = p(p2, p2);
+   p3 : (); // reject
+   let p4 = p(p3, p3);
+   p4 : (); // reject
+   let p5 = p(p4, p4);
+   p5 : (); // reject
+};
+
+do {
+   func p<T,U>(f : T->U) : (U->T)->(T->U) { func g {f}; } ;
+   let p1 = p<{#A},{#B}>(func (#A) : {#B} {#B});
+   p1 : (); // reject
+   let p2 = p(p1);
+   p2 : (); // reject
+   let p3 = p(p2);
+   p3 : (); // reject
+   let p4 = p(p3);
+   p4 : (); // reject
+   let p5 = p(p4);
+   p5 : (); // reject
+};
+
+do {
+   func p<T,U>(f : <V>T->U) : <W>(<X>U->T)->(<Y>T->U) { func g {f}; } ;
+   let p1 = p(func<Z>(#A) : {#B} {#B});
+   p1 : (); // reject
+   let p2 = p(p1);
+   p2 : (); // reject
+   let p3 = p(p2);
+   p3 : (); // reject
+   let p4 = p(p3);
+   p4 : (); // reject
+   let p5 = p(p4);
+   p5 : (); // reject
+};
+
+do {
+   func p<T>(x : T) : ?(T,T) { ?(x, x) } ;
+   let p1 = p(1);
+   p1 : (); // reject
+   let p2 = p(p1);
+   p2 : (); // reject
+   let p3 = p(p2);
+   p3 : (); // reject
+   let p4 = p(p3);
+   p4 : (); // reject
+   let p5 = p(p4);
+   p5 : (); // reject
+};
+
+do {
+   func p<T,U>(x:T, y:U): {#A : T; #B : U } { #A x } ;
+   let p1 = p(#Foo, #Bar);
+   p1 : (); // reject
+   let p2 = p(p1, p1);
+   p2 : (); // reject
+   let p3 = p(p2, p2);
+   p3 : (); // reject
+   let p4 = p(p3, p3);
+   p4 : (); // reject
+   let p5 = p(p4, p4);
+   p5 : (); // reject
+};
+
+---
+
+(source_file
+  (line_comment)
+  (typ_dec
+    (type_identifier)
+    (obj_typ
+      (val_tf
+        (identifier)
+        (path_typ
+          (typ_path
+            (type_identifier))))
+      (val_tf
+        (identifier)
+        (path_typ
+          (typ_path
+            (type_identifier))))
+      (val_tf
+        (identifier)
+        (path_typ
+          (typ_path
+            (type_identifier))))
+      (val_tf
+        (identifier)
+        (path_typ
+          (typ_path
+            (type_identifier))))
+      (val_tf
+        (identifier)
+        (path_typ
+          (typ_path
+            (type_identifier))))))
+  (typ_dec
+    (type_identifier)
+    (func_typ
+      (obj_typ
+        (val_tf
+          (identifier)
+          (path_typ
+            (typ_path
+              (type_identifier))))
+        (val_tf
+          (identifier)
+          (path_typ
+            (typ_path
+              (type_identifier))))
+        (val_tf
+          (identifier)
+          (path_typ
+            (typ_path
+              (type_identifier))))
+        (val_tf
+          (identifier)
+          (path_typ
+            (typ_path
+              (type_identifier))))
+        (val_tf
+          (identifier)
+          (path_typ
+            (typ_path
+              (type_identifier)))))
+      (obj_typ
+        (val_tf
+          (identifier)
+          (path_typ
+            (typ_path
+              (type_identifier))))
+        (val_tf
+          (identifier)
+          (path_typ
+            (typ_path
+              (type_identifier))))
+        (val_tf
+          (identifier)
+          (path_typ
+            (typ_path
+              (type_identifier))))
+        (val_tf
+          (identifier)
+          (path_typ
+            (typ_path
+              (type_identifier))))
+        (val_tf
+          (identifier)
+          (path_typ
+            (typ_path
+              (type_identifier)))))))
+  (func_dec
+    (identifier)
+    (tup_pat
+      (annot_pat
+        (var_pat
+          (identifier))
+        (typ_annot
+          (path_typ
+            (typ_path
+              (type_identifier))))))
+    (typ_annot
+      (path_typ
+        (typ_path
+          (type_identifier))))
+    (func_body
+      (block_exp
+        (exp_dec
+          (var_exp
+            (identifier))))))
+  (line_comment)
+  (func_dec
+    (identifier)
+    (tup_pat
+      (annot_pat
+        (var_pat
+          (identifier))
+        (typ_annot
+          (path_typ
+            (typ_path
+              (type_identifier))))))
+    (typ_annot
+      (path_typ
+        (typ_path
+          (type_identifier))))
+    (func_body
+      (block_exp
+        (exp_dec
+          (var_exp
+            (identifier))))))
+  (line_comment)
+  (func_dec
+    (identifier)
+    (tup_pat
+      (annot_pat
+        (var_pat
+          (identifier))
+        (typ_annot
+          (path_typ
+            (typ_path
+              (type_identifier))))))
+    (typ_annot
+      (path_typ
+        (typ_path
+          (type_identifier))))
+    (func_body
+      (block_exp
+        (exp_dec
+          (var_exp
+            (identifier))))))
+  (line_comment)
+  (func_dec
+    (identifier)
+    (tup_pat
+      (annot_pat
+        (var_pat
+          (identifier))
+        (typ_annot
+          (path_typ
+            (typ_path
+              (type_identifier))))))
+    (typ_annot
+      (path_typ
+        (typ_path
+          (type_identifier))))
+    (func_body
+      (block_exp
+        (exp_dec
+          (var_exp
+            (identifier))))))
+  (line_comment)
+  (obj_dec
+    (obj_sort)
+    (identifier)
+    (obj_body
+      (dec_field
+        (vis)
+        (let_dec
+          (var_pat
+            (identifier))
+          (lit_exp
+            (int_literal))))
+      (dec_field
+        (vis)
+        (let_dec
+          (var_pat
+            (identifier))
+          (lit_exp
+            (int_literal))))
+      (dec_field
+        (vis)
+        (let_dec
+          (var_pat
+            (identifier))
+          (lit_exp
+            (int_literal))))
+      (dec_field
+        (vis)
+        (let_dec
+          (var_pat
+            (identifier))
+          (lit_exp
+            (int_literal))))
+      (dec_field
+        (vis)
+        (let_dec
+          (var_pat
+            (identifier))
+          (lit_exp
+            (int_literal))))
+      (dec_field
+        (vis)
+        (let_dec
+          (var_pat
+            (identifier))
+          (lit_exp
+            (int_literal))))
+      (dec_field
+        (vis)
+        (let_dec
+          (var_pat
+            (identifier))
+          (lit_exp
+            (int_literal))))
+      (dec_field
+        (vis)
+        (let_dec
+          (var_pat
+            (identifier))
+          (lit_exp
+            (int_literal))))))
+  (exp_dec
+    (dot_exp_object
+      (var_exp
+        (identifier))
+      (identifier)))
+  (line_comment)
+  (exp_dec
+    (do_exp
+      (block_exp
+        (exp_dec
+          (annot_exp_object
+            (par_exp
+              (lit_exp
+                (int_literal))
+              (lit_exp
+                (int_literal))
+              (lit_exp
+                (int_literal))
+              (lit_exp
+                (int_literal))
+              (lit_exp
+                (int_literal))
+              (lit_exp
+                (int_literal))
+              (lit_exp
+                (int_literal))
+              (lit_exp
+                (int_literal))
+              (lit_exp
+                (int_literal))
+              (lit_exp
+                (int_literal))
+              (lit_exp
+                (int_literal))
+              (lit_exp
+                (int_literal))
+              (lit_exp
+                (int_literal))
+              (lit_exp
+                (int_literal))
+              (lit_exp
+                (int_literal))
+              (lit_exp
+                (int_literal))
+              (lit_exp
+                (int_literal))
+              (lit_exp
+                (int_literal))
+              (lit_exp
+                (int_literal)))
+            (tup_typ)))
+        (line_comment))))
+  (exp_dec
+    (do_exp
+      (block_exp
+        (exp_dec
+          (annot_exp_object
+            (par_exp
+              (lit_exp
+                (int_literal))
+              (lit_exp
+                (int_literal))
+              (lit_exp
+                (int_literal))
+              (lit_exp
+                (int_literal))
+              (lit_exp
+                (int_literal))
+              (lit_exp
+                (int_literal))
+              (lit_exp
+                (int_literal))
+              (lit_exp
+                (int_literal))
+              (lit_exp
+                (int_literal))
+              (lit_exp
+                (int_literal))
+              (par_exp
+                (lit_exp
+                  (int_literal))
+                (lit_exp
+                  (int_literal))
+                (lit_exp
+                  (int_literal))
+                (par_exp
+                  (lit_exp
+                    (int_literal))
+                  (lit_exp
+                    (int_literal))
+                  (lit_exp
+                    (int_literal))
+                  (lit_exp
+                    (int_literal))
+                  (lit_exp
+                    (int_literal))
+                  (lit_exp
+                    (int_literal)))))
+            (tup_typ)))
+        (line_comment))))
+  (exp_dec
+    (do_exp
+      (block_exp
+        (func_dec
+          (identifier)
+          (typ_params
+            (typ_bind
+              (type_identifier))
+            (typ_bind
+              (type_identifier)))
+          (tup_pat
+            (annot_pat
+              (var_pat
+                (identifier))
+              (typ_annot
+                (path_typ
+                  (typ_path
+                    (type_identifier)))))
+            (annot_pat
+              (var_pat
+                (identifier))
+              (typ_annot
+                (path_typ
+                  (typ_path
+                    (type_identifier))))))
+          (typ_annot
+            (tup_typ
+              (typ_item
+                (path_typ
+                  (typ_path
+                    (type_identifier))))
+              (typ_item
+                (path_typ
+                  (typ_path
+                    (type_identifier))))))
+          (func_body
+            (block_exp
+              (exp_dec
+                (par_exp
+                  (var_exp
+                    (identifier))
+                  (var_exp
+                    (identifier)))))))
+        (let_dec
+          (var_pat
+            (identifier))
+          (call_exp_object
+            (var_exp
+              (identifier))
+            (par_exp
+              (hash_exp
+                (identifier))
+              (hash_exp
+                (identifier)))))
+        (exp_dec
+          (annot_exp_object
+            (var_exp
+              (identifier))
+            (tup_typ)))
+        (line_comment)
+        (let_dec
+          (var_pat
+            (identifier))
+          (call_exp_object
+            (var_exp
+              (identifier))
+            (par_exp
+              (var_exp
+                (identifier))
+              (var_exp
+                (identifier)))))
+        (exp_dec
+          (annot_exp_object
+            (var_exp
+              (identifier))
+            (tup_typ)))
+        (line_comment)
+        (let_dec
+          (var_pat
+            (identifier))
+          (call_exp_object
+            (var_exp
+              (identifier))
+            (par_exp
+              (var_exp
+                (identifier))
+              (var_exp
+                (identifier)))))
+        (exp_dec
+          (annot_exp_object
+            (var_exp
+              (identifier))
+            (tup_typ)))
+        (line_comment)
+        (let_dec
+          (var_pat
+            (identifier))
+          (call_exp_object
+            (var_exp
+              (identifier))
+            (par_exp
+              (var_exp
+                (identifier))
+              (var_exp
+                (identifier)))))
+        (exp_dec
+          (annot_exp_object
+            (var_exp
+              (identifier))
+            (tup_typ)))
+        (line_comment)
+        (let_dec
+          (var_pat
+            (identifier))
+          (call_exp_object
+            (var_exp
+              (identifier))
+            (par_exp
+              (var_exp
+                (identifier))
+              (var_exp
+                (identifier)))))
+        (exp_dec
+          (annot_exp_object
+            (var_exp
+              (identifier))
+            (tup_typ)))
+        (line_comment))))
+  (exp_dec
+    (do_exp
+      (block_exp
+        (func_dec
+          (identifier)
+          (typ_params
+            (typ_bind
+              (type_identifier))
+            (typ_bind
+              (type_identifier)))
+          (tup_pat
+            (annot_pat
+              (var_pat
+                (identifier))
+              (typ_annot
+                (path_typ
+                  (typ_path
+                    (type_identifier)))))
+            (annot_pat
+              (var_pat
+                (identifier))
+              (typ_annot
+                (path_typ
+                  (typ_path
+                    (type_identifier))))))
+          (typ_annot
+            (obj_typ
+              (val_tf
+                (identifier)
+                (path_typ
+                  (typ_path
+                    (type_identifier))))
+              (val_tf
+                (identifier)
+                (path_typ
+                  (typ_path
+                    (type_identifier))))))
+          (func_body
+            (block_exp
+              (exp_dec
+                (object_exp
+                  (exp_field
+                    (identifier)
+                    (var_exp
+                      (identifier)))
+                  (exp_field
+                    (identifier)
+                    (var_exp
+                      (identifier))))))))
+        (let_dec
+          (var_pat
+            (identifier))
+          (call_exp_object
+            (var_exp
+              (identifier))
+            (par_exp
+              (hash_exp
+                (identifier))
+              (hash_exp
+                (identifier)))))
+        (exp_dec
+          (annot_exp_object
+            (var_exp
+              (identifier))
+            (tup_typ)))
+        (line_comment)
+        (let_dec
+          (var_pat
+            (identifier))
+          (call_exp_object
+            (var_exp
+              (identifier))
+            (par_exp
+              (var_exp
+                (identifier))
+              (var_exp
+                (identifier)))))
+        (exp_dec
+          (annot_exp_object
+            (var_exp
+              (identifier))
+            (tup_typ)))
+        (line_comment)
+        (let_dec
+          (var_pat
+            (identifier))
+          (call_exp_object
+            (var_exp
+              (identifier))
+            (par_exp
+              (var_exp
+                (identifier))
+              (var_exp
+                (identifier)))))
+        (exp_dec
+          (annot_exp_object
+            (var_exp
+              (identifier))
+            (tup_typ)))
+        (line_comment)
+        (let_dec
+          (var_pat
+            (identifier))
+          (call_exp_object
+            (var_exp
+              (identifier))
+            (par_exp
+              (var_exp
+                (identifier))
+              (var_exp
+                (identifier)))))
+        (exp_dec
+          (annot_exp_object
+            (var_exp
+              (identifier))
+            (tup_typ)))
+        (line_comment)
+        (let_dec
+          (var_pat
+            (identifier))
+          (call_exp_object
+            (var_exp
+              (identifier))
+            (par_exp
+              (var_exp
+                (identifier))
+              (var_exp
+                (identifier)))))
+        (exp_dec
+          (annot_exp_object
+            (var_exp
+              (identifier))
+            (tup_typ)))
+        (line_comment))))
+  (exp_dec
+    (do_exp
+      (block_exp
+        (func_dec
+          (identifier)
+          (typ_params
+            (typ_bind
+              (type_identifier))
+            (typ_bind
+              (type_identifier)))
+          (tup_pat
+            (annot_pat
+              (var_pat
+                (identifier))
+              (typ_annot
+                (path_typ
+                  (typ_path
+                    (type_identifier)))))
+            (annot_pat
+              (var_pat
+                (identifier))
+              (typ_annot
+                (path_typ
+                  (typ_path
+                    (type_identifier))))))
+          (typ_annot
+            (obj_sort_typ
+              (obj_typ
+                (val_tf
+                  (identifier)
+                  (path_typ
+                    (typ_path
+                      (type_identifier))))
+                (val_tf
+                  (identifier)
+                  (path_typ
+                    (typ_path
+                      (type_identifier)))))))
+          (func_body
+            (block_exp
+              (obj_dec
+                (obj_sort)
+                (obj_body
+                  (dec_field
+                    (vis)
+                    (let_dec
+                      (tup_pat
+                        (var_pat
+                          (identifier))
+                        (var_pat
+                          (identifier)))
+                      (par_exp
+                        (var_exp
+                          (identifier))
+                        (var_exp
+                          (identifier))))))))))
+        (let_dec
+          (var_pat
+            (identifier))
+          (call_exp_object
+            (var_exp
+              (identifier))
+            (par_exp
+              (hash_exp
+                (identifier))
+              (hash_exp
+                (identifier)))))
+        (exp_dec
+          (annot_exp_object
+            (var_exp
+              (identifier))
+            (tup_typ)))
+        (line_comment)
+        (let_dec
+          (var_pat
+            (identifier))
+          (call_exp_object
+            (var_exp
+              (identifier))
+            (par_exp
+              (var_exp
+                (identifier))
+              (var_exp
+                (identifier)))))
+        (exp_dec
+          (annot_exp_object
+            (var_exp
+              (identifier))
+            (tup_typ)))
+        (line_comment)
+        (let_dec
+          (var_pat
+            (identifier))
+          (call_exp_object
+            (var_exp
+              (identifier))
+            (par_exp
+              (var_exp
+                (identifier))
+              (var_exp
+                (identifier)))))
+        (exp_dec
+          (annot_exp_object
+            (var_exp
+              (identifier))
+            (tup_typ)))
+        (line_comment)
+        (let_dec
+          (var_pat
+            (identifier))
+          (call_exp_object
+            (var_exp
+              (identifier))
+            (par_exp
+              (var_exp
+                (identifier))
+              (var_exp
+                (identifier)))))
+        (exp_dec
+          (annot_exp_object
+            (var_exp
+              (identifier))
+            (tup_typ)))
+        (line_comment)
+        (let_dec
+          (var_pat
+            (identifier))
+          (call_exp_object
+            (var_exp
+              (identifier))
+            (par_exp
+              (var_exp
+                (identifier))
+              (var_exp
+                (identifier)))))
+        (exp_dec
+          (annot_exp_object
+            (var_exp
+              (identifier))
+            (tup_typ)))
+        (line_comment))))
+  (exp_dec
+    (do_exp
+      (block_exp
+        (func_dec
+          (identifier)
+          (typ_params
+            (typ_bind
+              (type_identifier))
+            (typ_bind
+              (type_identifier)))
+          (tup_pat
+            (annot_pat
+              (var_pat
+                (identifier))
+              (typ_annot
+                (func_typ
+                  (path_typ
+                    (typ_path
+                      (type_identifier)))
+                  (path_typ
+                    (typ_path
+                      (type_identifier)))))))
+          (typ_annot
+            (func_typ
+              (tup_typ
+                (typ_item
+                  (func_typ
+                    (path_typ
+                      (typ_path
+                        (type_identifier)))
+                    (path_typ
+                      (typ_path
+                        (type_identifier))))))
+              (tup_typ
+                (typ_item
+                  (func_typ
+                    (path_typ
+                      (typ_path
+                        (type_identifier)))
+                    (path_typ
+                      (typ_path
+                        (type_identifier))))))))
+          (func_body
+            (block_exp
+              (exp_dec
+                (func_exp
+                  (var_pat
+                    (identifier))
+                  (func_body
+                    (block_exp
+                      (exp_dec
+                        (var_exp
+                          (identifier))))))))))
+        (let_dec
+          (var_pat
+            (identifier))
+          (call_exp_object
+            (var_exp
+              (identifier))
+            (inst
+              (variant_typ
+                (typ_tag
+                  (identifier)))
+              (variant_typ
+                (typ_tag
+                  (identifier))))
+            (par_exp
+              (func_exp
+                (tup_pat
+                  (tag_pat
+                    (identifier)))
+                (typ_annot
+                  (variant_typ
+                    (typ_tag
+                      (identifier))))
+                (func_body
+                  (block_exp
+                    (exp_dec
+                      (hash_exp
+                        (identifier)))))))))
+        (exp_dec
+          (annot_exp_object
+            (var_exp
+              (identifier))
+            (tup_typ)))
+        (line_comment)
+        (let_dec
+          (var_pat
+            (identifier))
+          (call_exp_object
+            (var_exp
+              (identifier))
+            (par_exp
+              (var_exp
+                (identifier)))))
+        (exp_dec
+          (annot_exp_object
+            (var_exp
+              (identifier))
+            (tup_typ)))
+        (line_comment)
+        (let_dec
+          (var_pat
+            (identifier))
+          (call_exp_object
+            (var_exp
+              (identifier))
+            (par_exp
+              (var_exp
+                (identifier)))))
+        (exp_dec
+          (annot_exp_object
+            (var_exp
+              (identifier))
+            (tup_typ)))
+        (line_comment)
+        (let_dec
+          (var_pat
+            (identifier))
+          (call_exp_object
+            (var_exp
+              (identifier))
+            (par_exp
+              (var_exp
+                (identifier)))))
+        (exp_dec
+          (annot_exp_object
+            (var_exp
+              (identifier))
+            (tup_typ)))
+        (line_comment)
+        (let_dec
+          (var_pat
+            (identifier))
+          (call_exp_object
+            (var_exp
+              (identifier))
+            (par_exp
+              (var_exp
+                (identifier)))))
+        (exp_dec
+          (annot_exp_object
+            (var_exp
+              (identifier))
+            (tup_typ)))
+        (line_comment))))
+  (exp_dec
+    (do_exp
+      (block_exp
+        (func_dec
+          (identifier)
+          (typ_params
+            (typ_bind
+              (type_identifier))
+            (typ_bind
+              (type_identifier)))
+          (tup_pat
+            (annot_pat
+              (var_pat
+                (identifier))
+              (typ_annot
+                (func_typ
+                  (typ_params
+                    (typ_bind
+                      (type_identifier)))
+                  (path_typ
+                    (typ_path
+                      (type_identifier)))
+                  (path_typ
+                    (typ_path
+                      (type_identifier)))))))
+          (typ_annot
+            (func_typ
+              (typ_params
+                (typ_bind
+                  (type_identifier)))
+              (tup_typ
+                (typ_item
+                  (func_typ
+                    (typ_params
+                      (typ_bind
+                        (type_identifier)))
+                    (path_typ
+                      (typ_path
+                        (type_identifier)))
+                    (path_typ
+                      (typ_path
+                        (type_identifier))))))
+              (tup_typ
+                (typ_item
+                  (func_typ
+                    (typ_params
+                      (typ_bind
+                        (type_identifier)))
+                    (path_typ
+                      (typ_path
+                        (type_identifier)))
+                    (path_typ
+                      (typ_path
+                        (type_identifier))))))))
+          (func_body
+            (block_exp
+              (exp_dec
+                (func_exp
+                  (var_pat
+                    (identifier))
+                  (func_body
+                    (block_exp
+                      (exp_dec
+                        (var_exp
+                          (identifier))))))))))
+        (let_dec
+          (var_pat
+            (identifier))
+          (call_exp_object
+            (var_exp
+              (identifier))
+            (par_exp
+              (func_exp
+                (typ_params
+                  (typ_bind
+                    (type_identifier)))
+                (tup_pat
+                  (tag_pat
+                    (identifier)))
+                (typ_annot
+                  (variant_typ
+                    (typ_tag
+                      (identifier))))
+                (func_body
+                  (block_exp
+                    (exp_dec
+                      (hash_exp
+                        (identifier)))))))))
+        (exp_dec
+          (annot_exp_object
+            (var_exp
+              (identifier))
+            (tup_typ)))
+        (line_comment)
+        (let_dec
+          (var_pat
+            (identifier))
+          (call_exp_object
+            (var_exp
+              (identifier))
+            (par_exp
+              (var_exp
+                (identifier)))))
+        (exp_dec
+          (annot_exp_object
+            (var_exp
+              (identifier))
+            (tup_typ)))
+        (line_comment)
+        (let_dec
+          (var_pat
+            (identifier))
+          (call_exp_object
+            (var_exp
+              (identifier))
+            (par_exp
+              (var_exp
+                (identifier)))))
+        (exp_dec
+          (annot_exp_object
+            (var_exp
+              (identifier))
+            (tup_typ)))
+        (line_comment)
+        (let_dec
+          (var_pat
+            (identifier))
+          (call_exp_object
+            (var_exp
+              (identifier))
+            (par_exp
+              (var_exp
+                (identifier)))))
+        (exp_dec
+          (annot_exp_object
+            (var_exp
+              (identifier))
+            (tup_typ)))
+        (line_comment)
+        (let_dec
+          (var_pat
+            (identifier))
+          (call_exp_object
+            (var_exp
+              (identifier))
+            (par_exp
+              (var_exp
+                (identifier)))))
+        (exp_dec
+          (annot_exp_object
+            (var_exp
+              (identifier))
+            (tup_typ)))
+        (line_comment))))
+  (exp_dec
+    (do_exp
+      (block_exp
+        (func_dec
+          (identifier)
+          (typ_params
+            (typ_bind
+              (type_identifier)))
+          (tup_pat
+            (annot_pat
+              (var_pat
+                (identifier))
+              (typ_annot
+                (path_typ
+                  (typ_path
+                    (type_identifier))))))
+          (typ_annot
+            (quest_typ
+              (tup_typ
+                (typ_item
+                  (path_typ
+                    (typ_path
+                      (type_identifier))))
+                (typ_item
+                  (path_typ
+                    (typ_path
+                      (type_identifier)))))))
+          (func_body
+            (block_exp
+              (exp_dec
+                (quest_exp
+                  (par_exp
+                    (var_exp
+                      (identifier))
+                    (var_exp
+                      (identifier))))))))
+        (let_dec
+          (var_pat
+            (identifier))
+          (call_exp_object
+            (var_exp
+              (identifier))
+            (par_exp
+              (lit_exp
+                (int_literal)))))
+        (exp_dec
+          (annot_exp_object
+            (var_exp
+              (identifier))
+            (tup_typ)))
+        (line_comment)
+        (let_dec
+          (var_pat
+            (identifier))
+          (call_exp_object
+            (var_exp
+              (identifier))
+            (par_exp
+              (var_exp
+                (identifier)))))
+        (exp_dec
+          (annot_exp_object
+            (var_exp
+              (identifier))
+            (tup_typ)))
+        (line_comment)
+        (let_dec
+          (var_pat
+            (identifier))
+          (call_exp_object
+            (var_exp
+              (identifier))
+            (par_exp
+              (var_exp
+                (identifier)))))
+        (exp_dec
+          (annot_exp_object
+            (var_exp
+              (identifier))
+            (tup_typ)))
+        (line_comment)
+        (let_dec
+          (var_pat
+            (identifier))
+          (call_exp_object
+            (var_exp
+              (identifier))
+            (par_exp
+              (var_exp
+                (identifier)))))
+        (exp_dec
+          (annot_exp_object
+            (var_exp
+              (identifier))
+            (tup_typ)))
+        (line_comment)
+        (let_dec
+          (var_pat
+            (identifier))
+          (call_exp_object
+            (var_exp
+              (identifier))
+            (par_exp
+              (var_exp
+                (identifier)))))
+        (exp_dec
+          (annot_exp_object
+            (var_exp
+              (identifier))
+            (tup_typ)))
+        (line_comment))))
+  (exp_dec
+    (do_exp
+      (block_exp
+        (func_dec
+          (identifier)
+          (typ_params
+            (typ_bind
+              (type_identifier))
+            (typ_bind
+              (type_identifier)))
+          (tup_pat
+            (annot_pat
+              (var_pat
+                (identifier))
+              (typ_annot
+                (path_typ
+                  (typ_path
+                    (type_identifier)))))
+            (annot_pat
+              (var_pat
+                (identifier))
+              (typ_annot
+                (path_typ
+                  (typ_path
+                    (type_identifier))))))
+          (typ_annot
+            (variant_typ
+              (typ_tag
+                (identifier)
+                (typ_annot
+                  (path_typ
+                    (typ_path
+                      (type_identifier)))))
+              (typ_tag
+                (identifier)
+                (typ_annot
+                  (path_typ
+                    (typ_path
+                      (type_identifier)))))))
+          (func_body
+            (block_exp
+              (exp_dec
+                (hash_exp
+                  (identifier)
+                  (var_exp
+                    (identifier)))))))
+        (let_dec
+          (var_pat
+            (identifier))
+          (call_exp_object
+            (var_exp
+              (identifier))
+            (par_exp
+              (hash_exp
+                (identifier))
+              (hash_exp
+                (identifier)))))
+        (exp_dec
+          (annot_exp_object
+            (var_exp
+              (identifier))
+            (tup_typ)))
+        (line_comment)
+        (let_dec
+          (var_pat
+            (identifier))
+          (call_exp_object
+            (var_exp
+              (identifier))
+            (par_exp
+              (var_exp
+                (identifier))
+              (var_exp
+                (identifier)))))
+        (exp_dec
+          (annot_exp_object
+            (var_exp
+              (identifier))
+            (tup_typ)))
+        (line_comment)
+        (let_dec
+          (var_pat
+            (identifier))
+          (call_exp_object
+            (var_exp
+              (identifier))
+            (par_exp
+              (var_exp
+                (identifier))
+              (var_exp
+                (identifier)))))
+        (exp_dec
+          (annot_exp_object
+            (var_exp
+              (identifier))
+            (tup_typ)))
+        (line_comment)
+        (let_dec
+          (var_pat
+            (identifier))
+          (call_exp_object
+            (var_exp
+              (identifier))
+            (par_exp
+              (var_exp
+                (identifier))
+              (var_exp
+                (identifier)))))
+        (exp_dec
+          (annot_exp_object
+            (var_exp
+              (identifier))
+            (tup_typ)))
+        (line_comment)
+        (let_dec
+          (var_pat
+            (identifier))
+          (call_exp_object
+            (var_exp
+              (identifier))
+            (par_exp
+              (var_exp
+                (identifier))
+              (var_exp
+                (identifier)))))
+        (exp_dec
+          (annot_exp_object
+            (var_exp
+              (identifier))
+            (tup_typ)))
+        (line_comment)))))

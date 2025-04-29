@@ -1,0 +1,164 @@
+=========
+argument-subtyping.mo
+=========
+
+// Normal function allow subtyping
+do { func foo(h : Int -> ()) : (Nat -> ()) = h };
+
+// Shared functions do, too
+do { func foo(h : shared Int -> ()) : (shared Nat -> ()) = h };
+
+// The same with abstract types
+do { func foo<A <: {}>(h : {} -> ()) : ({x : Nat} -> ()) = h };
+do { func foo<A <: {}>(h : shared {} -> ()) : (shared {x : Nat} -> ()) = h };
+
+// But not incomaptible types
+do { func foo(h : shared Nat -> ()) : (shared Text -> ()) = h };
+
+---
+
+(source_file
+  (line_comment)
+  (exp_dec
+    (do_exp
+      (block_exp
+        (func_dec
+          (identifier)
+          (tup_pat
+            (annot_pat
+              (var_pat
+                (identifier))
+              (typ_annot
+                (func_typ
+                  (path_typ
+                    (typ_path
+                      (type_identifier)))
+                  (tup_typ)))))
+          (typ_annot
+            (tup_typ
+              (typ_item
+                (func_typ
+                  (path_typ
+                    (typ_path
+                      (type_identifier)))
+                  (tup_typ)))))
+          (func_body
+            (var_exp
+              (identifier)))))))
+  (line_comment)
+  (exp_dec
+    (do_exp
+      (block_exp
+        (func_dec
+          (identifier)
+          (tup_pat
+            (annot_pat
+              (var_pat
+                (identifier))
+              (typ_annot
+                (func_typ
+                  (path_typ
+                    (typ_path
+                      (type_identifier)))
+                  (tup_typ)))))
+          (typ_annot
+            (tup_typ
+              (typ_item
+                (func_typ
+                  (path_typ
+                    (typ_path
+                      (type_identifier)))
+                  (tup_typ)))))
+          (func_body
+            (var_exp
+              (identifier)))))))
+  (line_comment)
+  (exp_dec
+    (do_exp
+      (block_exp
+        (func_dec
+          (identifier)
+          (typ_params
+            (typ_bind
+              (type_identifier)
+              (obj_typ)))
+          (tup_pat
+            (annot_pat
+              (var_pat
+                (identifier))
+              (typ_annot
+                (func_typ
+                  (obj_typ)
+                  (tup_typ)))))
+          (typ_annot
+            (tup_typ
+              (typ_item
+                (func_typ
+                  (obj_typ
+                    (val_tf
+                      (identifier)
+                      (path_typ
+                        (typ_path
+                          (type_identifier)))))
+                  (tup_typ)))))
+          (func_body
+            (var_exp
+              (identifier)))))))
+  (exp_dec
+    (do_exp
+      (block_exp
+        (func_dec
+          (identifier)
+          (typ_params
+            (typ_bind
+              (type_identifier)
+              (obj_typ)))
+          (tup_pat
+            (annot_pat
+              (var_pat
+                (identifier))
+              (typ_annot
+                (func_typ
+                  (obj_typ)
+                  (tup_typ)))))
+          (typ_annot
+            (tup_typ
+              (typ_item
+                (func_typ
+                  (obj_typ
+                    (val_tf
+                      (identifier)
+                      (path_typ
+                        (typ_path
+                          (type_identifier)))))
+                  (tup_typ)))))
+          (func_body
+            (var_exp
+              (identifier)))))))
+  (line_comment)
+  (exp_dec
+    (do_exp
+      (block_exp
+        (func_dec
+          (identifier)
+          (tup_pat
+            (annot_pat
+              (var_pat
+                (identifier))
+              (typ_annot
+                (func_typ
+                  (path_typ
+                    (typ_path
+                      (type_identifier)))
+                  (tup_typ)))))
+          (typ_annot
+            (tup_typ
+              (typ_item
+                (func_typ
+                  (path_typ
+                    (typ_path
+                      (type_identifier)))
+                  (tup_typ)))))
+          (func_body
+            (var_exp
+              (identifier))))))))

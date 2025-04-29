@@ -1,0 +1,926 @@
+=========
+expansive.mo
+=========
+
+do {
+  type C<T> = ?C<T>;  // accept
+};
+
+do {
+  type C<T> = ?(T,C<T>);  // accept
+};
+
+do {
+  type C<T> = {#nil; #cons: (T,C<T>)};  // accept
+};
+
+do {
+  type C<T> = {head:T; next: () -> C<T>};  // accept
+};
+
+do {
+  type C<T,U> = ?C<U,T>;  // accept
+};
+
+do {
+  type C<T,U> = ?D<T,U>;  // accept
+  type D<T,U> = ?C<T,U>;  // accept
+};
+
+do {
+  type C<T,U> = ?D<U,T>;  // accept
+  type D<T,U> = ?C<U,T>;  // accept
+};
+
+do {
+  type C<T> = <A>C<T>->C<T>; // accept
+};
+
+do {
+  type C<T> = ?C< <A>A->A >; // accept
+};
+
+ignore module { // accept
+  public type C<T,U> = ?N.D<T,U>;  // accept
+  public module N = { public type D<T,U> = ?C<T,U>; }
+};
+
+do {
+  type C<T> = {#nil; #cons: (T,C<{#tag: T}>)};  // reject
+};
+
+do {
+  type C<T> = {head:T; next: () -> C<{field: T}>};  // reject
+};
+
+do {
+  type C<T,U> = ?C<(T,T),U>;  // reject
+};
+
+do {
+  type C<T> = ?C<?T>; // reject
+};
+
+do {
+  type C<T> = ?C< <A>T->T >; // reject
+};
+
+do {
+  type C<T,U> = ?D<T,?U>;  // reject
+  type D<T,U> = ?C<T,U>;
+};
+
+do {
+   type P<T> = Nat;
+   do { type C<T> = ?P<C<C<T>>>; } // reject, but would accept after unfolding P (too conservative?)
+};
+
+do {
+   type P<T> = Nat;
+   do { type C<T> = ?C<P<T>>; } // reject, but would accept after unfolding P (too conservative?)
+};
+
+do {
+   type P<T> = Nat;
+   type C<T> = ?P<C<C<T>>>;   // reject, but would accept after unfolding P (too conservative?)
+};
+
+ignore module {
+  public type C<T,U> = ?N.D<T,?U>;  // reject
+  public module N = { public type D<T,U> = ?C<T,U>; }
+};
+
+do {
+  type C<T> = <A <: C<T> >C<T>->C<T>; // accept
+};
+
+do {
+  type C<T> = <A <: C<?T> >C<T>->C<T>; // reject, bad cycle in arrow bounds
+};
+
+do {
+  type C<T <: C<T>> = ?C<T>; // accept
+};
+
+do {
+  type C<T <: C<?T>> = ?C<T>; // reject, too conservative? Cycle is only in parameter bounds...
+};
+
+do {
+  type C<T,U> = ?D<T,?T,Bool,Nat>;  // accept
+  type D<T,U,V,X> = ?C<T,U>;
+};
+
+do {
+  type C<T,U> = ?D<T,?U,Bool,Nat>;  // reject
+  type D<T,U,V,X> = ?C<T,U>;
+};
+
+---
+
+(source_file
+  (exp_dec
+    (do_exp
+      (block_exp
+        (typ_dec
+          (type_identifier)
+          (typ_params
+            (typ_bind
+              (type_identifier)))
+          (quest_typ
+            (path_typ
+              (typ_path
+                (type_identifier))
+              (path_typ
+                (typ_path
+                  (type_identifier))))))
+        (line_comment))))
+  (exp_dec
+    (do_exp
+      (block_exp
+        (typ_dec
+          (type_identifier)
+          (typ_params
+            (typ_bind
+              (type_identifier)))
+          (quest_typ
+            (tup_typ
+              (typ_item
+                (path_typ
+                  (typ_path
+                    (type_identifier))))
+              (typ_item
+                (path_typ
+                  (typ_path
+                    (type_identifier))
+                  (path_typ
+                    (typ_path
+                      (type_identifier))))))))
+        (line_comment))))
+  (exp_dec
+    (do_exp
+      (block_exp
+        (typ_dec
+          (type_identifier)
+          (typ_params
+            (typ_bind
+              (type_identifier)))
+          (variant_typ
+            (typ_tag
+              (identifier))
+            (typ_tag
+              (identifier)
+              (typ_annot
+                (tup_typ
+                  (typ_item
+                    (path_typ
+                      (typ_path
+                        (type_identifier))))
+                  (typ_item
+                    (path_typ
+                      (typ_path
+                        (type_identifier))
+                      (path_typ
+                        (typ_path
+                          (type_identifier))))))))))
+        (line_comment))))
+  (exp_dec
+    (do_exp
+      (block_exp
+        (typ_dec
+          (type_identifier)
+          (typ_params
+            (typ_bind
+              (type_identifier)))
+          (obj_typ
+            (val_tf
+              (identifier)
+              (path_typ
+                (typ_path
+                  (type_identifier))))
+            (val_tf
+              (identifier)
+              (func_typ
+                (tup_typ)
+                (path_typ
+                  (typ_path
+                    (type_identifier))
+                  (path_typ
+                    (typ_path
+                      (type_identifier))))))))
+        (line_comment))))
+  (exp_dec
+    (do_exp
+      (block_exp
+        (typ_dec
+          (type_identifier)
+          (typ_params
+            (typ_bind
+              (type_identifier))
+            (typ_bind
+              (type_identifier)))
+          (quest_typ
+            (path_typ
+              (typ_path
+                (type_identifier))
+              (path_typ
+                (typ_path
+                  (type_identifier)))
+              (path_typ
+                (typ_path
+                  (type_identifier))))))
+        (line_comment))))
+  (exp_dec
+    (do_exp
+      (block_exp
+        (typ_dec
+          (type_identifier)
+          (typ_params
+            (typ_bind
+              (type_identifier))
+            (typ_bind
+              (type_identifier)))
+          (quest_typ
+            (path_typ
+              (typ_path
+                (type_identifier))
+              (path_typ
+                (typ_path
+                  (type_identifier)))
+              (path_typ
+                (typ_path
+                  (type_identifier))))))
+        (line_comment)
+        (typ_dec
+          (type_identifier)
+          (typ_params
+            (typ_bind
+              (type_identifier))
+            (typ_bind
+              (type_identifier)))
+          (quest_typ
+            (path_typ
+              (typ_path
+                (type_identifier))
+              (path_typ
+                (typ_path
+                  (type_identifier)))
+              (path_typ
+                (typ_path
+                  (type_identifier))))))
+        (line_comment))))
+  (exp_dec
+    (do_exp
+      (block_exp
+        (typ_dec
+          (type_identifier)
+          (typ_params
+            (typ_bind
+              (type_identifier))
+            (typ_bind
+              (type_identifier)))
+          (quest_typ
+            (path_typ
+              (typ_path
+                (type_identifier))
+              (path_typ
+                (typ_path
+                  (type_identifier)))
+              (path_typ
+                (typ_path
+                  (type_identifier))))))
+        (line_comment)
+        (typ_dec
+          (type_identifier)
+          (typ_params
+            (typ_bind
+              (type_identifier))
+            (typ_bind
+              (type_identifier)))
+          (quest_typ
+            (path_typ
+              (typ_path
+                (type_identifier))
+              (path_typ
+                (typ_path
+                  (type_identifier)))
+              (path_typ
+                (typ_path
+                  (type_identifier))))))
+        (line_comment))))
+  (exp_dec
+    (do_exp
+      (block_exp
+        (typ_dec
+          (type_identifier)
+          (typ_params
+            (typ_bind
+              (type_identifier)))
+          (func_typ
+            (typ_params
+              (typ_bind
+                (type_identifier)))
+            (path_typ
+              (typ_path
+                (type_identifier))
+              (path_typ
+                (typ_path
+                  (type_identifier))))
+            (path_typ
+              (typ_path
+                (type_identifier))
+              (path_typ
+                (typ_path
+                  (type_identifier))))))
+        (line_comment))))
+  (exp_dec
+    (do_exp
+      (block_exp
+        (typ_dec
+          (type_identifier)
+          (typ_params
+            (typ_bind
+              (type_identifier)))
+          (quest_typ
+            (path_typ
+              (typ_path
+                (type_identifier))
+              (func_typ
+                (typ_params
+                  (typ_bind
+                    (type_identifier)))
+                (path_typ
+                  (typ_path
+                    (type_identifier)))
+                (path_typ
+                  (typ_path
+                    (type_identifier)))))))
+        (line_comment))))
+  (exp_dec
+    (ignore_exp
+      (obj_dec
+        (obj_sort)
+        (obj_body
+          (line_comment)
+          (dec_field
+            (vis)
+            (typ_dec
+              (type_identifier)
+              (typ_params
+                (typ_bind
+                  (type_identifier))
+                (typ_bind
+                  (type_identifier)))
+              (quest_typ
+                (path_typ
+                  (typ_path
+                    (identifier)
+                    (type_identifier))
+                  (path_typ
+                    (typ_path
+                      (type_identifier)))
+                  (path_typ
+                    (typ_path
+                      (type_identifier)))))))
+          (line_comment)
+          (dec_field
+            (vis)
+            (obj_dec
+              (obj_sort)
+              (identifier)
+              (obj_body
+                (dec_field
+                  (vis)
+                  (typ_dec
+                    (type_identifier)
+                    (typ_params
+                      (typ_bind
+                        (type_identifier))
+                      (typ_bind
+                        (type_identifier)))
+                    (quest_typ
+                      (path_typ
+                        (typ_path
+                          (type_identifier))
+                        (path_typ
+                          (typ_path
+                            (type_identifier)))
+                        (path_typ
+                          (typ_path
+                            (type_identifier))))))))))))))
+  (exp_dec
+    (do_exp
+      (block_exp
+        (typ_dec
+          (type_identifier)
+          (typ_params
+            (typ_bind
+              (type_identifier)))
+          (variant_typ
+            (typ_tag
+              (identifier))
+            (typ_tag
+              (identifier)
+              (typ_annot
+                (tup_typ
+                  (typ_item
+                    (path_typ
+                      (typ_path
+                        (type_identifier))))
+                  (typ_item
+                    (path_typ
+                      (typ_path
+                        (type_identifier))
+                      (variant_typ
+                        (typ_tag
+                          (identifier)
+                          (typ_annot
+                            (path_typ
+                              (typ_path
+                                (type_identifier)))))))))))))
+        (line_comment))))
+  (exp_dec
+    (do_exp
+      (block_exp
+        (typ_dec
+          (type_identifier)
+          (typ_params
+            (typ_bind
+              (type_identifier)))
+          (obj_typ
+            (val_tf
+              (identifier)
+              (path_typ
+                (typ_path
+                  (type_identifier))))
+            (val_tf
+              (identifier)
+              (func_typ
+                (tup_typ)
+                (path_typ
+                  (typ_path
+                    (type_identifier))
+                  (obj_typ
+                    (val_tf
+                      (identifier)
+                      (path_typ
+                        (typ_path
+                          (type_identifier))))))))))
+        (line_comment))))
+  (exp_dec
+    (do_exp
+      (block_exp
+        (typ_dec
+          (type_identifier)
+          (typ_params
+            (typ_bind
+              (type_identifier))
+            (typ_bind
+              (type_identifier)))
+          (quest_typ
+            (path_typ
+              (typ_path
+                (type_identifier))
+              (tup_typ
+                (typ_item
+                  (path_typ
+                    (typ_path
+                      (type_identifier))))
+                (typ_item
+                  (path_typ
+                    (typ_path
+                      (type_identifier)))))
+              (path_typ
+                (typ_path
+                  (type_identifier))))))
+        (line_comment))))
+  (exp_dec
+    (do_exp
+      (block_exp
+        (typ_dec
+          (type_identifier)
+          (typ_params
+            (typ_bind
+              (type_identifier)))
+          (quest_typ
+            (path_typ
+              (typ_path
+                (type_identifier))
+              (quest_typ
+                (path_typ
+                  (typ_path
+                    (type_identifier)))))))
+        (line_comment))))
+  (exp_dec
+    (do_exp
+      (block_exp
+        (typ_dec
+          (type_identifier)
+          (typ_params
+            (typ_bind
+              (type_identifier)))
+          (quest_typ
+            (path_typ
+              (typ_path
+                (type_identifier))
+              (func_typ
+                (typ_params
+                  (typ_bind
+                    (type_identifier)))
+                (path_typ
+                  (typ_path
+                    (type_identifier)))
+                (path_typ
+                  (typ_path
+                    (type_identifier)))))))
+        (line_comment))))
+  (exp_dec
+    (do_exp
+      (block_exp
+        (typ_dec
+          (type_identifier)
+          (typ_params
+            (typ_bind
+              (type_identifier))
+            (typ_bind
+              (type_identifier)))
+          (quest_typ
+            (path_typ
+              (typ_path
+                (type_identifier))
+              (path_typ
+                (typ_path
+                  (type_identifier)))
+              (quest_typ
+                (path_typ
+                  (typ_path
+                    (type_identifier)))))))
+        (line_comment)
+        (typ_dec
+          (type_identifier)
+          (typ_params
+            (typ_bind
+              (type_identifier))
+            (typ_bind
+              (type_identifier)))
+          (quest_typ
+            (path_typ
+              (typ_path
+                (type_identifier))
+              (path_typ
+                (typ_path
+                  (type_identifier)))
+              (path_typ
+                (typ_path
+                  (type_identifier)))))))))
+  (exp_dec
+    (do_exp
+      (block_exp
+        (typ_dec
+          (type_identifier)
+          (typ_params
+            (typ_bind
+              (type_identifier)))
+          (path_typ
+            (typ_path
+              (type_identifier))))
+        (exp_dec
+          (do_exp
+            (block_exp
+              (typ_dec
+                (type_identifier)
+                (typ_params
+                  (typ_bind
+                    (type_identifier)))
+                (quest_typ
+                  (path_typ
+                    (typ_path
+                      (type_identifier))
+                    (path_typ
+                      (typ_path
+                        (type_identifier))
+                      (path_typ
+                        (typ_path
+                          (type_identifier))
+                        (path_typ
+                          (typ_path
+                            (type_identifier)))))))))))
+        (line_comment))))
+  (exp_dec
+    (do_exp
+      (block_exp
+        (typ_dec
+          (type_identifier)
+          (typ_params
+            (typ_bind
+              (type_identifier)))
+          (path_typ
+            (typ_path
+              (type_identifier))))
+        (exp_dec
+          (do_exp
+            (block_exp
+              (typ_dec
+                (type_identifier)
+                (typ_params
+                  (typ_bind
+                    (type_identifier)))
+                (quest_typ
+                  (path_typ
+                    (typ_path
+                      (type_identifier))
+                    (path_typ
+                      (typ_path
+                        (type_identifier))
+                      (path_typ
+                        (typ_path
+                          (type_identifier))))))))))
+        (line_comment))))
+  (exp_dec
+    (do_exp
+      (block_exp
+        (typ_dec
+          (type_identifier)
+          (typ_params
+            (typ_bind
+              (type_identifier)))
+          (path_typ
+            (typ_path
+              (type_identifier))))
+        (typ_dec
+          (type_identifier)
+          (typ_params
+            (typ_bind
+              (type_identifier)))
+          (quest_typ
+            (path_typ
+              (typ_path
+                (type_identifier))
+              (path_typ
+                (typ_path
+                  (type_identifier))
+                (path_typ
+                  (typ_path
+                    (type_identifier))
+                  (path_typ
+                    (typ_path
+                      (type_identifier))))))))
+        (line_comment))))
+  (exp_dec
+    (ignore_exp
+      (obj_dec
+        (obj_sort)
+        (obj_body
+          (dec_field
+            (vis)
+            (typ_dec
+              (type_identifier)
+              (typ_params
+                (typ_bind
+                  (type_identifier))
+                (typ_bind
+                  (type_identifier)))
+              (quest_typ
+                (path_typ
+                  (typ_path
+                    (identifier)
+                    (type_identifier))
+                  (path_typ
+                    (typ_path
+                      (type_identifier)))
+                  (quest_typ
+                    (path_typ
+                      (typ_path
+                        (type_identifier))))))))
+          (line_comment)
+          (dec_field
+            (vis)
+            (obj_dec
+              (obj_sort)
+              (identifier)
+              (obj_body
+                (dec_field
+                  (vis)
+                  (typ_dec
+                    (type_identifier)
+                    (typ_params
+                      (typ_bind
+                        (type_identifier))
+                      (typ_bind
+                        (type_identifier)))
+                    (quest_typ
+                      (path_typ
+                        (typ_path
+                          (type_identifier))
+                        (path_typ
+                          (typ_path
+                            (type_identifier)))
+                        (path_typ
+                          (typ_path
+                            (type_identifier))))))))))))))
+  (exp_dec
+    (do_exp
+      (block_exp
+        (typ_dec
+          (type_identifier)
+          (typ_params
+            (typ_bind
+              (type_identifier)))
+          (func_typ
+            (typ_params
+              (typ_bind
+                (type_identifier)
+                (path_typ
+                  (typ_path
+                    (type_identifier))
+                  (path_typ
+                    (typ_path
+                      (type_identifier))))))
+            (path_typ
+              (typ_path
+                (type_identifier))
+              (path_typ
+                (typ_path
+                  (type_identifier))))
+            (path_typ
+              (typ_path
+                (type_identifier))
+              (path_typ
+                (typ_path
+                  (type_identifier))))))
+        (line_comment))))
+  (exp_dec
+    (do_exp
+      (block_exp
+        (typ_dec
+          (type_identifier)
+          (typ_params
+            (typ_bind
+              (type_identifier)))
+          (func_typ
+            (typ_params
+              (typ_bind
+                (type_identifier)
+                (path_typ
+                  (typ_path
+                    (type_identifier))
+                  (quest_typ
+                    (path_typ
+                      (typ_path
+                        (type_identifier)))))))
+            (path_typ
+              (typ_path
+                (type_identifier))
+              (path_typ
+                (typ_path
+                  (type_identifier))))
+            (path_typ
+              (typ_path
+                (type_identifier))
+              (path_typ
+                (typ_path
+                  (type_identifier))))))
+        (line_comment))))
+  (exp_dec
+    (do_exp
+      (block_exp
+        (typ_dec
+          (type_identifier)
+          (typ_params
+            (typ_bind
+              (type_identifier)
+              (path_typ
+                (typ_path
+                  (type_identifier))
+                (path_typ
+                  (typ_path
+                    (type_identifier))))))
+          (quest_typ
+            (path_typ
+              (typ_path
+                (type_identifier))
+              (path_typ
+                (typ_path
+                  (type_identifier))))))
+        (line_comment))))
+  (exp_dec
+    (do_exp
+      (block_exp
+        (typ_dec
+          (type_identifier)
+          (typ_params
+            (typ_bind
+              (type_identifier)
+              (path_typ
+                (typ_path
+                  (type_identifier))
+                (quest_typ
+                  (path_typ
+                    (typ_path
+                      (type_identifier)))))))
+          (quest_typ
+            (path_typ
+              (typ_path
+                (type_identifier))
+              (path_typ
+                (typ_path
+                  (type_identifier))))))
+        (line_comment))))
+  (exp_dec
+    (do_exp
+      (block_exp
+        (typ_dec
+          (type_identifier)
+          (typ_params
+            (typ_bind
+              (type_identifier))
+            (typ_bind
+              (type_identifier)))
+          (quest_typ
+            (path_typ
+              (typ_path
+                (type_identifier))
+              (path_typ
+                (typ_path
+                  (type_identifier)))
+              (quest_typ
+                (path_typ
+                  (typ_path
+                    (type_identifier))))
+              (path_typ
+                (typ_path
+                  (type_identifier)))
+              (path_typ
+                (typ_path
+                  (type_identifier))))))
+        (line_comment)
+        (typ_dec
+          (type_identifier)
+          (typ_params
+            (typ_bind
+              (type_identifier))
+            (typ_bind
+              (type_identifier))
+            (typ_bind
+              (type_identifier))
+            (typ_bind
+              (type_identifier)))
+          (quest_typ
+            (path_typ
+              (typ_path
+                (type_identifier))
+              (path_typ
+                (typ_path
+                  (type_identifier)))
+              (path_typ
+                (typ_path
+                  (type_identifier)))))))))
+  (exp_dec
+    (do_exp
+      (block_exp
+        (typ_dec
+          (type_identifier)
+          (typ_params
+            (typ_bind
+              (type_identifier))
+            (typ_bind
+              (type_identifier)))
+          (quest_typ
+            (path_typ
+              (typ_path
+                (type_identifier))
+              (path_typ
+                (typ_path
+                  (type_identifier)))
+              (quest_typ
+                (path_typ
+                  (typ_path
+                    (type_identifier))))
+              (path_typ
+                (typ_path
+                  (type_identifier)))
+              (path_typ
+                (typ_path
+                  (type_identifier))))))
+        (line_comment)
+        (typ_dec
+          (type_identifier)
+          (typ_params
+            (typ_bind
+              (type_identifier))
+            (typ_bind
+              (type_identifier))
+            (typ_bind
+              (type_identifier))
+            (typ_bind
+              (type_identifier)))
+          (quest_typ
+            (path_typ
+              (typ_path
+                (type_identifier))
+              (path_typ
+                (typ_path
+                  (type_identifier)))
+              (path_typ
+                (typ_path
+                  (type_identifier))))))))))
