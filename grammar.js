@@ -111,6 +111,8 @@ function mk_exp_non_dec($, b) {
     $.return_exp,
     $.async_exp,
     $.asyncstar_exp,
+    $.await_exp,
+    $.awaitstar_exp,
     $.assert_exp,
     $.label_exp,
     $.break_exp,
@@ -218,7 +220,7 @@ function mk_dot_exp($, b) {
 function mk_call_exp($, b) {
   return seq(
     _exp_post($, b),
-    $.inst,
+    optional($.inst),
     $._exp_nullary_object,
   )
 }
@@ -589,6 +591,16 @@ module.exports = grammar({
 
     asyncstar_exp: $ => seq(
       "async*",
+      $._exp_nest,
+    ),
+
+    await_exp: $ => seq(
+      "await",
+      $._exp_nest,
+    ),
+
+    awaitstar_exp: $ => seq(
+      "await*",
       $._exp_nest,
     ),
 

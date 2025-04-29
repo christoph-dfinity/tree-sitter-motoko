@@ -1117,6 +1117,14 @@
         },
         {
           "type": "SYMBOL",
+          "name": "await_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "awaitstar_exp"
+        },
+        {
+          "type": "SYMBOL",
           "name": "assert_exp"
         },
         {
@@ -1207,6 +1215,14 @@
         {
           "type": "SYMBOL",
           "name": "asyncstar_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "await_exp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "awaitstar_exp"
         },
         {
           "type": "SYMBOL",
@@ -2082,6 +2098,32 @@
         }
       ]
     },
+    "await_exp": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "await"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_exp_nest"
+        }
+      ]
+    },
+    "awaitstar_exp": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "await*"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_exp_nest"
+        }
+      ]
+    },
     "assert_exp": {
       "type": "SEQ",
       "members": [
@@ -2674,8 +2716,16 @@
           "name": "_exp_post_block"
         },
         {
-          "type": "SYMBOL",
-          "name": "inst"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "inst"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         },
         {
           "type": "SYMBOL",
@@ -2691,8 +2741,16 @@
           "name": "_exp_post_object"
         },
         {
-          "type": "SYMBOL",
-          "name": "inst"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "inst"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         },
         {
           "type": "SYMBOL",
