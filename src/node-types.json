@@ -6962,7 +6962,7 @@
             "named": true
           },
           {
-            "type": "annot_exp_object",
+            "type": "annot_exp_block",
             "named": true
           },
           {
@@ -6970,7 +6970,7 @@
             "named": true
           },
           {
-            "type": "array_idx_exp_object",
+            "type": "array_idx_exp_block",
             "named": true
           },
           {
@@ -6978,7 +6978,7 @@
             "named": true
           },
           {
-            "type": "assign_exp_object",
+            "type": "assign_exp_block",
             "named": true
           },
           {
@@ -6998,15 +6998,19 @@
             "named": true
           },
           {
-            "type": "bang_exp_object",
+            "type": "bang_exp_block",
             "named": true
           },
           {
-            "type": "bin_exp_object",
+            "type": "bin_exp_block",
             "named": true
           },
           {
-            "type": "binassign_exp_object",
+            "type": "binassign_exp_block",
+            "named": true
+          },
+          {
+            "type": "block_exp",
             "named": true
           },
           {
@@ -7014,7 +7018,7 @@
             "named": true
           },
           {
-            "type": "call_exp_object",
+            "type": "call_exp_block",
             "named": true
           },
           {
@@ -7042,7 +7046,7 @@
             "named": true
           },
           {
-            "type": "dot_exp_object",
+            "type": "dot_exp_block",
             "named": true
           },
           {
@@ -7098,10 +7102,6 @@
             "named": true
           },
           {
-            "type": "object_exp",
-            "named": true
-          },
-          {
             "type": "par_exp",
             "named": true
           },
@@ -7114,7 +7114,7 @@
             "named": true
           },
           {
-            "type": "proj_exp_object",
+            "type": "proj_exp_block",
             "named": true
           },
           {
@@ -7130,7 +7130,7 @@
             "named": true
           },
           {
-            "type": "system_exp_object",
+            "type": "system_exp_block",
             "named": true
           },
           {
@@ -7184,7 +7184,7 @@
             "named": true
           },
           {
-            "type": "annot_exp_object",
+            "type": "annot_exp_block",
             "named": true
           },
           {
@@ -7192,7 +7192,7 @@
             "named": true
           },
           {
-            "type": "array_idx_exp_object",
+            "type": "array_idx_exp_block",
             "named": true
           },
           {
@@ -7200,7 +7200,7 @@
             "named": true
           },
           {
-            "type": "assign_exp_object",
+            "type": "assign_exp_block",
             "named": true
           },
           {
@@ -7220,15 +7220,19 @@
             "named": true
           },
           {
-            "type": "bang_exp_object",
+            "type": "bang_exp_block",
             "named": true
           },
           {
-            "type": "bin_exp_object",
+            "type": "bin_exp_block",
             "named": true
           },
           {
-            "type": "binassign_exp_object",
+            "type": "binassign_exp_block",
+            "named": true
+          },
+          {
+            "type": "block_exp",
             "named": true
           },
           {
@@ -7236,7 +7240,7 @@
             "named": true
           },
           {
-            "type": "call_exp_object",
+            "type": "call_exp_block",
             "named": true
           },
           {
@@ -7264,7 +7268,7 @@
             "named": true
           },
           {
-            "type": "dot_exp_object",
+            "type": "dot_exp_block",
             "named": true
           },
           {
@@ -7320,10 +7324,6 @@
             "named": true
           },
           {
-            "type": "object_exp",
-            "named": true
-          },
-          {
             "type": "par_exp",
             "named": true
           },
@@ -7336,7 +7336,7 @@
             "named": true
           },
           {
-            "type": "proj_exp_object",
+            "type": "proj_exp_block",
             "named": true
           },
           {
@@ -7352,7 +7352,7 @@
             "named": true
           },
           {
-            "type": "system_exp_object",
+            "type": "system_exp_block",
             "named": true
           },
           {
