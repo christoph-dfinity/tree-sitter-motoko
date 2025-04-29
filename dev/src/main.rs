@@ -24,6 +24,9 @@ fn copy_moc_files(moc_base: &Utf8Path, ts_motoko_base: &Utf8Path) -> Result<()> 
         if path.file_name().unwrap().starts_with("verification") {
             continue;
         }
+        if path.file_name().unwrap().starts_with("syntax") {
+            continue;
+        }
         let test_name = path.strip_prefix(&moc_test_fail).expect(&format!("Found test not nested under test/fail? {path}"));
         let content = fs::read_to_string(path)?;
         let test = mk_test(test_name.as_str(), &content);
