@@ -1,7 +1,7 @@
-use std::{fs};
+use std::fs;
 
-use camino::Utf8Path;
 use anyhow::{Context, Result};
+use camino::Utf8Path;
 use walkdir::WalkDir;
 
 /// Tests for parse errors not labeled as syntax-*
@@ -23,52 +23,80 @@ const TEST_FAIL_EXCLUDES: [&str; 15] = [
     "verification-implies.mo",
 ];
 
-fn main() {
+fn main() -> Result<()> {
+    let ts_base = Utf8Path::new("/Users/christoph.hegemann/code/tree-sitter-motoko");
     copy_test_cases(
         Utf8Path::new("/Users/christoph.hegemann/work/motoko/test/fail"),
-        Utf8Path::new("/Users/christoph.hegemann/code/tree-sitter-motoko"),
+        ts_base,
         "fail",
-        &TEST_FAIL_EXCLUDES
-    ).unwrap();
+        &TEST_FAIL_EXCLUDES,
+    )
+    .unwrap();
+
+    copy_test_cases(
+        Utf8Path::new("/Users/christoph.hegemann/work/motoko/test/run"),
+        ts_base,
+        "run",
+        // Contains a random Ctrl character
+        &["menhir-bug.mo"],
+    )
+    .unwrap();
 
     copy_test_cases(
         Utf8Path::new("/Users/christoph.hegemann/work/new-motoko-base/src"),
-        Utf8Path::new("/Users/christoph.hegemann/code/tree-sitter-motoko"),
-        "new-base-src",
+        ts_base,
+        "new-base/src",
         &[],
-    ).unwrap();
+    )?;
 
     copy_test_cases(
         Utf8Path::new("/Users/christoph.hegemann/work/new-motoko-base/test"),
-        Utf8Path::new("/Users/christoph.hegemann/code/tree-sitter-motoko"),
-        "new-base-test",
+        ts_base,
+        "new-base/test",
         &[],
-    ).unwrap();
+    )?;
 
     copy_test_cases(
         Utf8Path::new("/Users/christoph.hegemann/work/new-motoko-base/bench"),
-        Utf8Path::new("/Users/christoph.hegemann/code/tree-sitter-motoko"),
-        "new-base-bench",
+        ts_base,
+        "new-base/bench",
         &[],
-    ).unwrap();
+    )?;
 
     copy_test_cases(
         Utf8Path::new("/Users/christoph.hegemann/code/motoko-snafu/src"),
-        Utf8Path::new("/Users/christoph.hegemann/code/tree-sitter-motoko"),
-        "snafu-src",
+        ts_base,
+        "snafu/src",
         &[],
-    ).unwrap();
+    )?;
 
     copy_test_cases(
         Utf8Path::new("/Users/christoph.hegemann/code/motoko-snafu/test"),
-        Utf8Path::new("/Users/christoph.hegemann/code/tree-sitter-motoko"),
+        ts_base,
+        "snafu/test",
+        &[],
+    )?;
+
+    copy_test_cases(
+        Utf8Path::new("/Users/christoph.hegemann/code/motoko-snafu/test"),
+        ts_base,
         "snafu-test",
         &[],
-    ).unwrap();
+    )?;
+    Ok(())
 }
 
-fn copy_test_cases(mo_base: &Utf8Path, ts_base: &Utf8Path, prefix: &str, excludes: &[&str]) -> Result<()> {
-    let test_dir = ts_base.join("test").join("corpus").join("generated").join(prefix);
+fn copy_test_cases(
+    mo_base: &Utf8Path,
+    ts_base: &Utf8Path,
+    prefix: &str,
+    excludes: &[&str],
+) -> Result<()> {
+    let test_dir = ts_base
+        .join("test")
+        .join("corpus")
+        .join("generated")
+        .join(prefix);
     for entry in WalkDir::new(&mo_base) {
         let entry = entry?;
         let path = Utf8Path::from_path(entry.path()).unwrap();
@@ -86,10 +114,8 @@ fn copy_test_cases(mo_base: &Utf8Path, ts_base: &Utf8Path, prefix: &str, exclude
         fs::create_dir_all(out_path.parent().unwrap())?;
         fs::write(&out_path, test).context(format!("Failed to create test at: {out_path}"))?
     }
-    return Ok(())
+    return Ok(());
 }
-
-
 
 fn mk_test(name: &str, content: &str) -> String {
     format!("=========\n{name}\n=========\n\n{content}\n---\n")

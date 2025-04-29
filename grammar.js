@@ -287,7 +287,12 @@ module.exports = grammar({
     text_literal: $ => /"(?:\\"|[^"])*"/,
     char_literal: $ => /'\\''|'[^']*'/,
     // TODO: scientific notation
-    float_literal: $ => /[+-]?\d+\.\d+/,
+    float_literal: $ => token(choice(
+      /[+-]?[0-9_]+\.[0-9_]*/,
+      /[+-]?[0-9_]+(:?\.[0-9]*)[eE]?[+-]?[0-9_]+/,
+      /[+-]?0x[0-9a-fA-F_]+\.[0-9a-fA-F_]*?/,
+      /[+-]?0x[0-9a-fA-F_]+(:?\.[0-9a-fA-F_]*)?[+-]?[pP][0-9]+/,
+    )),
     int_literal: $ => /[+-]?[0-9_]+/,
     hex_literal: $ => /[+-]?0x[0-9a-fA-F_]+/,
     bool_literal: $ => choice("true", "false"),
@@ -344,7 +349,7 @@ module.exports = grammar({
       "/=",
       "%=",
       "#=",
-      "**-",
+      "**=",
       "+%=",
       "-%=",
       "*%=",
@@ -361,8 +366,8 @@ module.exports = grammar({
     rel_op: $ => choice(
       "==",
       "!=",
-      token(" > "),
-      token(" < "),
+      token(" >"),
+      token(" <"),
       "<=",
       ">=",
       "<<",

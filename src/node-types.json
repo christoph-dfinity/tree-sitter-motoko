@@ -11930,11 +11930,11 @@
     "fields": {}
   },
   {
-    "type": " < ",
+    "type": " <",
     "named": false
   },
   {
-    "type": " > ",
+    "type": " >",
     "named": false
   },
   {
@@ -12006,7 +12006,7 @@
     "named": false
   },
   {
-    "type": "**-",
+    "type": "**=",
     "named": false
   },
   {
