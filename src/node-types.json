@@ -8525,7 +8525,59 @@
       "required": false,
       "types": [
         {
+          "type": "array_exp",
+          "named": true
+        },
+        {
+          "type": "array_idx_exp_object",
+          "named": true
+        },
+        {
+          "type": "bang_exp_object",
+          "named": true
+        },
+        {
+          "type": "call_exp_object",
+          "named": true
+        },
+        {
+          "type": "dot_exp_object",
+          "named": true
+        },
+        {
           "type": "exp_field",
+          "named": true
+        },
+        {
+          "type": "lit_exp",
+          "named": true
+        },
+        {
+          "type": "object_exp",
+          "named": true
+        },
+        {
+          "type": "par_exp",
+          "named": true
+        },
+        {
+          "type": "prim_exp",
+          "named": true
+        },
+        {
+          "type": "proj_exp_object",
+          "named": true
+        },
+        {
+          "type": "system_exp_object",
+          "named": true
+        },
+        {
+          "type": "var_exp",
+          "named": true
+        },
+        {
+          "type": "wild_exp",
           "named": true
         }
       ]

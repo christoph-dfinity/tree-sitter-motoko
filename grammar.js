@@ -359,7 +359,7 @@ module.exports = grammar({
     ),
     rel_op: $ => choice(
       "==",
-      "!-",
+      "!=",
       token(" > "),
       token(" < "),
       "<=",
@@ -537,7 +537,16 @@ module.exports = grammar({
       "{",
       choice(
         semi_sep($.exp_field),
-        // TODO
+        seq(
+          $._exp_post_object,
+          repeat1(seq("and", $._exp_post_object))
+        ),
+        seq(
+          $._exp_post_object,
+          repeat(seq("and", $._exp_post_object)),
+          "with",
+          semi_sep1($.exp_field),
+        ),
       ),
       "}",
     ),
