@@ -4,6 +4,14 @@ use camino::Utf8Path;
 use anyhow::{Context, Result};
 use walkdir::WalkDir;
 
+/// Tests for parse errors not labeled as syntax-*
+const EXCLUDES: [&str; 4] = [
+    "par-bad-asyncstar.mo",
+    "obj-empty-with.mo",
+    "lexer-offset-1504.mo",
+    "multiline-text-line-number.mo",
+];
+
 fn main() {
     copy_moc_files(
         Utf8Path::new("/Users/christoph.hegemann/work/motoko"),
@@ -21,10 +29,14 @@ fn copy_moc_files(moc_base: &Utf8Path, ts_motoko_base: &Utf8Path) -> Result<()> 
         if !path.is_file() || path.extension() != Some("mo") {
             continue;
         }
-        if path.file_name().unwrap().starts_with("verification") {
+        let file_name = path.file_name().unwrap();
+        if file_name.starts_with("verification") {
             continue;
         }
-        if path.file_name().unwrap().starts_with("syntax") {
+        if file_name.starts_with("syntax") {
+            continue;
+        }
+        if EXCLUDES.contains(&file_name) {
             continue;
         }
         let test_name = path.strip_prefix(&moc_test_fail).expect(&format!("Found test not nested under test/fail? {path}"));
