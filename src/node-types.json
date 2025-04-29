@@ -55,6 +55,10 @@
           "named": true
         },
         {
+          "type": "unop_pat",
+          "named": true
+        },
+        {
           "type": "var_pat",
           "named": true
         },
@@ -460,6 +464,10 @@
         },
         {
           "type": "typ_annot",
+          "named": true
+        },
+        {
+          "type": "unop_pat",
           "named": true
         },
         {
@@ -6116,6 +6124,10 @@
           "named": true
         },
         {
+          "type": "unop_pat",
+          "named": true
+        },
+        {
           "type": "var_dec",
           "named": true
         },
@@ -7751,6 +7763,10 @@
           "named": true
         },
         {
+          "type": "unop_pat",
+          "named": true
+        },
+        {
           "type": "var_dec",
           "named": true
         },
@@ -8997,6 +9013,10 @@
         },
         {
           "type": "typ_annot",
+          "named": true
+        },
+        {
+          "type": "unop_pat",
           "named": true
         },
         {
@@ -10652,6 +10672,10 @@
           "named": true
         },
         {
+          "type": "unop_pat",
+          "named": true
+        },
+        {
           "type": "var_pat",
           "named": true
         },
@@ -11274,6 +11298,49 @@
     }
   },
   {
+    "type": "unop_pat",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "bool_literal",
+          "named": true
+        },
+        {
+          "type": "char_literal",
+          "named": true
+        },
+        {
+          "type": "float_literal",
+          "named": true
+        },
+        {
+          "type": "hex_literal",
+          "named": true
+        },
+        {
+          "type": "int_literal",
+          "named": true
+        },
+        {
+          "type": "null_literal",
+          "named": true
+        },
+        {
+          "type": "text_literal",
+          "named": true
+        },
+        {
+          "type": "unop",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "val_tf",
     "named": true,
     "fields": {},
@@ -11879,7 +11946,7 @@
     "named": false
   },
   {
-    "type": "!-",
+    "type": "!=",
     "named": false
   },
   {

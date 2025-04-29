@@ -933,6 +933,7 @@ module.exports = grammar({
       $._pat_un,
       $.alt_pat,
       $.annot_pat,
+      $.unop_pat,
     ),
 
     wild_pat: $ => "_",
@@ -963,6 +964,7 @@ module.exports = grammar({
       $._pat_bin,
     )),
     annot_pat: $ => seq($._pat_bin, $.typ_annot),
+    unop_pat: $ => seq($.unop, $._literal),
     pat_field: $ => seq(
       $.identifier,
       optional($.typ_annot),
