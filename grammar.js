@@ -895,7 +895,7 @@ module.exports = grammar({
       $.identifier,
       optional($.typ_params),
       $._typ_nullary,
-      "=",
+      ":",
       $._typ,
     ),
     typ_params: $ => seq(
