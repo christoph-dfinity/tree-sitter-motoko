@@ -1,0 +1,366 @@
+=========
+Func.test.mo
+=========
+
+import Function "../src/Func";
+import Text "../src/Text";
+import { suite; test; expect } "mo:test";
+
+func isEven(x : Int) : Bool { x % 2 == 0 };
+func not_(x : Bool) : Bool { not x };
+let isOdd = Function.compose<Int, Bool, Bool>(not_, isEven);
+
+suite(
+  "compose",
+  func() {
+    test(
+      "not even is odd",
+      func() {
+        expect.bool(isOdd(0)).equal(false)
+      }
+    );
+
+    test(
+      "one is odd",
+      func() {
+        expect.bool(isOdd(1)).equal(true)
+      }
+    )
+  }
+);
+
+suite(
+  "const",
+  func() {
+    test(
+      "abc is ignored",
+      func() {
+        expect.bool(Function.const<Bool, Text>(true)("abc")).equal(true)
+      }
+    );
+
+    test(
+      "same for flipped const",
+      func() {
+        expect.bool(Function.const<Bool, Text>(false)("abc")).equal(false)
+      }
+    );
+
+    test(
+      "same for structured ignoree",
+      func() {
+        expect.bool(Function.const<Bool, (Text, Text)>(false)("abc", "abc")).equal(false)
+      }
+    )
+  }
+)
+
+---
+
+(source_file
+  (import
+    (var_pat
+      (identifier))
+    (text_literal))
+  (import
+    (var_pat
+      (identifier))
+    (text_literal))
+  (import
+    (obj_pat
+      (pat_field
+        (identifier))
+      (pat_field
+        (identifier))
+      (pat_field
+        (identifier)))
+    (text_literal))
+  (func_dec
+    (identifier)
+    (tup_pat
+      (annot_pat
+        (var_pat
+          (identifier))
+        (typ_annot
+          (path_typ
+            (typ_path
+              (type_identifier))))))
+    (typ_annot
+      (path_typ
+        (typ_path
+          (type_identifier))))
+    (func_body
+      (block_exp
+        (exp_dec
+          (bin_exp_object
+            (bin_exp_object
+              (var_exp
+                (identifier))
+              (bin_op)
+              (lit_exp
+                (int_literal)))
+            (rel_op)
+            (lit_exp
+              (int_literal)))))))
+  (func_dec
+    (identifier)
+    (tup_pat
+      (annot_pat
+        (var_pat
+          (identifier))
+        (typ_annot
+          (path_typ
+            (typ_path
+              (type_identifier))))))
+    (typ_annot
+      (path_typ
+        (typ_path
+          (type_identifier))))
+    (func_body
+      (block_exp
+        (exp_dec
+          (not_exp
+            (var_exp
+              (identifier)))))))
+  (let_dec
+    (var_pat
+      (identifier))
+    (call_exp_object
+      (dot_exp_object
+        (var_exp
+          (identifier))
+        (identifier))
+      (inst
+        (path_typ
+          (typ_path
+            (type_identifier)))
+        (path_typ
+          (typ_path
+            (type_identifier)))
+        (path_typ
+          (typ_path
+            (type_identifier))))
+      (par_exp
+        (var_exp
+          (identifier))
+        (var_exp
+          (identifier)))))
+  (exp_dec
+    (call_exp_object
+      (var_exp
+        (identifier))
+      (par_exp
+        (lit_exp
+          (text_literal))
+        (func_exp
+          (tup_pat)
+          (func_body
+            (block_exp
+              (exp_dec
+                (call_exp_object
+                  (var_exp
+                    (identifier))
+                  (par_exp
+                    (lit_exp
+                      (text_literal))
+                    (func_exp
+                      (tup_pat)
+                      (func_body
+                        (block_exp
+                          (exp_dec
+                            (call_exp_object
+                              (dot_exp_object
+                                (call_exp_object
+                                  (dot_exp_object
+                                    (var_exp
+                                      (identifier))
+                                    (identifier))
+                                  (par_exp
+                                    (call_exp_object
+                                      (var_exp
+                                        (identifier))
+                                      (par_exp
+                                        (lit_exp
+                                          (int_literal))))))
+                                (identifier))
+                              (par_exp
+                                (lit_exp
+                                  (bool_literal)))))))))))
+              (exp_dec
+                (call_exp_object
+                  (var_exp
+                    (identifier))
+                  (par_exp
+                    (lit_exp
+                      (text_literal))
+                    (func_exp
+                      (tup_pat)
+                      (func_body
+                        (block_exp
+                          (exp_dec
+                            (call_exp_object
+                              (dot_exp_object
+                                (call_exp_object
+                                  (dot_exp_object
+                                    (var_exp
+                                      (identifier))
+                                    (identifier))
+                                  (par_exp
+                                    (call_exp_object
+                                      (var_exp
+                                        (identifier))
+                                      (par_exp
+                                        (lit_exp
+                                          (int_literal))))))
+                                (identifier))
+                              (par_exp
+                                (lit_exp
+                                  (bool_literal)))))))))))))))))
+  (exp_dec
+    (call_exp_object
+      (var_exp
+        (identifier))
+      (par_exp
+        (lit_exp
+          (text_literal))
+        (func_exp
+          (tup_pat)
+          (func_body
+            (block_exp
+              (exp_dec
+                (call_exp_object
+                  (var_exp
+                    (identifier))
+                  (par_exp
+                    (lit_exp
+                      (text_literal))
+                    (func_exp
+                      (tup_pat)
+                      (func_body
+                        (block_exp
+                          (exp_dec
+                            (call_exp_object
+                              (dot_exp_object
+                                (call_exp_object
+                                  (dot_exp_object
+                                    (var_exp
+                                      (identifier))
+                                    (identifier))
+                                  (par_exp
+                                    (call_exp_object
+                                      (call_exp_object
+                                        (dot_exp_object
+                                          (var_exp
+                                            (identifier))
+                                          (identifier))
+                                        (inst
+                                          (path_typ
+                                            (typ_path
+                                              (type_identifier)))
+                                          (path_typ
+                                            (typ_path
+                                              (type_identifier))))
+                                        (par_exp
+                                          (lit_exp
+                                            (bool_literal))))
+                                      (par_exp
+                                        (lit_exp
+                                          (text_literal))))))
+                                (identifier))
+                              (par_exp
+                                (lit_exp
+                                  (bool_literal)))))))))))
+              (exp_dec
+                (call_exp_object
+                  (var_exp
+                    (identifier))
+                  (par_exp
+                    (lit_exp
+                      (text_literal))
+                    (func_exp
+                      (tup_pat)
+                      (func_body
+                        (block_exp
+                          (exp_dec
+                            (call_exp_object
+                              (dot_exp_object
+                                (call_exp_object
+                                  (dot_exp_object
+                                    (var_exp
+                                      (identifier))
+                                    (identifier))
+                                  (par_exp
+                                    (call_exp_object
+                                      (call_exp_object
+                                        (dot_exp_object
+                                          (var_exp
+                                            (identifier))
+                                          (identifier))
+                                        (inst
+                                          (path_typ
+                                            (typ_path
+                                              (type_identifier)))
+                                          (path_typ
+                                            (typ_path
+                                              (type_identifier))))
+                                        (par_exp
+                                          (lit_exp
+                                            (bool_literal))))
+                                      (par_exp
+                                        (lit_exp
+                                          (text_literal))))))
+                                (identifier))
+                              (par_exp
+                                (lit_exp
+                                  (bool_literal)))))))))))
+              (exp_dec
+                (call_exp_object
+                  (var_exp
+                    (identifier))
+                  (par_exp
+                    (lit_exp
+                      (text_literal))
+                    (func_exp
+                      (tup_pat)
+                      (func_body
+                        (block_exp
+                          (exp_dec
+                            (call_exp_object
+                              (dot_exp_object
+                                (call_exp_object
+                                  (dot_exp_object
+                                    (var_exp
+                                      (identifier))
+                                    (identifier))
+                                  (par_exp
+                                    (call_exp_object
+                                      (call_exp_object
+                                        (dot_exp_object
+                                          (var_exp
+                                            (identifier))
+                                          (identifier))
+                                        (inst
+                                          (path_typ
+                                            (typ_path
+                                              (type_identifier)))
+                                          (tup_typ
+                                            (typ_item
+                                              (path_typ
+                                                (typ_path
+                                                  (type_identifier))))
+                                            (typ_item
+                                              (path_typ
+                                                (typ_path
+                                                  (type_identifier))))))
+                                        (par_exp
+                                          (lit_exp
+                                            (bool_literal))))
+                                      (par_exp
+                                        (lit_exp
+                                          (text_literal))
+                                        (lit_exp
+                                          (text_literal))))))
+                                (identifier))
+                              (par_exp
+                                (lit_exp
+                                  (bool_literal))))))))))))))))))
