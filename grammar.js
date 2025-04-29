@@ -527,13 +527,11 @@ module.exports = grammar({
     var_exp: $ => $.identifier,
     if_exp: $ => prec.right(seq(
       "if",
-      "(",
-      field("cond", $._exp_object),
-      ")",
-      field("then", $._exp_nest),
+      $._exp_nullary_object,
+      $._exp_nest,
       optional(seq(
         "else",
-        field("else", $._exp_nest),
+        $._exp_nest,
       ))
     )),
     object_exp: $ => seq(

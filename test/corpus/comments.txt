@@ -94,16 +94,18 @@ let x = if (true) 20 else 30 else 40;
     (var_pat
       (identifier))
     (if_exp
-      (lit_exp
-        (bool_literal))
+      (par_exp
+        (lit_exp
+          (bool_literal)))
       (lit_exp
         (int_literal))))
   (let_dec
     (var_pat
       (identifier))
     (if_exp
-      (lit_exp
-        (bool_literal))
+      (par_exp
+        (lit_exp
+          (bool_literal)))
       (lit_exp
         (int_literal))
       (lit_exp
@@ -112,13 +114,15 @@ let x = if (true) 20 else 30 else 40;
     (var_pat
       (identifier))
     (if_exp
-      (lit_exp
-        (bool_literal))
+      (par_exp
+        (lit_exp
+          (bool_literal)))
       (lit_exp
         (int_literal))
       (if_exp
-        (lit_exp
-          (bool_literal))
+        (par_exp
+          (lit_exp
+            (bool_literal)))
         (lit_exp
           (int_literal))
         (lit_exp
@@ -129,8 +133,9 @@ let x = if (true) 20 else 30 else 40;
         (identifier))
       (par_exp
         (if_exp
-          (lit_exp
-            (bool_literal))
+          (par_exp
+            (lit_exp
+              (bool_literal)))
           (lit_exp
             (int_literal)))))
     (lit_exp
@@ -140,8 +145,9 @@ let x = if (true) 20 else 30 else 40;
       (var_pat
         (identifier))
       (if_exp
-        (lit_exp
-          (bool_literal))
+        (par_exp
+          (lit_exp
+            (bool_literal)))
         (lit_exp
           (int_literal))
         (lit_exp
