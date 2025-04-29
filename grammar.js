@@ -366,12 +366,12 @@ module.exports = grammar({
     rel_op: $ => choice(
       "==",
       "!=",
-      token(" >"),
-      token(" <"),
+      ">",
+      "<",
       "<=",
       ">=",
       "<<",
-      token(" >>"),
+      ">>",
       "<<>",
       "<>>",
     ),
@@ -761,7 +761,7 @@ module.exports = grammar({
     ),
 
     inst: $ => seq(
-      "<",
+      token.immediate("<"),
       optional("system"),
       comma_sep($._typ),
       ">",
@@ -826,7 +826,7 @@ module.exports = grammar({
     path_typ: $ => seq(
       $.typ_path,
       optional(seq(
-        "<",
+        token.immediate("<"),
         comma_sep($._typ),
         ">",
       )),
