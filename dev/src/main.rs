@@ -51,10 +51,24 @@ fn main() {
         "new-base-bench",
         &[],
     ).unwrap();
+
+    copy_test_cases(
+        Utf8Path::new("/Users/christoph.hegemann/code/motoko-snafu/src"),
+        Utf8Path::new("/Users/christoph.hegemann/code/tree-sitter-motoko"),
+        "snafu-src",
+        &[],
+    ).unwrap();
+
+    copy_test_cases(
+        Utf8Path::new("/Users/christoph.hegemann/code/motoko-snafu/test"),
+        Utf8Path::new("/Users/christoph.hegemann/code/tree-sitter-motoko"),
+        "snafu-test",
+        &[],
+    ).unwrap();
 }
 
 fn copy_test_cases(mo_base: &Utf8Path, ts_base: &Utf8Path, prefix: &str, excludes: &[&str]) -> Result<()> {
-    let test_dir = ts_base.join("test").join("corpus").join(prefix);
+    let test_dir = ts_base.join("test").join("corpus").join("generated").join(prefix);
     for entry in WalkDir::new(&mo_base) {
         let entry = entry?;
         let path = Utf8Path::from_path(entry.path()).unwrap();
@@ -62,12 +76,6 @@ fn copy_test_cases(mo_base: &Utf8Path, ts_base: &Utf8Path, prefix: &str, exclude
             continue;
         }
         let file_name = path.file_name().unwrap();
-        // if file_name.starts_with("verification") {
-        //     continue;
-        // }
-        // if file_name.starts_with("syntax") {
-        //     continue;
-        // }
         if excludes.contains(&file_name) {
             continue;
         }
