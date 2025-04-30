@@ -94,10 +94,6 @@
           "named": true
         },
         {
-          "type": "obj_sort_typ",
-          "named": true
-        },
-        {
           "type": "obj_typ",
           "named": true
         },
@@ -198,10 +194,6 @@
         },
         {
           "type": "not_exp",
-          "named": true
-        },
-        {
-          "type": "obj_sort_typ",
           "named": true
         },
         {
@@ -345,10 +337,6 @@
         },
         {
           "type": "not_exp",
-          "named": true
-        },
-        {
-          "type": "obj_sort_typ",
           "named": true
         },
         {
@@ -1208,10 +1196,6 @@
         },
         {
           "type": "func_typ",
-          "named": true
-        },
-        {
-          "type": "obj_sort_typ",
           "named": true
         },
         {
@@ -2206,10 +2190,6 @@
           "named": true
         },
         {
-          "type": "obj_sort_typ",
-          "named": true
-        },
-        {
           "type": "obj_typ",
           "named": true
         },
@@ -3042,149 +3022,226 @@
   {
     "type": "bin_exp_block",
     "named": true,
-    "fields": {},
+    "fields": {
+      "left": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "actor_exp",
+            "named": true
+          },
+          {
+            "type": "annot_exp_block",
+            "named": true
+          },
+          {
+            "type": "array_exp",
+            "named": true
+          },
+          {
+            "type": "array_idx_exp_block",
+            "named": true
+          },
+          {
+            "type": "bang_exp_block",
+            "named": true
+          },
+          {
+            "type": "bin_exp_block",
+            "named": true
+          },
+          {
+            "type": "call_exp_block",
+            "named": true
+          },
+          {
+            "type": "debug_show_exp",
+            "named": true
+          },
+          {
+            "type": "dot_exp_block",
+            "named": true
+          },
+          {
+            "type": "from_candid_exp",
+            "named": true
+          },
+          {
+            "type": "hash_exp",
+            "named": true
+          },
+          {
+            "type": "lit_exp",
+            "named": true
+          },
+          {
+            "type": "not_exp",
+            "named": true
+          },
+          {
+            "type": "par_exp",
+            "named": true
+          },
+          {
+            "type": "parenthetical_exp",
+            "named": true
+          },
+          {
+            "type": "prim_exp",
+            "named": true
+          },
+          {
+            "type": "proj_exp_block",
+            "named": true
+          },
+          {
+            "type": "quest_exp",
+            "named": true
+          },
+          {
+            "type": "system_exp_block",
+            "named": true
+          },
+          {
+            "type": "to_candid_exp",
+            "named": true
+          },
+          {
+            "type": "unassign_exp",
+            "named": true
+          },
+          {
+            "type": "unop_exp",
+            "named": true
+          },
+          {
+            "type": "var_exp",
+            "named": true
+          },
+          {
+            "type": "wild_exp",
+            "named": true
+          }
+        ]
+      },
+      "right": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "actor_exp",
+            "named": true
+          },
+          {
+            "type": "annot_exp_object",
+            "named": true
+          },
+          {
+            "type": "array_exp",
+            "named": true
+          },
+          {
+            "type": "array_idx_exp_object",
+            "named": true
+          },
+          {
+            "type": "bang_exp_object",
+            "named": true
+          },
+          {
+            "type": "bin_exp_object",
+            "named": true
+          },
+          {
+            "type": "call_exp_object",
+            "named": true
+          },
+          {
+            "type": "debug_show_exp",
+            "named": true
+          },
+          {
+            "type": "dot_exp_object",
+            "named": true
+          },
+          {
+            "type": "from_candid_exp",
+            "named": true
+          },
+          {
+            "type": "hash_exp",
+            "named": true
+          },
+          {
+            "type": "lit_exp",
+            "named": true
+          },
+          {
+            "type": "not_exp",
+            "named": true
+          },
+          {
+            "type": "object_exp",
+            "named": true
+          },
+          {
+            "type": "par_exp",
+            "named": true
+          },
+          {
+            "type": "parenthetical_exp",
+            "named": true
+          },
+          {
+            "type": "prim_exp",
+            "named": true
+          },
+          {
+            "type": "proj_exp_object",
+            "named": true
+          },
+          {
+            "type": "quest_exp",
+            "named": true
+          },
+          {
+            "type": "system_exp_object",
+            "named": true
+          },
+          {
+            "type": "to_candid_exp",
+            "named": true
+          },
+          {
+            "type": "unassign_exp",
+            "named": true
+          },
+          {
+            "type": "unop_exp",
+            "named": true
+          },
+          {
+            "type": "var_exp",
+            "named": true
+          },
+          {
+            "type": "wild_exp",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
-        {
-          "type": "actor_exp",
-          "named": true
-        },
-        {
-          "type": "annot_exp_block",
-          "named": true
-        },
-        {
-          "type": "annot_exp_object",
-          "named": true
-        },
-        {
-          "type": "array_exp",
-          "named": true
-        },
-        {
-          "type": "array_idx_exp_block",
-          "named": true
-        },
-        {
-          "type": "array_idx_exp_object",
-          "named": true
-        },
-        {
-          "type": "bang_exp_block",
-          "named": true
-        },
-        {
-          "type": "bang_exp_object",
-          "named": true
-        },
-        {
-          "type": "bin_exp_block",
-          "named": true
-        },
-        {
-          "type": "bin_exp_object",
-          "named": true
-        },
         {
           "type": "bin_op",
           "named": true
         },
         {
-          "type": "call_exp_block",
-          "named": true
-        },
-        {
-          "type": "call_exp_object",
-          "named": true
-        },
-        {
-          "type": "debug_show_exp",
-          "named": true
-        },
-        {
-          "type": "dot_exp_block",
-          "named": true
-        },
-        {
-          "type": "dot_exp_object",
-          "named": true
-        },
-        {
-          "type": "from_candid_exp",
-          "named": true
-        },
-        {
-          "type": "hash_exp",
-          "named": true
-        },
-        {
-          "type": "lit_exp",
-          "named": true
-        },
-        {
-          "type": "not_exp",
-          "named": true
-        },
-        {
-          "type": "object_exp",
-          "named": true
-        },
-        {
-          "type": "par_exp",
-          "named": true
-        },
-        {
-          "type": "parenthetical_exp",
-          "named": true
-        },
-        {
-          "type": "prim_exp",
-          "named": true
-        },
-        {
-          "type": "proj_exp_block",
-          "named": true
-        },
-        {
-          "type": "proj_exp_object",
-          "named": true
-        },
-        {
-          "type": "quest_exp",
-          "named": true
-        },
-        {
           "type": "rel_op",
-          "named": true
-        },
-        {
-          "type": "system_exp_block",
-          "named": true
-        },
-        {
-          "type": "system_exp_object",
-          "named": true
-        },
-        {
-          "type": "to_candid_exp",
-          "named": true
-        },
-        {
-          "type": "unassign_exp",
-          "named": true
-        },
-        {
-          "type": "unop_exp",
-          "named": true
-        },
-        {
-          "type": "var_exp",
-          "named": true
-        },
-        {
-          "type": "wild_exp",
           "named": true
         }
       ]
@@ -3193,117 +3250,230 @@
   {
     "type": "bin_exp_object",
     "named": true,
-    "fields": {},
+    "fields": {
+      "left": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "actor_exp",
+            "named": true
+          },
+          {
+            "type": "annot_exp_object",
+            "named": true
+          },
+          {
+            "type": "array_exp",
+            "named": true
+          },
+          {
+            "type": "array_idx_exp_object",
+            "named": true
+          },
+          {
+            "type": "bang_exp_object",
+            "named": true
+          },
+          {
+            "type": "bin_exp_object",
+            "named": true
+          },
+          {
+            "type": "call_exp_object",
+            "named": true
+          },
+          {
+            "type": "debug_show_exp",
+            "named": true
+          },
+          {
+            "type": "dot_exp_object",
+            "named": true
+          },
+          {
+            "type": "from_candid_exp",
+            "named": true
+          },
+          {
+            "type": "hash_exp",
+            "named": true
+          },
+          {
+            "type": "lit_exp",
+            "named": true
+          },
+          {
+            "type": "not_exp",
+            "named": true
+          },
+          {
+            "type": "object_exp",
+            "named": true
+          },
+          {
+            "type": "par_exp",
+            "named": true
+          },
+          {
+            "type": "parenthetical_exp",
+            "named": true
+          },
+          {
+            "type": "prim_exp",
+            "named": true
+          },
+          {
+            "type": "proj_exp_object",
+            "named": true
+          },
+          {
+            "type": "quest_exp",
+            "named": true
+          },
+          {
+            "type": "system_exp_object",
+            "named": true
+          },
+          {
+            "type": "to_candid_exp",
+            "named": true
+          },
+          {
+            "type": "unassign_exp",
+            "named": true
+          },
+          {
+            "type": "unop_exp",
+            "named": true
+          },
+          {
+            "type": "var_exp",
+            "named": true
+          },
+          {
+            "type": "wild_exp",
+            "named": true
+          }
+        ]
+      },
+      "right": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "actor_exp",
+            "named": true
+          },
+          {
+            "type": "annot_exp_object",
+            "named": true
+          },
+          {
+            "type": "array_exp",
+            "named": true
+          },
+          {
+            "type": "array_idx_exp_object",
+            "named": true
+          },
+          {
+            "type": "bang_exp_object",
+            "named": true
+          },
+          {
+            "type": "bin_exp_object",
+            "named": true
+          },
+          {
+            "type": "call_exp_object",
+            "named": true
+          },
+          {
+            "type": "debug_show_exp",
+            "named": true
+          },
+          {
+            "type": "dot_exp_object",
+            "named": true
+          },
+          {
+            "type": "from_candid_exp",
+            "named": true
+          },
+          {
+            "type": "hash_exp",
+            "named": true
+          },
+          {
+            "type": "lit_exp",
+            "named": true
+          },
+          {
+            "type": "not_exp",
+            "named": true
+          },
+          {
+            "type": "object_exp",
+            "named": true
+          },
+          {
+            "type": "par_exp",
+            "named": true
+          },
+          {
+            "type": "parenthetical_exp",
+            "named": true
+          },
+          {
+            "type": "prim_exp",
+            "named": true
+          },
+          {
+            "type": "proj_exp_object",
+            "named": true
+          },
+          {
+            "type": "quest_exp",
+            "named": true
+          },
+          {
+            "type": "system_exp_object",
+            "named": true
+          },
+          {
+            "type": "to_candid_exp",
+            "named": true
+          },
+          {
+            "type": "unassign_exp",
+            "named": true
+          },
+          {
+            "type": "unop_exp",
+            "named": true
+          },
+          {
+            "type": "var_exp",
+            "named": true
+          },
+          {
+            "type": "wild_exp",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
-        {
-          "type": "actor_exp",
-          "named": true
-        },
-        {
-          "type": "annot_exp_object",
-          "named": true
-        },
-        {
-          "type": "array_exp",
-          "named": true
-        },
-        {
-          "type": "array_idx_exp_object",
-          "named": true
-        },
-        {
-          "type": "bang_exp_object",
-          "named": true
-        },
-        {
-          "type": "bin_exp_object",
-          "named": true
-        },
         {
           "type": "bin_op",
           "named": true
         },
         {
-          "type": "call_exp_object",
-          "named": true
-        },
-        {
-          "type": "debug_show_exp",
-          "named": true
-        },
-        {
-          "type": "dot_exp_object",
-          "named": true
-        },
-        {
-          "type": "from_candid_exp",
-          "named": true
-        },
-        {
-          "type": "hash_exp",
-          "named": true
-        },
-        {
-          "type": "lit_exp",
-          "named": true
-        },
-        {
-          "type": "not_exp",
-          "named": true
-        },
-        {
-          "type": "object_exp",
-          "named": true
-        },
-        {
-          "type": "par_exp",
-          "named": true
-        },
-        {
-          "type": "parenthetical_exp",
-          "named": true
-        },
-        {
-          "type": "prim_exp",
-          "named": true
-        },
-        {
-          "type": "proj_exp_object",
-          "named": true
-        },
-        {
-          "type": "quest_exp",
-          "named": true
-        },
-        {
           "type": "rel_op",
-          "named": true
-        },
-        {
-          "type": "system_exp_object",
-          "named": true
-        },
-        {
-          "type": "to_candid_exp",
-          "named": true
-        },
-        {
-          "type": "unassign_exp",
-          "named": true
-        },
-        {
-          "type": "unop_exp",
-          "named": true
-        },
-        {
-          "type": "var_exp",
-          "named": true
-        },
-        {
-          "type": "wild_exp",
           "named": true
         }
       ]
@@ -4544,7 +4714,7 @@
     }
   },
   {
-    "type": "class_body",
+    "type": "class_dec",
     "named": true,
     "fields": {},
     "children": {
@@ -4556,38 +4726,15 @@
           "named": true
         },
         {
-          "type": "obj_body",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "class_dec",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "class_body",
-          "named": true
-        },
-        {
           "type": "lit_pat",
           "named": true
         },
         {
-          "type": "obj_sort",
+          "type": "obj_body",
           "named": true
         },
         {
           "type": "parenthetical",
-          "named": true
-        },
-        {
-          "type": "shared_pat",
           "named": true
         },
         {
@@ -4972,7 +5119,7 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
@@ -5000,19 +5147,11 @@
           "named": true
         },
         {
-          "type": "stab",
-          "named": true
-        },
-        {
           "type": "typ_dec",
           "named": true
         },
         {
           "type": "var_dec",
-          "named": true
-        },
-        {
-          "type": "vis",
           "named": true
         }
       ]
@@ -5846,25 +5985,458 @@
   {
     "type": "for_exp",
     "named": true,
-    "fields": {},
+    "fields": {
+      "body": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "actor_exp",
+            "named": true
+          },
+          {
+            "type": "annot_exp_block",
+            "named": true
+          },
+          {
+            "type": "array_exp",
+            "named": true
+          },
+          {
+            "type": "array_idx_exp_block",
+            "named": true
+          },
+          {
+            "type": "assert_exp",
+            "named": true
+          },
+          {
+            "type": "assign_exp_block",
+            "named": true
+          },
+          {
+            "type": "async_exp",
+            "named": true
+          },
+          {
+            "type": "asyncstar_exp",
+            "named": true
+          },
+          {
+            "type": "await_exp",
+            "named": true
+          },
+          {
+            "type": "awaitstar_exp",
+            "named": true
+          },
+          {
+            "type": "bang_exp_block",
+            "named": true
+          },
+          {
+            "type": "bin_exp_block",
+            "named": true
+          },
+          {
+            "type": "binassign_exp_block",
+            "named": true
+          },
+          {
+            "type": "block_exp",
+            "named": true
+          },
+          {
+            "type": "break_exp",
+            "named": true
+          },
+          {
+            "type": "call_exp_block",
+            "named": true
+          },
+          {
+            "type": "class_dec",
+            "named": true
+          },
+          {
+            "type": "continue_exp",
+            "named": true
+          },
+          {
+            "type": "debug_exp",
+            "named": true
+          },
+          {
+            "type": "debug_show_exp",
+            "named": true
+          },
+          {
+            "type": "do_exp",
+            "named": true
+          },
+          {
+            "type": "do_quest_exp",
+            "named": true
+          },
+          {
+            "type": "dot_exp_block",
+            "named": true
+          },
+          {
+            "type": "for_exp",
+            "named": true
+          },
+          {
+            "type": "from_candid_exp",
+            "named": true
+          },
+          {
+            "type": "func_dec",
+            "named": true
+          },
+          {
+            "type": "func_exp",
+            "named": true
+          },
+          {
+            "type": "hash_exp",
+            "named": true
+          },
+          {
+            "type": "if_exp",
+            "named": true
+          },
+          {
+            "type": "ignore_exp",
+            "named": true
+          },
+          {
+            "type": "label_exp",
+            "named": true
+          },
+          {
+            "type": "let_dec",
+            "named": true
+          },
+          {
+            "type": "lit_exp",
+            "named": true
+          },
+          {
+            "type": "loop_exp",
+            "named": true
+          },
+          {
+            "type": "not_exp",
+            "named": true
+          },
+          {
+            "type": "obj_dec",
+            "named": true
+          },
+          {
+            "type": "par_exp",
+            "named": true
+          },
+          {
+            "type": "parenthetical_exp",
+            "named": true
+          },
+          {
+            "type": "prim_exp",
+            "named": true
+          },
+          {
+            "type": "proj_exp_block",
+            "named": true
+          },
+          {
+            "type": "quest_exp",
+            "named": true
+          },
+          {
+            "type": "return_exp",
+            "named": true
+          },
+          {
+            "type": "switch_exp",
+            "named": true
+          },
+          {
+            "type": "system_exp_block",
+            "named": true
+          },
+          {
+            "type": "throw_exp",
+            "named": true
+          },
+          {
+            "type": "to_candid_exp",
+            "named": true
+          },
+          {
+            "type": "try_exp",
+            "named": true
+          },
+          {
+            "type": "typ_dec",
+            "named": true
+          },
+          {
+            "type": "unassign_exp",
+            "named": true
+          },
+          {
+            "type": "unop_exp",
+            "named": true
+          },
+          {
+            "type": "var_dec",
+            "named": true
+          },
+          {
+            "type": "var_exp",
+            "named": true
+          },
+          {
+            "type": "while_exp",
+            "named": true
+          },
+          {
+            "type": "wild_exp",
+            "named": true
+          }
+        ]
+      },
+      "iterator": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "actor_exp",
+            "named": true
+          },
+          {
+            "type": "annot_exp_object",
+            "named": true
+          },
+          {
+            "type": "array_exp",
+            "named": true
+          },
+          {
+            "type": "array_idx_exp_object",
+            "named": true
+          },
+          {
+            "type": "assert_exp",
+            "named": true
+          },
+          {
+            "type": "assign_exp_object",
+            "named": true
+          },
+          {
+            "type": "async_exp",
+            "named": true
+          },
+          {
+            "type": "asyncstar_exp",
+            "named": true
+          },
+          {
+            "type": "await_exp",
+            "named": true
+          },
+          {
+            "type": "awaitstar_exp",
+            "named": true
+          },
+          {
+            "type": "bang_exp_object",
+            "named": true
+          },
+          {
+            "type": "bin_exp_object",
+            "named": true
+          },
+          {
+            "type": "binassign_exp_object",
+            "named": true
+          },
+          {
+            "type": "break_exp",
+            "named": true
+          },
+          {
+            "type": "call_exp_object",
+            "named": true
+          },
+          {
+            "type": "class_dec",
+            "named": true
+          },
+          {
+            "type": "continue_exp",
+            "named": true
+          },
+          {
+            "type": "debug_exp",
+            "named": true
+          },
+          {
+            "type": "debug_show_exp",
+            "named": true
+          },
+          {
+            "type": "do_exp",
+            "named": true
+          },
+          {
+            "type": "do_quest_exp",
+            "named": true
+          },
+          {
+            "type": "dot_exp_object",
+            "named": true
+          },
+          {
+            "type": "for_exp",
+            "named": true
+          },
+          {
+            "type": "from_candid_exp",
+            "named": true
+          },
+          {
+            "type": "func_dec",
+            "named": true
+          },
+          {
+            "type": "func_exp",
+            "named": true
+          },
+          {
+            "type": "hash_exp",
+            "named": true
+          },
+          {
+            "type": "if_exp",
+            "named": true
+          },
+          {
+            "type": "ignore_exp",
+            "named": true
+          },
+          {
+            "type": "label_exp",
+            "named": true
+          },
+          {
+            "type": "let_dec",
+            "named": true
+          },
+          {
+            "type": "lit_exp",
+            "named": true
+          },
+          {
+            "type": "loop_exp",
+            "named": true
+          },
+          {
+            "type": "not_exp",
+            "named": true
+          },
+          {
+            "type": "obj_dec",
+            "named": true
+          },
+          {
+            "type": "object_exp",
+            "named": true
+          },
+          {
+            "type": "par_exp",
+            "named": true
+          },
+          {
+            "type": "parenthetical_exp",
+            "named": true
+          },
+          {
+            "type": "prim_exp",
+            "named": true
+          },
+          {
+            "type": "proj_exp_object",
+            "named": true
+          },
+          {
+            "type": "quest_exp",
+            "named": true
+          },
+          {
+            "type": "return_exp",
+            "named": true
+          },
+          {
+            "type": "switch_exp",
+            "named": true
+          },
+          {
+            "type": "system_exp_object",
+            "named": true
+          },
+          {
+            "type": "throw_exp",
+            "named": true
+          },
+          {
+            "type": "to_candid_exp",
+            "named": true
+          },
+          {
+            "type": "try_exp",
+            "named": true
+          },
+          {
+            "type": "typ_dec",
+            "named": true
+          },
+          {
+            "type": "unassign_exp",
+            "named": true
+          },
+          {
+            "type": "unop_exp",
+            "named": true
+          },
+          {
+            "type": "var_dec",
+            "named": true
+          },
+          {
+            "type": "var_exp",
+            "named": true
+          },
+          {
+            "type": "while_exp",
+            "named": true
+          },
+          {
+            "type": "wild_exp",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
-      "multiple": true,
-      "required": true,
+      "multiple": false,
+      "required": false,
       "types": [
         {
-          "type": "actor_exp",
-          "named": true
-        },
-        {
           "type": "alt_pat",
-          "named": true
-        },
-        {
-          "type": "annot_exp_block",
-          "named": true
-        },
-        {
-          "type": "annot_exp_object",
           "named": true
         },
         {
@@ -5872,171 +6444,7 @@
           "named": true
         },
         {
-          "type": "array_exp",
-          "named": true
-        },
-        {
-          "type": "array_idx_exp_block",
-          "named": true
-        },
-        {
-          "type": "array_idx_exp_object",
-          "named": true
-        },
-        {
-          "type": "assert_exp",
-          "named": true
-        },
-        {
-          "type": "assign_exp_block",
-          "named": true
-        },
-        {
-          "type": "assign_exp_object",
-          "named": true
-        },
-        {
-          "type": "async_exp",
-          "named": true
-        },
-        {
-          "type": "asyncstar_exp",
-          "named": true
-        },
-        {
-          "type": "await_exp",
-          "named": true
-        },
-        {
-          "type": "awaitstar_exp",
-          "named": true
-        },
-        {
-          "type": "bang_exp_block",
-          "named": true
-        },
-        {
-          "type": "bang_exp_object",
-          "named": true
-        },
-        {
-          "type": "bin_exp_block",
-          "named": true
-        },
-        {
-          "type": "bin_exp_object",
-          "named": true
-        },
-        {
-          "type": "binassign_exp_block",
-          "named": true
-        },
-        {
-          "type": "binassign_exp_object",
-          "named": true
-        },
-        {
-          "type": "block_exp",
-          "named": true
-        },
-        {
-          "type": "break_exp",
-          "named": true
-        },
-        {
-          "type": "call_exp_block",
-          "named": true
-        },
-        {
-          "type": "call_exp_object",
-          "named": true
-        },
-        {
-          "type": "class_dec",
-          "named": true
-        },
-        {
-          "type": "continue_exp",
-          "named": true
-        },
-        {
-          "type": "debug_exp",
-          "named": true
-        },
-        {
-          "type": "debug_show_exp",
-          "named": true
-        },
-        {
-          "type": "do_exp",
-          "named": true
-        },
-        {
-          "type": "do_quest_exp",
-          "named": true
-        },
-        {
-          "type": "dot_exp_block",
-          "named": true
-        },
-        {
-          "type": "dot_exp_object",
-          "named": true
-        },
-        {
-          "type": "for_exp",
-          "named": true
-        },
-        {
-          "type": "from_candid_exp",
-          "named": true
-        },
-        {
-          "type": "func_dec",
-          "named": true
-        },
-        {
-          "type": "func_exp",
-          "named": true
-        },
-        {
-          "type": "hash_exp",
-          "named": true
-        },
-        {
-          "type": "if_exp",
-          "named": true
-        },
-        {
-          "type": "ignore_exp",
-          "named": true
-        },
-        {
-          "type": "label_exp",
-          "named": true
-        },
-        {
-          "type": "let_dec",
-          "named": true
-        },
-        {
-          "type": "lit_exp",
-          "named": true
-        },
-        {
           "type": "lit_pat",
-          "named": true
-        },
-        {
-          "type": "loop_exp",
-          "named": true
-        },
-        {
-          "type": "not_exp",
-          "named": true
-        },
-        {
-          "type": "obj_dec",
           "named": true
         },
         {
@@ -6044,51 +6452,7 @@
           "named": true
         },
         {
-          "type": "object_exp",
-          "named": true
-        },
-        {
-          "type": "par_exp",
-          "named": true
-        },
-        {
-          "type": "parenthetical_exp",
-          "named": true
-        },
-        {
-          "type": "prim_exp",
-          "named": true
-        },
-        {
-          "type": "proj_exp_block",
-          "named": true
-        },
-        {
-          "type": "proj_exp_object",
-          "named": true
-        },
-        {
-          "type": "quest_exp",
-          "named": true
-        },
-        {
           "type": "quest_pat",
-          "named": true
-        },
-        {
-          "type": "return_exp",
-          "named": true
-        },
-        {
-          "type": "switch_exp",
-          "named": true
-        },
-        {
-          "type": "system_exp_block",
-          "named": true
-        },
-        {
-          "type": "system_exp_object",
           "named": true
         },
         {
@@ -6096,31 +6460,7 @@
           "named": true
         },
         {
-          "type": "throw_exp",
-          "named": true
-        },
-        {
-          "type": "to_candid_exp",
-          "named": true
-        },
-        {
-          "type": "try_exp",
-          "named": true
-        },
-        {
           "type": "tup_pat",
-          "named": true
-        },
-        {
-          "type": "typ_dec",
-          "named": true
-        },
-        {
-          "type": "unassign_exp",
-          "named": true
-        },
-        {
-          "type": "unop_exp",
           "named": true
         },
         {
@@ -6128,23 +6468,7 @@
           "named": true
         },
         {
-          "type": "var_dec",
-          "named": true
-        },
-        {
-          "type": "var_exp",
-          "named": true
-        },
-        {
           "type": "var_pat",
-          "named": true
-        },
-        {
-          "type": "while_exp",
-          "named": true
-        },
-        {
-          "type": "wild_exp",
           "named": true
         },
         {
@@ -6258,270 +6582,302 @@
     }
   },
   {
-    "type": "func_body",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "actor_exp",
-          "named": true
-        },
-        {
-          "type": "annot_exp_object",
-          "named": true
-        },
-        {
-          "type": "array_exp",
-          "named": true
-        },
-        {
-          "type": "array_idx_exp_object",
-          "named": true
-        },
-        {
-          "type": "assert_exp",
-          "named": true
-        },
-        {
-          "type": "assign_exp_object",
-          "named": true
-        },
-        {
-          "type": "async_exp",
-          "named": true
-        },
-        {
-          "type": "asyncstar_exp",
-          "named": true
-        },
-        {
-          "type": "await_exp",
-          "named": true
-        },
-        {
-          "type": "awaitstar_exp",
-          "named": true
-        },
-        {
-          "type": "bang_exp_object",
-          "named": true
-        },
-        {
-          "type": "bin_exp_object",
-          "named": true
-        },
-        {
-          "type": "binassign_exp_object",
-          "named": true
-        },
-        {
-          "type": "block_exp",
-          "named": true
-        },
-        {
-          "type": "break_exp",
-          "named": true
-        },
-        {
-          "type": "call_exp_object",
-          "named": true
-        },
-        {
-          "type": "class_dec",
-          "named": true
-        },
-        {
-          "type": "continue_exp",
-          "named": true
-        },
-        {
-          "type": "debug_exp",
-          "named": true
-        },
-        {
-          "type": "debug_show_exp",
-          "named": true
-        },
-        {
-          "type": "do_exp",
-          "named": true
-        },
-        {
-          "type": "do_quest_exp",
-          "named": true
-        },
-        {
-          "type": "dot_exp_object",
-          "named": true
-        },
-        {
-          "type": "for_exp",
-          "named": true
-        },
-        {
-          "type": "from_candid_exp",
-          "named": true
-        },
-        {
-          "type": "func_dec",
-          "named": true
-        },
-        {
-          "type": "func_exp",
-          "named": true
-        },
-        {
-          "type": "hash_exp",
-          "named": true
-        },
-        {
-          "type": "if_exp",
-          "named": true
-        },
-        {
-          "type": "ignore_exp",
-          "named": true
-        },
-        {
-          "type": "label_exp",
-          "named": true
-        },
-        {
-          "type": "let_dec",
-          "named": true
-        },
-        {
-          "type": "lit_exp",
-          "named": true
-        },
-        {
-          "type": "loop_exp",
-          "named": true
-        },
-        {
-          "type": "not_exp",
-          "named": true
-        },
-        {
-          "type": "obj_dec",
-          "named": true
-        },
-        {
-          "type": "object_exp",
-          "named": true
-        },
-        {
-          "type": "par_exp",
-          "named": true
-        },
-        {
-          "type": "parenthetical_exp",
-          "named": true
-        },
-        {
-          "type": "prim_exp",
-          "named": true
-        },
-        {
-          "type": "proj_exp_object",
-          "named": true
-        },
-        {
-          "type": "quest_exp",
-          "named": true
-        },
-        {
-          "type": "return_exp",
-          "named": true
-        },
-        {
-          "type": "switch_exp",
-          "named": true
-        },
-        {
-          "type": "system_exp_object",
-          "named": true
-        },
-        {
-          "type": "throw_exp",
-          "named": true
-        },
-        {
-          "type": "to_candid_exp",
-          "named": true
-        },
-        {
-          "type": "try_exp",
-          "named": true
-        },
-        {
-          "type": "typ_dec",
-          "named": true
-        },
-        {
-          "type": "unassign_exp",
-          "named": true
-        },
-        {
-          "type": "unop_exp",
-          "named": true
-        },
-        {
-          "type": "var_dec",
-          "named": true
-        },
-        {
-          "type": "var_exp",
-          "named": true
-        },
-        {
-          "type": "while_exp",
-          "named": true
-        },
-        {
-          "type": "wild_exp",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "func_dec",
     "named": true,
-    "fields": {},
+    "fields": {
+      "body": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "=",
+            "named": false
+          },
+          {
+            "type": "actor_exp",
+            "named": true
+          },
+          {
+            "type": "annot_exp_object",
+            "named": true
+          },
+          {
+            "type": "array_exp",
+            "named": true
+          },
+          {
+            "type": "array_idx_exp_object",
+            "named": true
+          },
+          {
+            "type": "assert_exp",
+            "named": true
+          },
+          {
+            "type": "assign_exp_object",
+            "named": true
+          },
+          {
+            "type": "async_exp",
+            "named": true
+          },
+          {
+            "type": "asyncstar_exp",
+            "named": true
+          },
+          {
+            "type": "await_exp",
+            "named": true
+          },
+          {
+            "type": "awaitstar_exp",
+            "named": true
+          },
+          {
+            "type": "bang_exp_object",
+            "named": true
+          },
+          {
+            "type": "bin_exp_object",
+            "named": true
+          },
+          {
+            "type": "binassign_exp_object",
+            "named": true
+          },
+          {
+            "type": "block_exp",
+            "named": true
+          },
+          {
+            "type": "break_exp",
+            "named": true
+          },
+          {
+            "type": "call_exp_object",
+            "named": true
+          },
+          {
+            "type": "class_dec",
+            "named": true
+          },
+          {
+            "type": "continue_exp",
+            "named": true
+          },
+          {
+            "type": "debug_exp",
+            "named": true
+          },
+          {
+            "type": "debug_show_exp",
+            "named": true
+          },
+          {
+            "type": "do_exp",
+            "named": true
+          },
+          {
+            "type": "do_quest_exp",
+            "named": true
+          },
+          {
+            "type": "dot_exp_object",
+            "named": true
+          },
+          {
+            "type": "for_exp",
+            "named": true
+          },
+          {
+            "type": "from_candid_exp",
+            "named": true
+          },
+          {
+            "type": "func_dec",
+            "named": true
+          },
+          {
+            "type": "func_exp",
+            "named": true
+          },
+          {
+            "type": "hash_exp",
+            "named": true
+          },
+          {
+            "type": "if_exp",
+            "named": true
+          },
+          {
+            "type": "ignore_exp",
+            "named": true
+          },
+          {
+            "type": "label_exp",
+            "named": true
+          },
+          {
+            "type": "let_dec",
+            "named": true
+          },
+          {
+            "type": "lit_exp",
+            "named": true
+          },
+          {
+            "type": "loop_exp",
+            "named": true
+          },
+          {
+            "type": "not_exp",
+            "named": true
+          },
+          {
+            "type": "obj_dec",
+            "named": true
+          },
+          {
+            "type": "object_exp",
+            "named": true
+          },
+          {
+            "type": "par_exp",
+            "named": true
+          },
+          {
+            "type": "parenthetical_exp",
+            "named": true
+          },
+          {
+            "type": "prim_exp",
+            "named": true
+          },
+          {
+            "type": "proj_exp_object",
+            "named": true
+          },
+          {
+            "type": "quest_exp",
+            "named": true
+          },
+          {
+            "type": "return_exp",
+            "named": true
+          },
+          {
+            "type": "switch_exp",
+            "named": true
+          },
+          {
+            "type": "system_exp_object",
+            "named": true
+          },
+          {
+            "type": "throw_exp",
+            "named": true
+          },
+          {
+            "type": "to_candid_exp",
+            "named": true
+          },
+          {
+            "type": "try_exp",
+            "named": true
+          },
+          {
+            "type": "typ_dec",
+            "named": true
+          },
+          {
+            "type": "unassign_exp",
+            "named": true
+          },
+          {
+            "type": "unop_exp",
+            "named": true
+          },
+          {
+            "type": "var_dec",
+            "named": true
+          },
+          {
+            "type": "var_exp",
+            "named": true
+          },
+          {
+            "type": "while_exp",
+            "named": true
+          },
+          {
+            "type": "wild_exp",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "params": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "lit_pat",
+            "named": true
+          },
+          {
+            "type": "tup_pat",
+            "named": true
+          },
+          {
+            "type": "var_pat",
+            "named": true
+          },
+          {
+            "type": "wild_pat",
+            "named": true
+          }
+        ]
+      },
+      "return_ty": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "typ_annot",
+            "named": true
+          }
+        ]
+      },
+      "typ_params": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "typ_params",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
-      "multiple": true,
-      "required": true,
+      "multiple": false,
+      "required": false,
       "types": [
-        {
-          "type": "func_body",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
         {
           "type": "lit_pat",
           "named": true
         },
         {
-          "type": "shared_pat",
-          "named": true
-        },
-        {
           "type": "tup_pat",
-          "named": true
-        },
-        {
-          "type": "typ_annot",
-          "named": true
-        },
-        {
-          "type": "typ_params",
           "named": true
         },
         {
@@ -6538,33 +6894,290 @@
   {
     "type": "func_exp",
     "named": true,
-    "fields": {},
+    "fields": {
+      "body": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "=",
+            "named": false
+          },
+          {
+            "type": "actor_exp",
+            "named": true
+          },
+          {
+            "type": "annot_exp_object",
+            "named": true
+          },
+          {
+            "type": "array_exp",
+            "named": true
+          },
+          {
+            "type": "array_idx_exp_object",
+            "named": true
+          },
+          {
+            "type": "assert_exp",
+            "named": true
+          },
+          {
+            "type": "assign_exp_object",
+            "named": true
+          },
+          {
+            "type": "async_exp",
+            "named": true
+          },
+          {
+            "type": "asyncstar_exp",
+            "named": true
+          },
+          {
+            "type": "await_exp",
+            "named": true
+          },
+          {
+            "type": "awaitstar_exp",
+            "named": true
+          },
+          {
+            "type": "bang_exp_object",
+            "named": true
+          },
+          {
+            "type": "bin_exp_object",
+            "named": true
+          },
+          {
+            "type": "binassign_exp_object",
+            "named": true
+          },
+          {
+            "type": "block_exp",
+            "named": true
+          },
+          {
+            "type": "break_exp",
+            "named": true
+          },
+          {
+            "type": "call_exp_object",
+            "named": true
+          },
+          {
+            "type": "class_dec",
+            "named": true
+          },
+          {
+            "type": "continue_exp",
+            "named": true
+          },
+          {
+            "type": "debug_exp",
+            "named": true
+          },
+          {
+            "type": "debug_show_exp",
+            "named": true
+          },
+          {
+            "type": "do_exp",
+            "named": true
+          },
+          {
+            "type": "do_quest_exp",
+            "named": true
+          },
+          {
+            "type": "dot_exp_object",
+            "named": true
+          },
+          {
+            "type": "for_exp",
+            "named": true
+          },
+          {
+            "type": "from_candid_exp",
+            "named": true
+          },
+          {
+            "type": "func_dec",
+            "named": true
+          },
+          {
+            "type": "func_exp",
+            "named": true
+          },
+          {
+            "type": "hash_exp",
+            "named": true
+          },
+          {
+            "type": "if_exp",
+            "named": true
+          },
+          {
+            "type": "ignore_exp",
+            "named": true
+          },
+          {
+            "type": "label_exp",
+            "named": true
+          },
+          {
+            "type": "let_dec",
+            "named": true
+          },
+          {
+            "type": "lit_exp",
+            "named": true
+          },
+          {
+            "type": "loop_exp",
+            "named": true
+          },
+          {
+            "type": "not_exp",
+            "named": true
+          },
+          {
+            "type": "obj_dec",
+            "named": true
+          },
+          {
+            "type": "object_exp",
+            "named": true
+          },
+          {
+            "type": "par_exp",
+            "named": true
+          },
+          {
+            "type": "parenthetical_exp",
+            "named": true
+          },
+          {
+            "type": "prim_exp",
+            "named": true
+          },
+          {
+            "type": "proj_exp_object",
+            "named": true
+          },
+          {
+            "type": "quest_exp",
+            "named": true
+          },
+          {
+            "type": "return_exp",
+            "named": true
+          },
+          {
+            "type": "switch_exp",
+            "named": true
+          },
+          {
+            "type": "system_exp_object",
+            "named": true
+          },
+          {
+            "type": "throw_exp",
+            "named": true
+          },
+          {
+            "type": "to_candid_exp",
+            "named": true
+          },
+          {
+            "type": "try_exp",
+            "named": true
+          },
+          {
+            "type": "typ_dec",
+            "named": true
+          },
+          {
+            "type": "unassign_exp",
+            "named": true
+          },
+          {
+            "type": "unop_exp",
+            "named": true
+          },
+          {
+            "type": "var_dec",
+            "named": true
+          },
+          {
+            "type": "var_exp",
+            "named": true
+          },
+          {
+            "type": "while_exp",
+            "named": true
+          },
+          {
+            "type": "wild_exp",
+            "named": true
+          }
+        ]
+      },
+      "params": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "lit_pat",
+            "named": true
+          },
+          {
+            "type": "tup_pat",
+            "named": true
+          },
+          {
+            "type": "var_pat",
+            "named": true
+          },
+          {
+            "type": "wild_pat",
+            "named": true
+          }
+        ]
+      },
+      "return_ty": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "typ_annot",
+            "named": true
+          }
+        ]
+      },
+      "typ_params": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "typ_params",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
-      "multiple": true,
-      "required": true,
+      "multiple": false,
+      "required": false,
       "types": [
-        {
-          "type": "func_body",
-          "named": true
-        },
         {
           "type": "lit_pat",
           "named": true
         },
         {
-          "type": "shared_pat",
-          "named": true
-        },
-        {
           "type": "tup_pat",
-          "named": true
-        },
-        {
-          "type": "typ_annot",
-          "named": true
-        },
-        {
-          "type": "typ_params",
           "named": true
         },
         {
@@ -6604,10 +7217,6 @@
         },
         {
           "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "obj_sort_typ",
           "named": true
         },
         {
@@ -6663,10 +7272,6 @@
         },
         {
           "type": "func_typ",
-          "named": true
-        },
-        {
-          "type": "obj_sort_typ",
           "named": true
         },
         {
@@ -6742,232 +7347,481 @@
   {
     "type": "if_exp",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "actor_exp",
-          "named": true
-        },
-        {
-          "type": "annot_exp_block",
-          "named": true
-        },
-        {
-          "type": "array_exp",
-          "named": true
-        },
-        {
-          "type": "array_idx_exp_block",
-          "named": true
-        },
-        {
-          "type": "assert_exp",
-          "named": true
-        },
-        {
-          "type": "assign_exp_block",
-          "named": true
-        },
-        {
-          "type": "async_exp",
-          "named": true
-        },
-        {
-          "type": "asyncstar_exp",
-          "named": true
-        },
-        {
-          "type": "await_exp",
-          "named": true
-        },
-        {
-          "type": "awaitstar_exp",
-          "named": true
-        },
-        {
-          "type": "bang_exp_block",
-          "named": true
-        },
-        {
-          "type": "bin_exp_block",
-          "named": true
-        },
-        {
-          "type": "binassign_exp_block",
-          "named": true
-        },
-        {
-          "type": "block_exp",
-          "named": true
-        },
-        {
-          "type": "break_exp",
-          "named": true
-        },
-        {
-          "type": "call_exp_block",
-          "named": true
-        },
-        {
-          "type": "class_dec",
-          "named": true
-        },
-        {
-          "type": "continue_exp",
-          "named": true
-        },
-        {
-          "type": "debug_exp",
-          "named": true
-        },
-        {
-          "type": "debug_show_exp",
-          "named": true
-        },
-        {
-          "type": "do_exp",
-          "named": true
-        },
-        {
-          "type": "do_quest_exp",
-          "named": true
-        },
-        {
-          "type": "dot_exp_block",
-          "named": true
-        },
-        {
-          "type": "for_exp",
-          "named": true
-        },
-        {
-          "type": "from_candid_exp",
-          "named": true
-        },
-        {
-          "type": "func_dec",
-          "named": true
-        },
-        {
-          "type": "func_exp",
-          "named": true
-        },
-        {
-          "type": "hash_exp",
-          "named": true
-        },
-        {
-          "type": "if_exp",
-          "named": true
-        },
-        {
-          "type": "ignore_exp",
-          "named": true
-        },
-        {
-          "type": "label_exp",
-          "named": true
-        },
-        {
-          "type": "let_dec",
-          "named": true
-        },
-        {
-          "type": "lit_exp",
-          "named": true
-        },
-        {
-          "type": "loop_exp",
-          "named": true
-        },
-        {
-          "type": "not_exp",
-          "named": true
-        },
-        {
-          "type": "obj_dec",
-          "named": true
-        },
-        {
-          "type": "object_exp",
-          "named": true
-        },
-        {
-          "type": "par_exp",
-          "named": true
-        },
-        {
-          "type": "parenthetical_exp",
-          "named": true
-        },
-        {
-          "type": "prim_exp",
-          "named": true
-        },
-        {
-          "type": "proj_exp_block",
-          "named": true
-        },
-        {
-          "type": "quest_exp",
-          "named": true
-        },
-        {
-          "type": "return_exp",
-          "named": true
-        },
-        {
-          "type": "switch_exp",
-          "named": true
-        },
-        {
-          "type": "system_exp_block",
-          "named": true
-        },
-        {
-          "type": "throw_exp",
-          "named": true
-        },
-        {
-          "type": "to_candid_exp",
-          "named": true
-        },
-        {
-          "type": "try_exp",
-          "named": true
-        },
-        {
-          "type": "typ_dec",
-          "named": true
-        },
-        {
-          "type": "unassign_exp",
-          "named": true
-        },
-        {
-          "type": "unop_exp",
-          "named": true
-        },
-        {
-          "type": "var_dec",
-          "named": true
-        },
-        {
-          "type": "var_exp",
-          "named": true
-        },
-        {
-          "type": "while_exp",
-          "named": true
-        },
-        {
-          "type": "wild_exp",
-          "named": true
-        }
-      ]
+    "fields": {
+      "condition": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "lit_exp",
+            "named": true
+          },
+          {
+            "type": "object_exp",
+            "named": true
+          },
+          {
+            "type": "par_exp",
+            "named": true
+          },
+          {
+            "type": "prim_exp",
+            "named": true
+          },
+          {
+            "type": "var_exp",
+            "named": true
+          },
+          {
+            "type": "wild_exp",
+            "named": true
+          }
+        ]
+      },
+      "else": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "actor_exp",
+            "named": true
+          },
+          {
+            "type": "annot_exp_block",
+            "named": true
+          },
+          {
+            "type": "array_exp",
+            "named": true
+          },
+          {
+            "type": "array_idx_exp_block",
+            "named": true
+          },
+          {
+            "type": "assert_exp",
+            "named": true
+          },
+          {
+            "type": "assign_exp_block",
+            "named": true
+          },
+          {
+            "type": "async_exp",
+            "named": true
+          },
+          {
+            "type": "asyncstar_exp",
+            "named": true
+          },
+          {
+            "type": "await_exp",
+            "named": true
+          },
+          {
+            "type": "awaitstar_exp",
+            "named": true
+          },
+          {
+            "type": "bang_exp_block",
+            "named": true
+          },
+          {
+            "type": "bin_exp_block",
+            "named": true
+          },
+          {
+            "type": "binassign_exp_block",
+            "named": true
+          },
+          {
+            "type": "block_exp",
+            "named": true
+          },
+          {
+            "type": "break_exp",
+            "named": true
+          },
+          {
+            "type": "call_exp_block",
+            "named": true
+          },
+          {
+            "type": "class_dec",
+            "named": true
+          },
+          {
+            "type": "continue_exp",
+            "named": true
+          },
+          {
+            "type": "debug_exp",
+            "named": true
+          },
+          {
+            "type": "debug_show_exp",
+            "named": true
+          },
+          {
+            "type": "do_exp",
+            "named": true
+          },
+          {
+            "type": "do_quest_exp",
+            "named": true
+          },
+          {
+            "type": "dot_exp_block",
+            "named": true
+          },
+          {
+            "type": "for_exp",
+            "named": true
+          },
+          {
+            "type": "from_candid_exp",
+            "named": true
+          },
+          {
+            "type": "func_dec",
+            "named": true
+          },
+          {
+            "type": "func_exp",
+            "named": true
+          },
+          {
+            "type": "hash_exp",
+            "named": true
+          },
+          {
+            "type": "if_exp",
+            "named": true
+          },
+          {
+            "type": "ignore_exp",
+            "named": true
+          },
+          {
+            "type": "label_exp",
+            "named": true
+          },
+          {
+            "type": "let_dec",
+            "named": true
+          },
+          {
+            "type": "lit_exp",
+            "named": true
+          },
+          {
+            "type": "loop_exp",
+            "named": true
+          },
+          {
+            "type": "not_exp",
+            "named": true
+          },
+          {
+            "type": "obj_dec",
+            "named": true
+          },
+          {
+            "type": "par_exp",
+            "named": true
+          },
+          {
+            "type": "parenthetical_exp",
+            "named": true
+          },
+          {
+            "type": "prim_exp",
+            "named": true
+          },
+          {
+            "type": "proj_exp_block",
+            "named": true
+          },
+          {
+            "type": "quest_exp",
+            "named": true
+          },
+          {
+            "type": "return_exp",
+            "named": true
+          },
+          {
+            "type": "switch_exp",
+            "named": true
+          },
+          {
+            "type": "system_exp_block",
+            "named": true
+          },
+          {
+            "type": "throw_exp",
+            "named": true
+          },
+          {
+            "type": "to_candid_exp",
+            "named": true
+          },
+          {
+            "type": "try_exp",
+            "named": true
+          },
+          {
+            "type": "typ_dec",
+            "named": true
+          },
+          {
+            "type": "unassign_exp",
+            "named": true
+          },
+          {
+            "type": "unop_exp",
+            "named": true
+          },
+          {
+            "type": "var_dec",
+            "named": true
+          },
+          {
+            "type": "var_exp",
+            "named": true
+          },
+          {
+            "type": "while_exp",
+            "named": true
+          },
+          {
+            "type": "wild_exp",
+            "named": true
+          }
+        ]
+      },
+      "then": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "actor_exp",
+            "named": true
+          },
+          {
+            "type": "annot_exp_block",
+            "named": true
+          },
+          {
+            "type": "array_exp",
+            "named": true
+          },
+          {
+            "type": "array_idx_exp_block",
+            "named": true
+          },
+          {
+            "type": "assert_exp",
+            "named": true
+          },
+          {
+            "type": "assign_exp_block",
+            "named": true
+          },
+          {
+            "type": "async_exp",
+            "named": true
+          },
+          {
+            "type": "asyncstar_exp",
+            "named": true
+          },
+          {
+            "type": "await_exp",
+            "named": true
+          },
+          {
+            "type": "awaitstar_exp",
+            "named": true
+          },
+          {
+            "type": "bang_exp_block",
+            "named": true
+          },
+          {
+            "type": "bin_exp_block",
+            "named": true
+          },
+          {
+            "type": "binassign_exp_block",
+            "named": true
+          },
+          {
+            "type": "block_exp",
+            "named": true
+          },
+          {
+            "type": "break_exp",
+            "named": true
+          },
+          {
+            "type": "call_exp_block",
+            "named": true
+          },
+          {
+            "type": "class_dec",
+            "named": true
+          },
+          {
+            "type": "continue_exp",
+            "named": true
+          },
+          {
+            "type": "debug_exp",
+            "named": true
+          },
+          {
+            "type": "debug_show_exp",
+            "named": true
+          },
+          {
+            "type": "do_exp",
+            "named": true
+          },
+          {
+            "type": "do_quest_exp",
+            "named": true
+          },
+          {
+            "type": "dot_exp_block",
+            "named": true
+          },
+          {
+            "type": "for_exp",
+            "named": true
+          },
+          {
+            "type": "from_candid_exp",
+            "named": true
+          },
+          {
+            "type": "func_dec",
+            "named": true
+          },
+          {
+            "type": "func_exp",
+            "named": true
+          },
+          {
+            "type": "hash_exp",
+            "named": true
+          },
+          {
+            "type": "if_exp",
+            "named": true
+          },
+          {
+            "type": "ignore_exp",
+            "named": true
+          },
+          {
+            "type": "label_exp",
+            "named": true
+          },
+          {
+            "type": "let_dec",
+            "named": true
+          },
+          {
+            "type": "lit_exp",
+            "named": true
+          },
+          {
+            "type": "loop_exp",
+            "named": true
+          },
+          {
+            "type": "not_exp",
+            "named": true
+          },
+          {
+            "type": "obj_dec",
+            "named": true
+          },
+          {
+            "type": "par_exp",
+            "named": true
+          },
+          {
+            "type": "parenthetical_exp",
+            "named": true
+          },
+          {
+            "type": "prim_exp",
+            "named": true
+          },
+          {
+            "type": "proj_exp_block",
+            "named": true
+          },
+          {
+            "type": "quest_exp",
+            "named": true
+          },
+          {
+            "type": "return_exp",
+            "named": true
+          },
+          {
+            "type": "switch_exp",
+            "named": true
+          },
+          {
+            "type": "system_exp_block",
+            "named": true
+          },
+          {
+            "type": "throw_exp",
+            "named": true
+          },
+          {
+            "type": "to_candid_exp",
+            "named": true
+          },
+          {
+            "type": "try_exp",
+            "named": true
+          },
+          {
+            "type": "typ_dec",
+            "named": true
+          },
+          {
+            "type": "unassign_exp",
+            "named": true
+          },
+          {
+            "type": "unop_exp",
+            "named": true
+          },
+          {
+            "type": "var_dec",
+            "named": true
+          },
+          {
+            "type": "var_exp",
+            "named": true
+          },
+          {
+            "type": "while_exp",
+            "named": true
+          },
+          {
+            "type": "wild_exp",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -7257,10 +8111,6 @@
           "named": true
         },
         {
-          "type": "obj_sort_typ",
-          "named": true
-        },
-        {
           "type": "obj_typ",
           "named": true
         },
@@ -7294,7 +8144,18 @@
   {
     "type": "label_exp",
     "named": true,
-    "fields": {},
+    "fields": {
+      "label": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
@@ -7409,10 +8270,6 @@
         },
         {
           "type": "hash_exp",
-          "named": true
-        },
-        {
-          "type": "identifier",
           "named": true
         },
         {
@@ -8101,228 +8958,451 @@
   {
     "type": "loop_exp",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "actor_exp",
-          "named": true
-        },
-        {
-          "type": "annot_exp_block",
-          "named": true
-        },
-        {
-          "type": "array_exp",
-          "named": true
-        },
-        {
-          "type": "array_idx_exp_block",
-          "named": true
-        },
-        {
-          "type": "assert_exp",
-          "named": true
-        },
-        {
-          "type": "assign_exp_block",
-          "named": true
-        },
-        {
-          "type": "async_exp",
-          "named": true
-        },
-        {
-          "type": "asyncstar_exp",
-          "named": true
-        },
-        {
-          "type": "await_exp",
-          "named": true
-        },
-        {
-          "type": "awaitstar_exp",
-          "named": true
-        },
-        {
-          "type": "bang_exp_block",
-          "named": true
-        },
-        {
-          "type": "bin_exp_block",
-          "named": true
-        },
-        {
-          "type": "binassign_exp_block",
-          "named": true
-        },
-        {
-          "type": "block_exp",
-          "named": true
-        },
-        {
-          "type": "break_exp",
-          "named": true
-        },
-        {
-          "type": "call_exp_block",
-          "named": true
-        },
-        {
-          "type": "class_dec",
-          "named": true
-        },
-        {
-          "type": "continue_exp",
-          "named": true
-        },
-        {
-          "type": "debug_exp",
-          "named": true
-        },
-        {
-          "type": "debug_show_exp",
-          "named": true
-        },
-        {
-          "type": "do_exp",
-          "named": true
-        },
-        {
-          "type": "do_quest_exp",
-          "named": true
-        },
-        {
-          "type": "dot_exp_block",
-          "named": true
-        },
-        {
-          "type": "for_exp",
-          "named": true
-        },
-        {
-          "type": "from_candid_exp",
-          "named": true
-        },
-        {
-          "type": "func_dec",
-          "named": true
-        },
-        {
-          "type": "func_exp",
-          "named": true
-        },
-        {
-          "type": "hash_exp",
-          "named": true
-        },
-        {
-          "type": "if_exp",
-          "named": true
-        },
-        {
-          "type": "ignore_exp",
-          "named": true
-        },
-        {
-          "type": "label_exp",
-          "named": true
-        },
-        {
-          "type": "let_dec",
-          "named": true
-        },
-        {
-          "type": "lit_exp",
-          "named": true
-        },
-        {
-          "type": "loop_exp",
-          "named": true
-        },
-        {
-          "type": "not_exp",
-          "named": true
-        },
-        {
-          "type": "obj_dec",
-          "named": true
-        },
-        {
-          "type": "par_exp",
-          "named": true
-        },
-        {
-          "type": "parenthetical_exp",
-          "named": true
-        },
-        {
-          "type": "prim_exp",
-          "named": true
-        },
-        {
-          "type": "proj_exp_block",
-          "named": true
-        },
-        {
-          "type": "quest_exp",
-          "named": true
-        },
-        {
-          "type": "return_exp",
-          "named": true
-        },
-        {
-          "type": "switch_exp",
-          "named": true
-        },
-        {
-          "type": "system_exp_block",
-          "named": true
-        },
-        {
-          "type": "throw_exp",
-          "named": true
-        },
-        {
-          "type": "to_candid_exp",
-          "named": true
-        },
-        {
-          "type": "try_exp",
-          "named": true
-        },
-        {
-          "type": "typ_dec",
-          "named": true
-        },
-        {
-          "type": "unassign_exp",
-          "named": true
-        },
-        {
-          "type": "unop_exp",
-          "named": true
-        },
-        {
-          "type": "var_dec",
-          "named": true
-        },
-        {
-          "type": "var_exp",
-          "named": true
-        },
-        {
-          "type": "while_exp",
-          "named": true
-        },
-        {
-          "type": "wild_exp",
-          "named": true
-        }
-      ]
+    "fields": {
+      "body": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "actor_exp",
+            "named": true
+          },
+          {
+            "type": "annot_exp_block",
+            "named": true
+          },
+          {
+            "type": "array_exp",
+            "named": true
+          },
+          {
+            "type": "array_idx_exp_block",
+            "named": true
+          },
+          {
+            "type": "assert_exp",
+            "named": true
+          },
+          {
+            "type": "assign_exp_block",
+            "named": true
+          },
+          {
+            "type": "async_exp",
+            "named": true
+          },
+          {
+            "type": "asyncstar_exp",
+            "named": true
+          },
+          {
+            "type": "await_exp",
+            "named": true
+          },
+          {
+            "type": "awaitstar_exp",
+            "named": true
+          },
+          {
+            "type": "bang_exp_block",
+            "named": true
+          },
+          {
+            "type": "bin_exp_block",
+            "named": true
+          },
+          {
+            "type": "binassign_exp_block",
+            "named": true
+          },
+          {
+            "type": "block_exp",
+            "named": true
+          },
+          {
+            "type": "break_exp",
+            "named": true
+          },
+          {
+            "type": "call_exp_block",
+            "named": true
+          },
+          {
+            "type": "class_dec",
+            "named": true
+          },
+          {
+            "type": "continue_exp",
+            "named": true
+          },
+          {
+            "type": "debug_exp",
+            "named": true
+          },
+          {
+            "type": "debug_show_exp",
+            "named": true
+          },
+          {
+            "type": "do_exp",
+            "named": true
+          },
+          {
+            "type": "do_quest_exp",
+            "named": true
+          },
+          {
+            "type": "dot_exp_block",
+            "named": true
+          },
+          {
+            "type": "for_exp",
+            "named": true
+          },
+          {
+            "type": "from_candid_exp",
+            "named": true
+          },
+          {
+            "type": "func_dec",
+            "named": true
+          },
+          {
+            "type": "func_exp",
+            "named": true
+          },
+          {
+            "type": "hash_exp",
+            "named": true
+          },
+          {
+            "type": "if_exp",
+            "named": true
+          },
+          {
+            "type": "ignore_exp",
+            "named": true
+          },
+          {
+            "type": "label_exp",
+            "named": true
+          },
+          {
+            "type": "let_dec",
+            "named": true
+          },
+          {
+            "type": "lit_exp",
+            "named": true
+          },
+          {
+            "type": "loop_exp",
+            "named": true
+          },
+          {
+            "type": "not_exp",
+            "named": true
+          },
+          {
+            "type": "obj_dec",
+            "named": true
+          },
+          {
+            "type": "par_exp",
+            "named": true
+          },
+          {
+            "type": "parenthetical_exp",
+            "named": true
+          },
+          {
+            "type": "prim_exp",
+            "named": true
+          },
+          {
+            "type": "proj_exp_block",
+            "named": true
+          },
+          {
+            "type": "quest_exp",
+            "named": true
+          },
+          {
+            "type": "return_exp",
+            "named": true
+          },
+          {
+            "type": "switch_exp",
+            "named": true
+          },
+          {
+            "type": "system_exp_block",
+            "named": true
+          },
+          {
+            "type": "throw_exp",
+            "named": true
+          },
+          {
+            "type": "to_candid_exp",
+            "named": true
+          },
+          {
+            "type": "try_exp",
+            "named": true
+          },
+          {
+            "type": "typ_dec",
+            "named": true
+          },
+          {
+            "type": "unassign_exp",
+            "named": true
+          },
+          {
+            "type": "unop_exp",
+            "named": true
+          },
+          {
+            "type": "var_dec",
+            "named": true
+          },
+          {
+            "type": "var_exp",
+            "named": true
+          },
+          {
+            "type": "while_exp",
+            "named": true
+          },
+          {
+            "type": "wild_exp",
+            "named": true
+          }
+        ]
+      },
+      "condition": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "actor_exp",
+            "named": true
+          },
+          {
+            "type": "annot_exp_block",
+            "named": true
+          },
+          {
+            "type": "array_exp",
+            "named": true
+          },
+          {
+            "type": "array_idx_exp_block",
+            "named": true
+          },
+          {
+            "type": "assert_exp",
+            "named": true
+          },
+          {
+            "type": "assign_exp_block",
+            "named": true
+          },
+          {
+            "type": "async_exp",
+            "named": true
+          },
+          {
+            "type": "asyncstar_exp",
+            "named": true
+          },
+          {
+            "type": "await_exp",
+            "named": true
+          },
+          {
+            "type": "awaitstar_exp",
+            "named": true
+          },
+          {
+            "type": "bang_exp_block",
+            "named": true
+          },
+          {
+            "type": "bin_exp_block",
+            "named": true
+          },
+          {
+            "type": "binassign_exp_block",
+            "named": true
+          },
+          {
+            "type": "block_exp",
+            "named": true
+          },
+          {
+            "type": "break_exp",
+            "named": true
+          },
+          {
+            "type": "call_exp_block",
+            "named": true
+          },
+          {
+            "type": "class_dec",
+            "named": true
+          },
+          {
+            "type": "continue_exp",
+            "named": true
+          },
+          {
+            "type": "debug_exp",
+            "named": true
+          },
+          {
+            "type": "debug_show_exp",
+            "named": true
+          },
+          {
+            "type": "do_exp",
+            "named": true
+          },
+          {
+            "type": "do_quest_exp",
+            "named": true
+          },
+          {
+            "type": "dot_exp_block",
+            "named": true
+          },
+          {
+            "type": "for_exp",
+            "named": true
+          },
+          {
+            "type": "from_candid_exp",
+            "named": true
+          },
+          {
+            "type": "func_dec",
+            "named": true
+          },
+          {
+            "type": "func_exp",
+            "named": true
+          },
+          {
+            "type": "hash_exp",
+            "named": true
+          },
+          {
+            "type": "if_exp",
+            "named": true
+          },
+          {
+            "type": "ignore_exp",
+            "named": true
+          },
+          {
+            "type": "label_exp",
+            "named": true
+          },
+          {
+            "type": "let_dec",
+            "named": true
+          },
+          {
+            "type": "lit_exp",
+            "named": true
+          },
+          {
+            "type": "loop_exp",
+            "named": true
+          },
+          {
+            "type": "not_exp",
+            "named": true
+          },
+          {
+            "type": "obj_dec",
+            "named": true
+          },
+          {
+            "type": "par_exp",
+            "named": true
+          },
+          {
+            "type": "parenthetical_exp",
+            "named": true
+          },
+          {
+            "type": "prim_exp",
+            "named": true
+          },
+          {
+            "type": "proj_exp_block",
+            "named": true
+          },
+          {
+            "type": "quest_exp",
+            "named": true
+          },
+          {
+            "type": "return_exp",
+            "named": true
+          },
+          {
+            "type": "switch_exp",
+            "named": true
+          },
+          {
+            "type": "system_exp_block",
+            "named": true
+          },
+          {
+            "type": "throw_exp",
+            "named": true
+          },
+          {
+            "type": "to_candid_exp",
+            "named": true
+          },
+          {
+            "type": "try_exp",
+            "named": true
+          },
+          {
+            "type": "typ_dec",
+            "named": true
+          },
+          {
+            "type": "unassign_exp",
+            "named": true
+          },
+          {
+            "type": "unop_exp",
+            "named": true
+          },
+          {
+            "type": "var_dec",
+            "named": true
+          },
+          {
+            "type": "var_exp",
+            "named": true
+          },
+          {
+            "type": "while_exp",
+            "named": true
+          },
+          {
+            "type": "wild_exp",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -8460,10 +9540,6 @@
           "named": true
         },
         {
-          "type": "obj_sort",
-          "named": true
-        },
-        {
           "type": "parenthetical",
           "named": true
         },
@@ -8484,26 +9560,6 @@
       "types": [
         {
           "type": "pat_field",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "obj_sort",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "obj_sort_typ",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "obj_typ",
           "named": true
         }
       ]
@@ -8621,10 +9677,6 @@
         },
         {
           "type": "func_typ",
-          "named": true
-        },
-        {
-          "type": "obj_sort_typ",
           "named": true
         },
         {
@@ -9052,10 +10104,6 @@
         },
         {
           "type": "func_typ",
-          "named": true
-        },
-        {
-          "type": "obj_sort_typ",
           "named": true
         },
         {
@@ -9655,33 +10703,6 @@
     }
   },
   {
-    "type": "shared_pat",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": false,
-      "types": [
-        {
-          "type": "lit_pat",
-          "named": true
-        },
-        {
-          "type": "tup_pat",
-          "named": true
-        },
-        {
-          "type": "var_pat",
-          "named": true
-        },
-        {
-          "type": "wild_pat",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "source_file",
     "named": true,
     "root": true,
@@ -9730,44 +10751,46 @@
     }
   },
   {
-    "type": "stab",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "switch_exp",
     "named": true,
-    "fields": {},
+    "fields": {
+      "scrutinee": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "lit_exp",
+            "named": true
+          },
+          {
+            "type": "object_exp",
+            "named": true
+          },
+          {
+            "type": "par_exp",
+            "named": true
+          },
+          {
+            "type": "prim_exp",
+            "named": true
+          },
+          {
+            "type": "var_exp",
+            "named": true
+          },
+          {
+            "type": "wild_exp",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "case",
-          "named": true
-        },
-        {
-          "type": "lit_exp",
-          "named": true
-        },
-        {
-          "type": "object_exp",
-          "named": true
-        },
-        {
-          "type": "par_exp",
-          "named": true
-        },
-        {
-          "type": "prim_exp",
-          "named": true
-        },
-        {
-          "type": "var_exp",
-          "named": true
-        },
-        {
-          "type": "wild_exp",
           "named": true
         }
       ]
@@ -10718,10 +11741,6 @@
           "named": true
         },
         {
-          "type": "obj_sort_typ",
-          "named": true
-        },
-        {
           "type": "obj_typ",
           "named": true
         },
@@ -10755,64 +11774,79 @@
   {
     "type": "typ_bind",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "and_typ",
-          "named": true
-        },
-        {
-          "type": "array_typ",
-          "named": true
-        },
-        {
-          "type": "async_typ",
-          "named": true
-        },
-        {
-          "type": "func_typ",
-          "named": true
-        },
-        {
-          "type": "obj_sort_typ",
-          "named": true
-        },
-        {
-          "type": "obj_typ",
-          "named": true
-        },
-        {
-          "type": "or_typ",
-          "named": true
-        },
-        {
-          "type": "path_typ",
-          "named": true
-        },
-        {
-          "type": "prim_typ",
-          "named": true
-        },
-        {
-          "type": "quest_typ",
-          "named": true
-        },
-        {
-          "type": "tup_typ",
-          "named": true
-        },
-        {
-          "type": "type_identifier",
-          "named": true
-        },
-        {
-          "type": "variant_typ",
-          "named": true
-        }
-      ]
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "type_identifier",
+            "named": true
+          }
+        ]
+      },
+      "supertype": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "actor",
+            "named": false
+          },
+          {
+            "type": "and_typ",
+            "named": true
+          },
+          {
+            "type": "array_typ",
+            "named": true
+          },
+          {
+            "type": "async_typ",
+            "named": true
+          },
+          {
+            "type": "func_typ",
+            "named": true
+          },
+          {
+            "type": "module",
+            "named": false
+          },
+          {
+            "type": "obj_typ",
+            "named": true
+          },
+          {
+            "type": "object",
+            "named": false
+          },
+          {
+            "type": "or_typ",
+            "named": true
+          },
+          {
+            "type": "path_typ",
+            "named": true
+          },
+          {
+            "type": "prim_typ",
+            "named": true
+          },
+          {
+            "type": "quest_typ",
+            "named": true
+          },
+          {
+            "type": "tup_typ",
+            "named": true
+          },
+          {
+            "type": "variant_typ",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -10837,10 +11871,6 @@
         },
         {
           "type": "func_typ",
-          "named": true
-        },
-        {
-          "type": "obj_sort_typ",
           "named": true
         },
         {
@@ -10908,10 +11938,6 @@
         },
         {
           "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "obj_sort_typ",
           "named": true
         },
         {
@@ -11020,10 +12046,6 @@
         },
         {
           "type": "func_typ",
-          "named": true
-        },
-        {
-          "type": "obj_sort_typ",
           "named": true
         },
         {
@@ -11361,10 +12383,6 @@
           "named": true
         },
         {
-          "type": "obj_sort_typ",
-          "named": true
-        },
-        {
           "type": "obj_typ",
           "named": true
         },
@@ -11676,239 +12694,261 @@
     }
   },
   {
-    "type": "vis",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "while_exp",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "actor_exp",
-          "named": true
-        },
-        {
-          "type": "annot_exp_block",
-          "named": true
-        },
-        {
-          "type": "array_exp",
-          "named": true
-        },
-        {
-          "type": "array_idx_exp_block",
-          "named": true
-        },
-        {
-          "type": "assert_exp",
-          "named": true
-        },
-        {
-          "type": "assign_exp_block",
-          "named": true
-        },
-        {
-          "type": "async_exp",
-          "named": true
-        },
-        {
-          "type": "asyncstar_exp",
-          "named": true
-        },
-        {
-          "type": "await_exp",
-          "named": true
-        },
-        {
-          "type": "awaitstar_exp",
-          "named": true
-        },
-        {
-          "type": "bang_exp_block",
-          "named": true
-        },
-        {
-          "type": "bin_exp_block",
-          "named": true
-        },
-        {
-          "type": "binassign_exp_block",
-          "named": true
-        },
-        {
-          "type": "block_exp",
-          "named": true
-        },
-        {
-          "type": "break_exp",
-          "named": true
-        },
-        {
-          "type": "call_exp_block",
-          "named": true
-        },
-        {
-          "type": "class_dec",
-          "named": true
-        },
-        {
-          "type": "continue_exp",
-          "named": true
-        },
-        {
-          "type": "debug_exp",
-          "named": true
-        },
-        {
-          "type": "debug_show_exp",
-          "named": true
-        },
-        {
-          "type": "do_exp",
-          "named": true
-        },
-        {
-          "type": "do_quest_exp",
-          "named": true
-        },
-        {
-          "type": "dot_exp_block",
-          "named": true
-        },
-        {
-          "type": "for_exp",
-          "named": true
-        },
-        {
-          "type": "from_candid_exp",
-          "named": true
-        },
-        {
-          "type": "func_dec",
-          "named": true
-        },
-        {
-          "type": "func_exp",
-          "named": true
-        },
-        {
-          "type": "hash_exp",
-          "named": true
-        },
-        {
-          "type": "if_exp",
-          "named": true
-        },
-        {
-          "type": "ignore_exp",
-          "named": true
-        },
-        {
-          "type": "label_exp",
-          "named": true
-        },
-        {
-          "type": "let_dec",
-          "named": true
-        },
-        {
-          "type": "lit_exp",
-          "named": true
-        },
-        {
-          "type": "loop_exp",
-          "named": true
-        },
-        {
-          "type": "not_exp",
-          "named": true
-        },
-        {
-          "type": "obj_dec",
-          "named": true
-        },
-        {
-          "type": "object_exp",
-          "named": true
-        },
-        {
-          "type": "par_exp",
-          "named": true
-        },
-        {
-          "type": "parenthetical_exp",
-          "named": true
-        },
-        {
-          "type": "prim_exp",
-          "named": true
-        },
-        {
-          "type": "proj_exp_block",
-          "named": true
-        },
-        {
-          "type": "quest_exp",
-          "named": true
-        },
-        {
-          "type": "return_exp",
-          "named": true
-        },
-        {
-          "type": "switch_exp",
-          "named": true
-        },
-        {
-          "type": "system_exp_block",
-          "named": true
-        },
-        {
-          "type": "throw_exp",
-          "named": true
-        },
-        {
-          "type": "to_candid_exp",
-          "named": true
-        },
-        {
-          "type": "try_exp",
-          "named": true
-        },
-        {
-          "type": "typ_dec",
-          "named": true
-        },
-        {
-          "type": "unassign_exp",
-          "named": true
-        },
-        {
-          "type": "unop_exp",
-          "named": true
-        },
-        {
-          "type": "var_dec",
-          "named": true
-        },
-        {
-          "type": "var_exp",
-          "named": true
-        },
-        {
-          "type": "while_exp",
-          "named": true
-        },
-        {
-          "type": "wild_exp",
-          "named": true
-        }
-      ]
+    "fields": {
+      "body": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "actor_exp",
+            "named": true
+          },
+          {
+            "type": "annot_exp_block",
+            "named": true
+          },
+          {
+            "type": "array_exp",
+            "named": true
+          },
+          {
+            "type": "array_idx_exp_block",
+            "named": true
+          },
+          {
+            "type": "assert_exp",
+            "named": true
+          },
+          {
+            "type": "assign_exp_block",
+            "named": true
+          },
+          {
+            "type": "async_exp",
+            "named": true
+          },
+          {
+            "type": "asyncstar_exp",
+            "named": true
+          },
+          {
+            "type": "await_exp",
+            "named": true
+          },
+          {
+            "type": "awaitstar_exp",
+            "named": true
+          },
+          {
+            "type": "bang_exp_block",
+            "named": true
+          },
+          {
+            "type": "bin_exp_block",
+            "named": true
+          },
+          {
+            "type": "binassign_exp_block",
+            "named": true
+          },
+          {
+            "type": "block_exp",
+            "named": true
+          },
+          {
+            "type": "break_exp",
+            "named": true
+          },
+          {
+            "type": "call_exp_block",
+            "named": true
+          },
+          {
+            "type": "class_dec",
+            "named": true
+          },
+          {
+            "type": "continue_exp",
+            "named": true
+          },
+          {
+            "type": "debug_exp",
+            "named": true
+          },
+          {
+            "type": "debug_show_exp",
+            "named": true
+          },
+          {
+            "type": "do_exp",
+            "named": true
+          },
+          {
+            "type": "do_quest_exp",
+            "named": true
+          },
+          {
+            "type": "dot_exp_block",
+            "named": true
+          },
+          {
+            "type": "for_exp",
+            "named": true
+          },
+          {
+            "type": "from_candid_exp",
+            "named": true
+          },
+          {
+            "type": "func_dec",
+            "named": true
+          },
+          {
+            "type": "func_exp",
+            "named": true
+          },
+          {
+            "type": "hash_exp",
+            "named": true
+          },
+          {
+            "type": "if_exp",
+            "named": true
+          },
+          {
+            "type": "ignore_exp",
+            "named": true
+          },
+          {
+            "type": "label_exp",
+            "named": true
+          },
+          {
+            "type": "let_dec",
+            "named": true
+          },
+          {
+            "type": "lit_exp",
+            "named": true
+          },
+          {
+            "type": "loop_exp",
+            "named": true
+          },
+          {
+            "type": "not_exp",
+            "named": true
+          },
+          {
+            "type": "obj_dec",
+            "named": true
+          },
+          {
+            "type": "par_exp",
+            "named": true
+          },
+          {
+            "type": "parenthetical_exp",
+            "named": true
+          },
+          {
+            "type": "prim_exp",
+            "named": true
+          },
+          {
+            "type": "proj_exp_block",
+            "named": true
+          },
+          {
+            "type": "quest_exp",
+            "named": true
+          },
+          {
+            "type": "return_exp",
+            "named": true
+          },
+          {
+            "type": "switch_exp",
+            "named": true
+          },
+          {
+            "type": "system_exp_block",
+            "named": true
+          },
+          {
+            "type": "throw_exp",
+            "named": true
+          },
+          {
+            "type": "to_candid_exp",
+            "named": true
+          },
+          {
+            "type": "try_exp",
+            "named": true
+          },
+          {
+            "type": "typ_dec",
+            "named": true
+          },
+          {
+            "type": "unassign_exp",
+            "named": true
+          },
+          {
+            "type": "unop_exp",
+            "named": true
+          },
+          {
+            "type": "var_dec",
+            "named": true
+          },
+          {
+            "type": "var_exp",
+            "named": true
+          },
+          {
+            "type": "while_exp",
+            "named": true
+          },
+          {
+            "type": "wild_exp",
+            "named": true
+          }
+        ]
+      },
+      "condition": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "lit_exp",
+            "named": true
+          },
+          {
+            "type": "object_exp",
+            "named": true
+          },
+          {
+            "type": "par_exp",
+            "named": true
+          },
+          {
+            "type": "prim_exp",
+            "named": true
+          },
+          {
+            "type": "var_exp",
+            "named": true
+          },
+          {
+            "type": "wild_exp",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {

@@ -247,9 +247,9 @@ function mk_system_exp($, b) {
 
 function mk_bin_exp($, b) {
   return prec.left(seq(
-    _exp_bin($, b),
+    field("left", _exp_bin($, b)),
     choice($.bin_op, $.rel_op),
-    $._exp_bin_object,
+    field("right", $._exp_bin_object),
   ))
 }
 
@@ -325,7 +325,7 @@ module.exports = grammar({
       repeat(seq($.identifier, ".")),
       $.identifier,
     ),
-    shared_pat: $ => choice(
+    _shared_pat: $ => choice(
       seq(
         "shared",
         optional("composite"),
@@ -371,6 +371,8 @@ module.exports = grammar({
       "<>>=",
       "@=",
     ),
+    // TODO: Get the precedences for these right (but only if it
+    // doesn't affect the state count too much)
     rel_op: $ => choice(
       "==",
       "!=",
@@ -464,18 +466,18 @@ module.exports = grammar({
       $._typ,
     ),
     func_dec: $ => seq(
-      optional($.shared_pat),
+      optional($._shared_pat),
       "func",
-      $.identifier,
-      optional($.typ_params),
-      $._pat_plain,
-      optional($.typ_annot),
-      $.func_body,
+      field("name", $.identifier),
+      field("typ_params", optional($.typ_params)),
+      field("params", $._pat_plain),
+      field("return_ty", optional($.typ_annot)),
+      field("body", $._func_body),
     ),
 
     obj_dec: $ => seq(
       optional($.parenthetical),
-      $.obj_sort,
+      $._obj_sort,
       optional($.identifier),
       optional($.typ_annot),
       optional("="),
@@ -484,17 +486,17 @@ module.exports = grammar({
 
     class_dec: $ => seq(
       optional($.parenthetical),
-      optional($.shared_pat),
-      optional($.obj_sort),
+      optional($._shared_pat),
+      optional($._obj_sort),
       "class",
       optional($._type_identifier),
       optional($.typ_params),
       $._pat_plain,
       optional($.typ_annot),
-      $.class_body,
+      $._class_body,
     ),
 
-    obj_sort: $ => choice(
+    _obj_sort: $ => choice(
       "object",
       "module",
       seq(optional("persistent"), "actor"),
@@ -505,13 +507,13 @@ module.exports = grammar({
       semi_sep($.dec_field),
       "}",
     ),
-    class_body: $ => seq(
+    _class_body: $ => seq(
       optional(seq("=", optional($.identifier))),
       $.obj_body
     ),
-    dec_field: $ => seq(optional($.vis), optional($.stab), $._dec),
-    vis: $ => choice("private", "public", "system"),
-    stab: $ => choice("flexible", "stable", "transient"),
+    dec_field: $ => seq(optional($._vis), optional($._stab), $._dec),
+    _vis: $ => choice("private", "public", "system"),
+    _stab: $ => choice("flexible", "stable", "transient"),
 
     // Expressions
     _exp_block: $ => mk_exp($, "block"),
@@ -549,11 +551,11 @@ module.exports = grammar({
     var_exp: $ => $.identifier,
     if_exp: $ => prec.right(seq(
       "if",
-      $._exp_nullary_object,
-      $._exp_nest,
+      field("condition", $._exp_nullary_object),
+      field("then", $._exp_nest),
       optional(seq(
         "else",
-        $._exp_nest,
+        field("else", $._exp_nest),
       ))
     )),
     object_exp: $ => seq(
@@ -660,7 +662,7 @@ module.exports = grammar({
 
     label_exp: $ => seq(
       "label",
-      $.identifier,
+      field("label", $.identifier),
       optional($.typ_annot),
       $._exp_nest,
     ),
@@ -686,47 +688,47 @@ module.exports = grammar({
     // TODO(id: prec.nonassoc)
     loop_exp: $ => prec.right(seq(
       "loop",
-      $._exp_nest,
+      field("body", $._exp_nest),
       optional(seq(
         "while",
-        $._exp_nest,
+        field("condition", $._exp_nest),
       ))
     )),
     while_exp: $ => seq(
       "while",
-      $._exp_nullary_object,
-      $._exp_nest,
+      field("condition", $._exp_nullary_object),
+      field("body", $._exp_nest),
     ),
     for_exp: $ => seq(
       "for",
       "(",
       $._pat,
       "in",
-      $._exp_object,
+      field("iterator", $._exp_object),
       ")",
-      $._exp_nest,
+      field("body", $._exp_nest),
     ),
     do_exp: $ => seq("do", $.block_exp),
     do_quest_exp: $ => seq("do", "?", $.block_exp),
 
     switch_exp: $ => seq(
       "switch",
-      $._exp_nullary_object,
+      field("scrutinee", $._exp_nullary_object),
       "{",
       semi_sep($.case),
       "}",
     ),
 
     func_exp: $ => seq(
-      optional($.shared_pat),
+      optional($._shared_pat),
       "func",
-      optional($.typ_params),
-      $._pat_plain,
-      optional($.typ_annot),
-      $.func_body,
+      field("typ_params", optional($.typ_params)),
+      field("params", $._pat_plain),
+      field("return_ty", optional($.typ_annot)),
+      field("body", $._func_body),
     ),
 
-    func_body: $ => choice(
+    _func_body: $ => choice(
       seq("=", $._exp_object),
       $.block_exp,
     ),
@@ -819,7 +821,7 @@ module.exports = grammar({
       $._typ_un,
       $.prim_typ,
       $.async_typ,
-      $.obj_sort_typ,
+      $._obj_sort_typ,
     ),
     _typ_no_bin: $ => choice(
       $._typ_pre,
@@ -875,7 +877,7 @@ module.exports = grammar({
       choice("async", "async*"),
       $._typ_pre,
     ),
-    obj_sort_typ: $ => seq(
+    _obj_sort_typ: $ => seq(
       choice("module", "actor", "object"),
       $.obj_typ,
     ),
@@ -929,10 +931,10 @@ module.exports = grammar({
       ">",
     ),
     typ_bind: $ => seq(
-      $._type_identifier,
+      field("name", $._type_identifier),
       optional(seq(
         "<:",
-        $._typ,
+        field("supertype", $._typ),
       )),
     ),
 
