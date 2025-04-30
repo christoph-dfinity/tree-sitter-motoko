@@ -9128,7 +9128,7 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
@@ -9149,10 +9149,6 @@
         },
         {
           "type": "dot_exp_block",
-          "named": true
-        },
-        {
-          "type": "int_literal",
           "named": true
         },
         {
@@ -9191,7 +9187,7 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
@@ -9212,10 +9208,6 @@
         },
         {
           "type": "dot_exp_object",
-          "named": true
-        },
-        {
-          "type": "int_literal",
           "named": true
         },
         {

@@ -19,6 +19,14 @@ function semi_sep1(rule) {
   return seq(repeat(seq(rule, ";")), rule, optional(";"));
 }
 
+// NOTE(def: object-vs-block-expression): The grammar parameterizes
+// expression productions by whether or not they allow object literals
+// to avoid ambiguity between blocks and objects. tree-sitter doesn't
+// support this in the same way as Menhir, so we template these out by
+// hand. The `_exp($, b)`, ... functions here produce $._exp_block or
+// $._exp_object depending on the passed `b` parameter. We then use
+// the `mk_exp`, ... functions and register both object and block
+// variants on the main grammar.
 function _exp($, b) {
   return $[`_exp_${b}`]
 }
@@ -83,6 +91,8 @@ function binassign_exp($, b) {
   return $[`binassign_exp_${b}`]
 }
 
+// NOTE(id: object-vs-block-expression): Conditionally allows parsing
+// object literals
 function mk_exp_nullary($, b) {
   if (b == "object") {
     return choice(
@@ -196,9 +206,8 @@ function mk_array_idx_exp($, b) {
 function mk_proj_exp($, b) {
   return seq(
     _exp_post($, b),
-    // TODO: token.immediate
     ".",
-    $.int_literal,
+    token.immediate(/[0-9]+/)
   )
 }
 
@@ -286,7 +295,6 @@ module.exports = grammar({
     // Literals
     text_literal: $ => /"(?:\\"|[^"])*"/,
     char_literal: $ => /'\\''|'[^']*'/,
-    // TODO: scientific notation
     float_literal: $ => token(choice(
       /[+-]?[0-9_]+\.[0-9_]*/,
       /[+-]?[0-9_]+(:?\.[0-9]*)[eE]?[+-]?[0-9_]+/,
@@ -366,6 +374,15 @@ module.exports = grammar({
     rel_op: $ => choice(
       "==",
       "!=",
+      // NOTE(def: leading-ws-bug): The lexer in the compiler
+      // distinguishes these operators from type-parameter
+      // instantiations by requiring that they are surrounded with
+      // whitespace. While tree-sitter let's us do that with " <" and
+      // " >", it triggers the bug in
+      // https://github.com/tree-sitter/tree-sitter/issues/4091. So
+      // instead we mark the `<` tokens for instantiations as
+      // `token.immediate`, meaning they they must not be preceeded by
+      // whitespace instead.
       ">",
       "<",
       "<=",
@@ -761,6 +778,7 @@ module.exports = grammar({
     ),
 
     inst: $ => seq(
+      // NOTE(id: leading-ws-bug)
       token.immediate("<"),
       optional("system"),
       comma_sep($._typ),
@@ -826,6 +844,7 @@ module.exports = grammar({
     path_typ: $ => seq(
       $.typ_path,
       optional(seq(
+        // NOTE(id: leading-ws-bug)
         token.immediate("<"),
         comma_sep($._typ),
         ">",
