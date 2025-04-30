@@ -92,12 +92,14 @@ let ?(x or y) = 0;
 (source_file
   (let_dec
     (tag_pat
-      (identifier))
+      (tag_identifier
+        (identifier)))
     (lit_exp
       (int_literal)))
   (let_dec
     (tag_pat
-      (identifier)
+      (tag_identifier
+        (identifier))
       (obj_pat
         (pat_field
           (identifier)

@@ -151,6 +151,19 @@
       "named": true,
       "value": "type_identifier"
     },
+    "tag_identifier": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "#"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        }
+      ]
+    },
     "privileged_identifier": {
       "type": "SEQ",
       "members": [
@@ -2149,12 +2162,8 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": "#"
-        },
-        {
           "type": "SYMBOL",
-          "name": "identifier"
+          "name": "tag_identifier"
         },
         {
           "type": "CHOICE",
@@ -4070,12 +4079,8 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": "#"
-        },
-        {
           "type": "SYMBOL",
-          "name": "identifier"
+          "name": "tag_identifier"
         },
         {
           "type": "CHOICE",
@@ -4483,12 +4488,8 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": "#"
-        },
-        {
           "type": "SYMBOL",
-          "name": "identifier"
+          "name": "tag_identifier"
         },
         {
           "type": "CHOICE",

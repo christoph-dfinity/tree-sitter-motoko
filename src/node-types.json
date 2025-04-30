@@ -7314,10 +7314,6 @@
       "required": true,
       "types": [
         {
-          "type": "identifier",
-          "named": true
-        },
-        {
           "type": "lit_exp",
           "named": true
         },
@@ -7331,6 +7327,10 @@
         },
         {
           "type": "prim_exp",
+          "named": true
+        },
+        {
+          "type": "tag_identifier",
           "named": true
         },
         {
@@ -10927,6 +10927,21 @@
     }
   },
   {
+    "type": "tag_identifier",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "tag_pat",
     "named": true,
     "fields": {},
@@ -10935,15 +10950,15 @@
       "required": true,
       "types": [
         {
-          "type": "identifier",
-          "named": true
-        },
-        {
           "type": "lit_pat",
           "named": true
         },
         {
           "type": "obj_pat",
+          "named": true
+        },
+        {
+          "type": "tag_identifier",
           "named": true
         },
         {
@@ -12014,7 +12029,7 @@
       "required": true,
       "types": [
         {
-          "type": "identifier",
+          "type": "tag_identifier",
           "named": true
         },
         {

@@ -93,13 +93,15 @@ type T = { #x : Nat; #y };
     (type_identifier)
     (variant_typ
       (typ_tag
-        (identifier)
+        (tag_identifier
+          (identifier))
         (typ_annot
           (path_typ
             (typ_path
               (type_identifier)))))
       (typ_tag
-        (identifier)))))
+        (tag_identifier
+          (identifier))))))
 
 ==================
 Unary

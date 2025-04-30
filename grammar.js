@@ -290,6 +290,7 @@ module.exports = grammar({
     // Identifiers
     identifier: $ => /[a-zA-Z_][a-zA-Z_0-9]*/,
     _type_identifier: $ => alias($.identifier, $.type_identifier),
+    tag_identifier: $ => seq("#", $.identifier),
     privileged_identifier: $ => seq("@", token.immediate($.identifier)),
 
     // Literals
@@ -591,8 +592,7 @@ module.exports = grammar({
       $.call_exp_block,
     ),
     hash_exp: $ => seq(
-      "#",
-      $.identifier,
+      $.tag_identifier,
       optional($._exp_nullary_object),
     ),
     quest_exp: $ => seq("?", $._exp_unary_object),
@@ -895,8 +895,7 @@ module.exports = grammar({
       $._typ,
     ),
     typ_tag: $ => seq(
-      "#",
-      $.identifier,
+      $.tag_identifier,
       optional($.typ_annot),
     ),
     _typ_field: $ => choice(
@@ -977,8 +976,7 @@ module.exports = grammar({
       "}",
     ),
     tag_pat: $ => seq(
-      "#",
-      $.identifier,
+      $.tag_identifier,
       optional($._pat_nullary),
     ),
     quest_pat: $ => seq(
