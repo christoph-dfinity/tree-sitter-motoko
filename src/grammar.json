@@ -180,6 +180,10 @@
         }
       ]
     },
+    "proj_identifier": {
+      "type": "PATTERN",
+      "value": "[0-9]+"
+    },
     "text_literal": {
       "type": "PATTERN",
       "value": "\"(?:\\\\\"|[^\"])*\""
@@ -2952,11 +2956,8 @@
           "value": "."
         },
         {
-          "type": "IMMEDIATE_TOKEN",
-          "content": {
-            "type": "PATTERN",
-            "value": "[0-9]+"
-          }
+          "type": "SYMBOL",
+          "name": "proj_identifier"
         }
       ]
     },
@@ -2972,11 +2973,8 @@
           "value": "."
         },
         {
-          "type": "IMMEDIATE_TOKEN",
-          "content": {
-            "type": "PATTERN",
-            "value": "[0-9]+"
-          }
+          "type": "SYMBOL",
+          "name": "proj_identifier"
         }
       ]
     },
