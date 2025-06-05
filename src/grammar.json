@@ -181,8 +181,11 @@
       ]
     },
     "proj_identifier": {
-      "type": "PATTERN",
-      "value": "[0-9]+"
+      "type": "IMMEDIATE_TOKEN",
+      "content": {
+        "type": "PATTERN",
+        "value": "[0-9]+"
+      }
     },
     "text_literal": {
       "type": "PATTERN",
