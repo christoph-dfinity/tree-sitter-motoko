@@ -207,7 +207,7 @@ function mk_proj_exp($, b) {
   return seq(
     _exp_post($, b),
     ".",
-    token.immediate(/[0-9]+/)
+    $.proj_identifier
   )
 }
 
@@ -292,6 +292,7 @@ module.exports = grammar({
     _type_identifier: $ => alias($.identifier, $.type_identifier),
     tag_identifier: $ => seq("#", $.identifier),
     privileged_identifier: $ => seq("@", token.immediate($.identifier)),
+    proj_identifier: $ => token.immediate(/[0-9]+/),
 
     // Literals
     text_literal: $ => /"(?:\\"|[^"])*"/,

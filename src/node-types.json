@@ -10176,7 +10176,7 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
@@ -10216,6 +10216,10 @@
           "named": true
         },
         {
+          "type": "proj_identifier",
+          "named": true
+        },
+        {
           "type": "system_exp_block",
           "named": true
         },
@@ -10235,7 +10239,7 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
@@ -10276,6 +10280,10 @@
         },
         {
           "type": "proj_exp_object",
+          "named": true
+        },
+        {
+          "type": "proj_identifier",
           "named": true
         },
         {
@@ -13389,6 +13397,10 @@
   {
     "type": "private",
     "named": false
+  },
+  {
+    "type": "proj_identifier",
+    "named": true
   },
   {
     "type": "public",
