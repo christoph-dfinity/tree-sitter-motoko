@@ -24,7 +24,7 @@ const TEST_FAIL_EXCLUDES: [&str; 15] = [
 ];
 
 fn main() -> Result<()> {
-    let ts_base = Utf8Path::new("/Users/christoph.hegemann/code/tree-sitter-motoko");
+    let ts_base = Utf8Path::new("/Users/christoph.hegemann/work/tree-sitter-motoko");
     copy_test_cases(
         Utf8Path::new("/Users/christoph.hegemann/work/motoko/test/fail"),
         ts_base,
@@ -43,23 +43,23 @@ fn main() -> Result<()> {
     .unwrap();
 
     copy_test_cases(
-        Utf8Path::new("/Users/christoph.hegemann/work/new-motoko-base/src"),
+        Utf8Path::new("/Users/christoph.hegemann/work/motoko-core/src"),
         ts_base,
-        "new-base/src",
+        "core/src",
         &[],
     )?;
 
     copy_test_cases(
-        Utf8Path::new("/Users/christoph.hegemann/work/new-motoko-base/test"),
+        Utf8Path::new("/Users/christoph.hegemann/work/motoko-core/test"),
         ts_base,
-        "new-base/test",
+        "core/test",
         &[],
     )?;
 
     copy_test_cases(
-        Utf8Path::new("/Users/christoph.hegemann/work/new-motoko-base/bench"),
+        Utf8Path::new("/Users/christoph.hegemann/work/motoko-core/bench"),
         ts_base,
-        "new-base/bench",
+        "core/bench",
         &[],
     )?;
 

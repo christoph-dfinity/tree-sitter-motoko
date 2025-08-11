@@ -3986,6 +3986,7 @@
   {
     "type": "block_comment",
     "named": true,
+    "extra": true,
     "fields": {},
     "children": {
       "multiple": false,
@@ -9559,7 +9560,11 @@
       "required": false,
       "types": [
         {
-          "type": "pat_field",
+          "type": "typ_pat_field",
+          "named": true
+        },
+        {
+          "type": "val_pat_field",
           "named": true
         }
       ]
@@ -10018,65 +10023,6 @@
         },
         {
           "type": "parenthetical",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "pat_field",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "alt_pat",
-          "named": true
-        },
-        {
-          "type": "annot_pat",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "lit_pat",
-          "named": true
-        },
-        {
-          "type": "obj_pat",
-          "named": true
-        },
-        {
-          "type": "quest_pat",
-          "named": true
-        },
-        {
-          "type": "tag_pat",
-          "named": true
-        },
-        {
-          "type": "tup_pat",
-          "named": true
-        },
-        {
-          "type": "typ_annot",
-          "named": true
-        },
-        {
-          "type": "unop_pat",
-          "named": true
-        },
-        {
-          "type": "var_pat",
-          "named": true
-        },
-        {
-          "type": "wild_pat",
           "named": true
         }
       ]
@@ -12010,6 +11956,21 @@
     }
   },
   {
+    "type": "typ_pat_field",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "type_identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "typ_path",
     "named": true,
     "fields": {},
@@ -12372,6 +12333,65 @@
         },
         {
           "type": "unop",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "val_pat_field",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "alt_pat",
+          "named": true
+        },
+        {
+          "type": "annot_pat",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "lit_pat",
+          "named": true
+        },
+        {
+          "type": "obj_pat",
+          "named": true
+        },
+        {
+          "type": "quest_pat",
+          "named": true
+        },
+        {
+          "type": "tag_pat",
+          "named": true
+        },
+        {
+          "type": "tup_pat",
+          "named": true
+        },
+        {
+          "type": "typ_annot",
+          "named": true
+        },
+        {
+          "type": "unop_pat",
+          "named": true
+        },
+        {
+          "type": "var_pat",
+          "named": true
+        },
+        {
+          "type": "wild_pat",
           "named": true
         }
       ]

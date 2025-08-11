@@ -4456,7 +4456,7 @@
                 "members": [
                   {
                     "type": "SYMBOL",
-                    "name": "pat_field"
+                    "name": "_pat_field"
                   },
                   {
                     "type": "STRING",
@@ -4470,7 +4470,7 @@
               "members": [
                 {
                   "type": "SYMBOL",
-                  "name": "pat_field"
+                  "name": "_pat_field"
                 },
                 {
                   "type": "BLANK"
@@ -4566,7 +4566,20 @@
         }
       ]
     },
-    "pat_field": {
+    "_pat_field": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "val_pat_field"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "typ_pat_field"
+        }
+      ]
+    },
+    "val_pat_field": {
       "type": "SEQ",
       "members": [
         {
@@ -4605,6 +4618,19 @@
               "type": "BLANK"
             }
           ]
+        }
+      ]
+    },
+    "typ_pat_field": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "type"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_type_identifier"
         }
       ]
     }

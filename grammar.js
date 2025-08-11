@@ -973,7 +973,7 @@ module.exports = grammar({
     ),
     obj_pat: $ => seq(
       "{",
-      semi_sep($.pat_field),
+      semi_sep($._pat_field),
       "}",
     ),
     tag_pat: $ => seq(
@@ -991,10 +991,15 @@ module.exports = grammar({
     )),
     annot_pat: $ => seq($._pat_bin, $.typ_annot),
     unop_pat: $ => seq($.unop, $._literal),
-    pat_field: $ => seq(
+    _pat_field: $ => choice($.val_pat_field, $.typ_pat_field),
+    val_pat_field: $ => seq(
       $.identifier,
       optional($.typ_annot),
       optional(seq("=", $._pat))
+    ),
+    typ_pat_field: $ => seq(
+      "type",
+      $._type_identifier,
     ),
   }
 });

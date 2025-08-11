@@ -61,19 +61,21 @@ let (x, y) = 0;
 Nullary
 ==================
 
-let { x = 10; y } = 0;
+let { x = 10; y; type Result } = 0;
 
 ---
 
 (source_file
   (let_dec
     (obj_pat
-      (pat_field
+      (val_pat_field
         (identifier)
         (lit_pat
           (int_literal)))
-      (pat_field
-        (identifier)))
+      (val_pat_field
+        (identifier))
+      (typ_pat_field
+        (type_identifier)))
     (lit_exp
       (int_literal))))
 
@@ -101,7 +103,7 @@ let ?(x or y) = 0;
       (tag_identifier
         (identifier))
       (obj_pat
-        (pat_field
+        (val_pat_field
           (identifier)
           (lit_pat
             (int_literal)))))
@@ -110,7 +112,7 @@ let ?(x or y) = 0;
   (let_dec
     (quest_pat
       (obj_pat
-        (pat_field
+        (val_pat_field
           (identifier)
           (lit_pat
             (int_literal)))))
