@@ -97,7 +97,7 @@ fn copy_test_cases(
         .join("corpus")
         .join("generated")
         .join(prefix);
-    for entry in WalkDir::new(&mo_base) {
+    for entry in WalkDir::new(mo_base) {
         let entry = entry?;
         let path = Utf8Path::from_path(entry.path()).unwrap();
         if !path.is_file() || path.extension() != Some("mo") {
@@ -107,14 +107,14 @@ fn copy_test_cases(
         if excludes.contains(&file_name) {
             continue;
         }
-        let test_name = path.strip_prefix(&mo_base).unwrap();
+        let test_name = path.strip_prefix(mo_base).unwrap();
         let content = fs::read_to_string(path)?;
         let test = mk_test(test_name.as_str(), &content);
         let out_path = test_dir.join(test_name).with_extension("mo");
         fs::create_dir_all(out_path.parent().unwrap())?;
         fs::write(&out_path, test).context(format!("Failed to create test at: {out_path}"))?
     }
-    return Ok(());
+    Ok(())
 }
 
 fn mk_test(name: &str, content: &str) -> String {
