@@ -438,6 +438,8 @@ module.exports = grammar({
       $.func_dec,
       $.obj_dec,
       $.class_dec,
+      $.mixin_dec,
+      $.include_dec,
     ),
 
     exp_dec: $ => $._exp_non_dec_object,
@@ -497,7 +499,16 @@ module.exports = grammar({
       optional($.typ_annot),
       $._class_body,
     ),
-
+    mixin_dec: $ => seq(
+      "mixin",
+      $._pat_plain,
+      $.obj_body,
+    ),
+    include_dec: $ => seq(
+      "include",
+      $.identifier,
+      $._exp_object
+    ),
     _obj_sort: $ => choice(
       "object",
       "module",
