@@ -64,24 +64,17 @@ fn main() -> Result<()> {
     )?;
 
     copy_test_cases(
-        Utf8Path::new("/Users/christoph.hegemann/code/motoko-snafu/src"),
+        Utf8Path::new("/Users/christoph.hegemann/work/motoko-snafu/src"),
         ts_base,
         "snafu/src",
         &[],
     )?;
 
     copy_test_cases(
-        Utf8Path::new("/Users/christoph.hegemann/code/motoko-snafu/test"),
+        Utf8Path::new("/Users/christoph.hegemann/work/motoko-snafu/test"),
         ts_base,
         "snafu/test",
-        &[],
-    )?;
-
-    copy_test_cases(
-        Utf8Path::new("/Users/christoph.hegemann/code/motoko-snafu/test"),
-        ts_base,
-        "snafu-test",
-        &[],
+        &[]
     )?;
     Ok(())
 }
