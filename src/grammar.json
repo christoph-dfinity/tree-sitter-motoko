@@ -744,6 +744,14 @@
         {
           "type": "SYMBOL",
           "name": "class_dec"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "mixin_dec"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "include_dec"
         }
       ]
     },
@@ -1079,6 +1087,40 @@
         {
           "type": "SYMBOL",
           "name": "_class_body"
+        }
+      ]
+    },
+    "mixin_dec": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "mixin"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_pat_plain"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "obj_body"
+        }
+      ]
+    },
+    "include_dec": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "include"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_exp_object"
         }
       ]
     },
@@ -3552,6 +3594,10 @@
         {
           "type": "SYMBOL",
           "name": "quest_typ"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "weak_typ"
         }
       ]
     },
@@ -3913,6 +3959,19 @@
         {
           "type": "STRING",
           "value": "?"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_typ_un"
+        }
+      ]
+    },
+    "weak_typ": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "weak"
         },
         {
           "type": "SYMBOL",
