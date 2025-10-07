@@ -382,8 +382,12 @@
               "type": "CHOICE",
               "members": [
                 {
-                  "type": "SYMBOL",
-                  "name": "_pat_plain"
+                  "type": "FIELD",
+                  "name": "shared_pat",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "_pat_plain"
+                  }
                 },
                 {
                   "type": "BLANK"
@@ -427,8 +431,12 @@
               "type": "CHOICE",
               "members": [
                 {
-                  "type": "SYMBOL",
-                  "name": "_pat_plain"
+                  "type": "FIELD",
+                  "name": "shared_pat",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "_pat_plain"
+                  }
                 },
                 {
                   "type": "BLANK"

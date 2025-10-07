@@ -4857,7 +4857,30 @@
   {
     "type": "class_dec",
     "named": true,
-    "fields": {},
+    "fields": {
+      "shared_pat": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "lit_pat",
+            "named": true
+          },
+          {
+            "type": "tup_pat",
+            "named": true
+          },
+          {
+            "type": "var_pat",
+            "named": true
+          },
+          {
+            "type": "wild_pat",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
@@ -7054,6 +7077,28 @@
           }
         ]
       },
+      "shared_pat": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "lit_pat",
+            "named": true
+          },
+          {
+            "type": "tup_pat",
+            "named": true
+          },
+          {
+            "type": "var_pat",
+            "named": true
+          },
+          {
+            "type": "wild_pat",
+            "named": true
+          }
+        ]
+      },
       "typ_params": {
         "multiple": false,
         "required": false,
@@ -7064,28 +7109,6 @@
           }
         ]
       }
-    },
-    "children": {
-      "multiple": false,
-      "required": false,
-      "types": [
-        {
-          "type": "lit_pat",
-          "named": true
-        },
-        {
-          "type": "tup_pat",
-          "named": true
-        },
-        {
-          "type": "var_pat",
-          "named": true
-        },
-        {
-          "type": "wild_pat",
-          "named": true
-        }
-      ]
     }
   },
   {
@@ -7362,6 +7385,28 @@
           }
         ]
       },
+      "shared_pat": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "lit_pat",
+            "named": true
+          },
+          {
+            "type": "tup_pat",
+            "named": true
+          },
+          {
+            "type": "var_pat",
+            "named": true
+          },
+          {
+            "type": "wild_pat",
+            "named": true
+          }
+        ]
+      },
       "typ_params": {
         "multiple": false,
         "required": false,
@@ -7372,28 +7417,6 @@
           }
         ]
       }
-    },
-    "children": {
-      "multiple": false,
-      "required": false,
-      "types": [
-        {
-          "type": "lit_pat",
-          "named": true
-        },
-        {
-          "type": "tup_pat",
-          "named": true
-        },
-        {
-          "type": "var_pat",
-          "named": true
-        },
-        {
-          "type": "wild_pat",
-          "named": true
-        }
-      ]
     }
   },
   {

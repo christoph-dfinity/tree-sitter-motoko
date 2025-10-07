@@ -332,13 +332,13 @@ module.exports = grammar({
         "shared",
         optional("composite"),
         optional("query"),
-        optional($._pat_plain),
+        optional(field("shared_pat", $._pat_plain)),
       ),
       seq(
         optional("shared"),
         optional("composite"),
         "query",
-        optional($._pat_plain),
+        optional(field("shared_pat", $._pat_plain)),
       )
     ),
 
