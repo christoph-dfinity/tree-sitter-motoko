@@ -3351,12 +3351,20 @@
           "value": "case"
         },
         {
-          "type": "SYMBOL",
-          "name": "_pat_nullary"
+          "type": "FIELD",
+          "name": "pattern",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_pat_nullary"
+          }
         },
         {
-          "type": "SYMBOL",
-          "name": "_exp_nest"
+          "type": "FIELD",
+          "name": "body",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_exp_nest"
+          }
         }
       ]
     },
@@ -3368,12 +3376,20 @@
           "value": "catch"
         },
         {
-          "type": "SYMBOL",
-          "name": "_pat_nullary"
+          "type": "FIELD",
+          "name": "pattern",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_pat_nullary"
+          }
         },
         {
-          "type": "SYMBOL",
-          "name": "_exp_nest"
+          "type": "FIELD",
+          "name": "body",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_exp_nest"
+          }
         }
       ]
     },

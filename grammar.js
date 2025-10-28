@@ -777,13 +777,13 @@ module.exports = grammar({
 
     case: $ => seq(
       "case",
-      $._pat_nullary,
-      $._exp_nest,
+      field("pattern", $._pat_nullary),
+      field("body", $._exp_nest),
     ),
     catch: $ => seq(
       "catch",
-      $._pat_nullary,
-      $._exp_nest,
+      field("pattern", $._pat_nullary),
+      field("body", $._exp_nest),
     ),
 
     finally: $ => seq(
